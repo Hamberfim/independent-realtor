@@ -1,0 +1,33 @@
+Table publicUser {
+  name varchar
+  username varchar
+  password password
+  following_properties_id integer
+  following_realtor_id integer
+  created_at timestamp 
+}
+
+Table realtor {
+  id integer [primary key]
+  name varchar
+  username varchar
+  password password
+  imageURL varchar
+  created_at timestamp
+}
+
+Table properties {
+  id integer [primary key]
+  title varchar
+  body text [note: 'Description of property']
+  imageURL varchar
+  realtor_id integer
+  status varchar
+  created_at timestamp
+}
+
+Ref: properties.realtor_id > realtor.id 
+
+Ref: realtor.id < publicUser.following_properties_id
+
+Ref: realtor.id < publicUser.following_realtor_id

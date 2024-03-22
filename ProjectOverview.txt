@@ -1,0 +1,8 @@
+Concept open to modification based on team views and to meet project scope parameters required by instructor.
+
+Title of the final project: 
+    Independent Realtor
+
+Project description:
+    The application has a public view information about the realtor and view their listings.  A realtor can have many properties listed and a realtor can have many public users interested in the realtor's property  listings. The independent realtors would be the admin and the admin can authorize and set access level roles for other agents/employees to use portions of the app. The primary functionality available through the site will be login authentication, authorization-access restrictions, Admin area and CRUD actions to manage the listing and the agent profile and view user messages from public user and be deployed to azure. 
+

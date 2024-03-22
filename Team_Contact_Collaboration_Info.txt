@@ -1,0 +1,29 @@
+## This is a living document subject to change based on the teams needs
+
+### TEAM CONTACT INFO
+Our Team and contact info is:
+	Anthony Hamlin
+	Email: adhamlin@dmacc.edu
+	On Discord: Hamberfim
+
+	Brody Boell
+	Email: bjboell1@dmacc.edu
+	Discord: brodyboell_93902_08544
+
+	Cole Cooley
+	Email: ccooley@dmacc.edu
+	Discord: cooley_
+
+### Collaboration Plan
+	Maintaining communications weekly through discord.
+		https://discord.com/channels/1207559993499320350/1207559993969221632
+
+	Discord Channel admin- Cole Cooley
+	Azure deployment- Cole Cooley
+
+	GitHub repo host/admin- Anthony Hamlin
+	Database prototype- Anthony Hamlin
+
+	Requirements Gathering and Documentation- ?? Brody Boell
+
+	Visual Interface and Graphic Design- ??
