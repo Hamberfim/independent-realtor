@@ -8,12 +8,12 @@ namespace IndependentRealtorApp.Models
 {
     // some model names changed from original schema for additional clarity
     public class PropertyItem
-    {   
+    {
         /* TODO: data annotations here or fluent API use in the DBContext seed file */
 
+        // using verbose naming conventions for field property clarity
         public int PropertyItemId { get; set; }
 
-        // using verbose naming conventions for field property clarity
         public string PropertyItemTitle { get; set; } = string.Empty;
         public string PropertyItemDescription { get; set; } = string.Empty;  // this was 'body' in the original schema
 
