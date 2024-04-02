@@ -1,6 +1,6 @@
 ﻿/* Name: independent-realtor
- * Author: Anthony Hamlin
- * CIS174
+ * Authors: Anthony Hamlin, Brody Boell, Cole Cooley
+ * CIS174 - Final Project - Spring 2024
  * NOTES: We will use a mix of conventions, annotations and fluent API to config DB context and db models
  */
 
@@ -8,6 +8,8 @@ namespace IndependentRealtorApp.Models
 {
     public class Realtor
     {
+        /* TODO: data annotations here or fluent API use in the DBContext seed file */
+
         // by convention, this is the primary key without the need for the [Key] annotation attribute
         public int RealtorId { get; set; }
 
