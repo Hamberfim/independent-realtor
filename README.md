@@ -3,7 +3,7 @@
 
 The application is an independent realtor web application utilizing C# ASP.NET MVC Core, and provides a way to share to the public information about the realtor and their property listings.  A realtor can have many properties listed and a realtor can have many public users interested in the realtor's property listings. The independent realtors is the admin and the admin can authorize and set access level roles for other agents/employees to use portions of the app. The primary functionality available through the site, but not limited to, will be login authentication, authorization-access restrictions, Session/cookie handing, Admin area and CRUD actions to manage the content and will be deployed to azure.
 
-### Final Project Requirements as of Mar 23, 2024
+### Final Project Requirements as of Mar 23, 2024 Provided by Instructor
 Instructor indicates that this is NOT a definitive list, and there will be no saying it wasn't here so you didn't do it. (a final list is to come later, ETA-Unknown):
 
 - Multipage web application including a navigation menu.
