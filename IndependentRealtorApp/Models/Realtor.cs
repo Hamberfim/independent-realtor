@@ -10,30 +10,17 @@ namespace IndependentRealtorApp.Models
     {
         /* TODO: data annotations here or fluent API use in the DBContext seed file */
 
-        // using verbose naming conventions for field property clarity
-
-        // by convention, this is the primary key without the need for the [Key] annotation attribute
         public int RealtorId { get; set; }
-
-        public string FullName { get; set; } = string.Empty;
-
-        // this is modified from the original schema to be the username/email
+        public string FirstName { get; set; } = string.Empty;
+        public string LastName { get; set; } = string.Empty;
         public string UserNameEmail { get; set; } = string.Empty; 
         public string Password { get; set; } = string.Empty;
-        public string imageUrl { get; set; } = string.Empty;
+        public string imageUrl { get; set; } = string.Empty;  // fixed url to image dir, no upload functionality
 
-        // its im my original schema but do we really even need this?
-        public DateTime? CreatedAt { get; set; }  
 
-        /* TODO: I feel like there should be an interface somewhere between these models
-         *  but I'm not 100% when or where yet */
-
-        // from the other models, because this is a one to many relationship
+        // from the other model  (one Realtor to many PropertyItems)
         public int PropertyItemId { get; set; }
-        public PropertyItem PropertyItem { get; set; } = null!;
-
-        public int PublicUserId { get; set; }
-        public PublicUser PublicUser { get; set; } = null!;
+        public PropertyItem PropertyItem { get; set; } = null!;  
 
     }
 }

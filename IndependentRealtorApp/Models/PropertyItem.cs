@@ -11,20 +11,15 @@ namespace IndependentRealtorApp.Models
     {
         /* TODO: data annotations here or fluent API use in the DBContext seed file */
 
-        // using verbose naming conventions for field property clarity
         public int PropertyItemId { get; set; }
-
         public string PropertyItemTitle { get; set; } = string.Empty;
-        public string PropertyItemDescription { get; set; } = string.Empty;  // this was 'body' in the original schema
-
-        // addition field properties added to model that are not in the original schema
+        public string PropertyItemDescription { get; set; } = string.Empty;  
         public string PropertyItemAddress { get; set; } = string.Empty;
         public string PropertyItemCity { get; set; } = string.Empty;
         public string PropertyItemState { get; set; } = string.Empty;
         public string PropertyItemZip { get; set; } = string.Empty;
-        public string PropertyItemStatus { get; set; } = string.Empty;  // this was 'status' in the original schema
+        public string PropertyItemStatus { get; set; } = string.Empty;  
 
-        public DateTime? CreatedAt { get; set; }
 
     }
 }

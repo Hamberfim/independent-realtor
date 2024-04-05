@@ -10,24 +10,16 @@ namespace IndependentRealtorApp.Models
     {
         /* TODO: data annotations here or fluent API use in the DBContext seed file */
 
-        // using verbose naming conventions for field property clarity
         public int PublicUserId { get; set; }
+        public string FirstName { get; set; } = string.Empty;
+        public string LastName { get; set; } = string.Empty;
         public string PublicUserNameEmail { get; set; } = string.Empty;
         public string PublicUserPassword { get; set; } = string.Empty;
 
-        public DateTime? CreatedAt { get; set; }
 
-        /* FIX: TODO:
-         * I question if we even want to implement these here given our limited dev time
-         * but this may be useful for project session/cookie requirements though this many need to be approached differently.
-         * Does below assumes multiple realtors? 
-         * We want a one realtor to many listings/one realtor to many public users.
-         * Should this be within the Realtor model? A separate model?
-         * 
-         * TODO: review and discuss with team then FIX/Move/Delete */
-        public int FKFollowingRealtorId { get; set; }  // ? will be a foreign key from Realtor
-        public int FKFollowingPropertyItemId { get; set; }  // will be a foreign key & list of interested items from PropertyItem
-
+        // from the other model (one PublicUser to many PropertyItems)
+        public int PropertyItemId { get; set; }
+        public PropertyItem PropertyItem { get; set; } = null!;
 
     }
 }

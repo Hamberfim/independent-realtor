@@ -10,7 +10,11 @@ namespace IndependentRealtorApp.Models
 {
     public class RealtorContext : DbContext
     {
-        /* TODO: Intentionally left blank for now */
+        public RealtorContext(DbContextOptions<RealtorContext> options) : base(options) { }
+
+        public DbSet<Realtor> Realtors { get; set; } = null!;  // one Realtor to many PropertyItems
+        public DbSet<PublicUser> PublicUsers { get; set; } = null!;  // one PublicUser to many PropertyItems
+        public DbSet<PropertyItem> PropertyItems { get; set; } = null!;
 
     }
 }
