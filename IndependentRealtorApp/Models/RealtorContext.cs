@@ -16,5 +16,116 @@ namespace IndependentRealtorApp.Models
         public DbSet<PublicUser> PublicUsers { get; set; } = null!;  // one PublicUser to many PropertyItems
         public DbSet<PropertyItem> PropertyItems { get; set; } = null!;
 
+
+        // seed data
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // PropertyItems
+            modelBuilder.Entity<PropertyItem>().HasData(
+                    new PropertyItem
+                    {
+                        PropertyItemId = 1,
+                        PropertyItemTitle = "3 bedroom, 2 bath, 2 car garage",
+                        PropertyItemDescription = "Cottage Styled 3 bed, 2 bath, with a 2 car garage.",
+                        PropertyItemAddress = "123 Oak St",
+                        PropertyItemCity = "Somewhere",
+                        PropertyItemState = "IA",
+                        PropertyItemZip = "50266",
+                        PropertyItemStatus = "For Sale",  // could be a model with property fields of "for sale", "pending", "sold", "for rental?"
+                        imageUrl = "images/123oak.jpg"
+                    },
+                    new PropertyItem
+                    {
+                        PropertyItemId = 2,
+                        PropertyItemTitle = "4 bed, 3 bath, 3 car garage",
+                        PropertyItemDescription = "Ranch Styled 4 bed, 3 bath, with a 3 car garage.",
+                        PropertyItemAddress = "456 Maple Ave",
+                        PropertyItemCity = "Somewhere",
+                        PropertyItemState = "IA",
+                        PropertyItemZip = "50266",
+                        PropertyItemStatus = "Pending",
+                        imageUrl = "images/456maple.jpg"
+                    },
+                    new PropertyItem
+                    {
+                        PropertyItemId = 3,
+                        PropertyItemTitle = "4 bed, 2.5 bath",
+                        PropertyItemDescription = "Two Story 4 bed, 2.5 bath, with a car port and large back yard.",
+                        PropertyItemAddress = "789 Elm St",
+                        PropertyItemCity = "Somewhere",
+                        PropertyItemState = "IA",
+                        PropertyItemZip = "50266",
+                        PropertyItemStatus = "For Sale",
+                        imageUrl = "images/789elm.jpg"
+                    },
+                    new PropertyItem
+                    {
+                        PropertyItemId = 4,
+                        PropertyItemTitle = "3 bed, 1.5 bath on an acreage.",
+                        PropertyItemDescription = "Farm home 3 bed, 2 bath, on an acreage.",
+                        PropertyItemAddress = "812 gravel Rd",
+                        PropertyItemCity = "Ruraltown",
+                        PropertyItemState = "IA",
+                        PropertyItemZip = "50266",
+                        PropertyItemStatus = "For Sale",
+                        imageUrl = "images/812gravel.jpg"
+                    }
+                );
+
+            // realtor 
+            modelBuilder.Entity<Realtor>().HasMany(r => r.PropertyItems).WithOne(p => p.Realtor);
+            modelBuilder.Entity<Realtor>().HasData(
+                     new Realtor
+                     {
+                         RealtorId = 1,
+                         FirstName = "Timothy",
+                         LastName = "Goodsale",
+                         UserNameEmail = "tgoodsale@fakerealty.com",
+                         Password = "password",
+                         imageUrl = "images/tgoodsale.jpg",
+                         // one to many as a list of PropertyItems?
+
+                     }
+                );
+
+            // public user
+            modelBuilder.Entity<PublicUser>().HasMany(r => r.PropertyItems).WithOne(p => p.PublicUser);
+            modelBuilder.Entity<PublicUser>().HasData(
+                     new PublicUser
+                     {
+                         PublicUserId = 1,
+                         FirstName = "Kimmy",
+                         LastName = "Klein",
+                         PublicUserNameEmail = "kklein@fakeworld.net",
+                         PublicUserPassword = "password"
+                     },
+                     new PublicUser
+                     {
+                         PublicUserId = 2,
+                         FirstName = "Billy",
+                         LastName = "Williams",
+                         PublicUserNameEmail = "bwilliams@fakeworld.net",
+                         PublicUserPassword = "password"
+                     },
+                     new PublicUser
+                     {
+                         PublicUserId = 3,
+                         FirstName = "Sal",
+                         LastName = "Scarapini",
+                         PublicUserNameEmail = "sscarapini@fakeworld.net",
+                         PublicUserPassword = "password"
+                     },
+                     new PublicUser
+                     {
+                         PublicUserId = 4,
+                         FirstName = "Shelly",
+                         LastName = "Seashell",
+                         PublicUserNameEmail = "sseashell@fakeworld.net",
+                         PublicUserPassword = "password"
+                     }
+                );
+
+        }
+
     }
 }

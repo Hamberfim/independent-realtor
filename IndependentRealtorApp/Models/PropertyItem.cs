@@ -13,12 +13,16 @@ namespace IndependentRealtorApp.Models
 
         public int PropertyItemId { get; set; }
         public string PropertyItemTitle { get; set; } = string.Empty;
-        public string PropertyItemDescription { get; set; } = string.Empty;  
+        public string PropertyItemDescription { get; set; } = string.Empty;
         public string PropertyItemAddress { get; set; } = string.Empty;
         public string PropertyItemCity { get; set; } = string.Empty;
         public string PropertyItemState { get; set; } = string.Empty;
         public string PropertyItemZip { get; set; } = string.Empty;
-        public string PropertyItemStatus { get; set; } = string.Empty;  
+        public string PropertyItemStatus { get; set; } = string.Empty;
+        public string imageUrl { get; set; } = string.Empty;  // fixed url to image dir, no upload functionality
+
+        public Realtor Realtor { get; set; } = null!;
+        public PublicUser PublicUser { get; set; } = null!;
 
 
     }

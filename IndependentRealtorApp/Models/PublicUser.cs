@@ -6,6 +6,7 @@
 
 namespace IndependentRealtorApp.Models
 {
+    // some model names changed from original schema for additional clarity
     public class PublicUser
     {
         /* TODO: data annotations here or fluent API use in the DBContext seed file */
@@ -18,8 +19,7 @@ namespace IndependentRealtorApp.Models
 
 
         // from the other model (one PublicUser to many PropertyItems)
-        public int PropertyItemId { get; set; }
-        public PropertyItem PropertyItem { get; set; } = null!;
+        public ICollection<PropertyItem> PropertyItems { get; set; } = null!;
 
     }
 }
