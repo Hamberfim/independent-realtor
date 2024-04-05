@@ -4,7 +4,7 @@
  * NOTES: We will use a mix of conventions, annotations and fluent API to config DB context and db models
  */
 
-using System.ComponentModel;
+
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -15,7 +15,6 @@ namespace IndependentRealtorApp.Models
     {
         /* TODO: data annotations here or fluent API use in the DBContext seed file */
 
-        [Key]
         public int PublicUserId { get; set; }
 
         [Required(ErrorMessage = "Please enter your first name")]

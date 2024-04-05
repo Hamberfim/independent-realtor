@@ -13,7 +13,7 @@ namespace IndependentRealtorApp.Models
         public RealtorContext(DbContextOptions<RealtorContext> options) : base(options) { }
 
         public DbSet<Realtor> Realtors { get; set; } = null!;  // one Realtor to many PropertyItems
-        public DbSet<PublicUser> PublicUsers { get; set; } = null!;  // one PublicUser to many PropertyItems
+        public DbSet<PublicUser> PublicUsers { get; set; }  // one PublicUser to many PropertyItems
         public DbSet<PropertyItem> PropertyItems { get; set; } = null!;
 
 
@@ -73,7 +73,7 @@ namespace IndependentRealtorApp.Models
                 );
 
             // realtor 
-            modelBuilder.Entity<Realtor>().HasMany(r => r.PropertyItems).WithOne(p => p.Realtor);
+            // modelBuilder.Entity<Realtor>().HasMany(r => r.PropertyItems).WithOne(p => p.Realtor);
             modelBuilder.Entity<Realtor>().HasData(
                      new Realtor
                      {
@@ -92,40 +92,40 @@ namespace IndependentRealtorApp.Models
             // modelBuilder.Entity<PublicUser>().HasKey(p => new { p.PublicUserId });
             //modelBuilder.Entity<PublicUser>().HasMany(r => r.PropertyItems).WithOne(p => p.PublicUser);
             // modelBuilder.Entity<PublicUser>().HasOne(p => p.PublicUserId).withMany(r => r.PropertyItems);
-            modelBuilder.Entity<PublicUser>().HasData(
-                     new PublicUser
-                     {
-                         PublicUserId = 1,
-                         FirstName = "Kimmy",
-                         LastName = "Klein",
-                         PublicUserNameEmail = "kklein@fakeworld.net",
-                         PublicUserPassword = "password"
-                     },
-                     new PublicUser
-                     {
-                         PublicUserId = 2,
-                         FirstName = "Billy",
-                         LastName = "Williams",
-                         PublicUserNameEmail = "bwilliams@fakeworld.net",
-                         PublicUserPassword = "password"
-                     },
-                     new PublicUser
-                     {
-                         PublicUserId = 3,
-                         FirstName = "Sal",
-                         LastName = "Scarapini",
-                         PublicUserNameEmail = "sscarapini@fakeworld.net",
-                         PublicUserPassword = "password"
-                     },
-                     new PublicUser
-                     {
-                         PublicUserId = 4,
-                         FirstName = "Shelly",
-                         LastName = "Seashell",
-                         PublicUserNameEmail = "sseashell@fakeworld.net",
-                         PublicUserPassword = "password"
-                     }
-                );
+            //modelBuilder.Entity<PublicUser>().HasData(
+            //         new PublicUser
+            //         {
+            //             PublicUserId = 1,
+            //             FirstName = "Kimmy",
+            //             LastName = "Klein",
+            //             PublicUserNameEmail = "kklein@fakeworld.net",
+            //             PublicUserPassword = "password"
+            //         },
+            //         new PublicUser
+            //         {
+            //             PublicUserId = 2,
+            //             FirstName = "Billy",
+            //             LastName = "Williams",
+            //             PublicUserNameEmail = "bwilliams@fakeworld.net",
+            //             PublicUserPassword = "password"
+            //         },
+            //         new PublicUser
+            //         {
+            //             PublicUserId = 3,
+            //             FirstName = "Sal",
+            //             LastName = "Scarapini",
+            //             PublicUserNameEmail = "sscarapini@fakeworld.net",
+            //             PublicUserPassword = "password"
+            //         },
+            //         new PublicUser
+            //         {
+            //             PublicUserId = 4,
+            //             FirstName = "Shelly",
+            //             LastName = "Seashell",
+            //             PublicUserNameEmail = "sseashell@fakeworld.net",
+            //             PublicUserPassword = "password"
+            //         }
+            //    );
 
         }
 

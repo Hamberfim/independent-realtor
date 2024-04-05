@@ -24,13 +24,13 @@ namespace IndependentRealtorApp.Models
         public string imageUrl { get; set; } = string.Empty;  // fixed url to image dir, no upload functionality
 
 
-        [ForeignKey("Realtor")]
-        public int RealtorId { get; set; }
-        public Realtor Realtor { get; set; } = null!;
+        //[ForeignKey("Realtor")]
+        //public int RealtorId { get; set; }
+        //public Realtor Realtor { get; set; } = null!;
 
-        [ForeignKey("PublicUser")]
-        public int PublicUserId { get; set; }
-        public PublicUser PublicUser { get; set; } = null!;
+        //[ForeignKey("PublicUser")]
+        //public int PublicUserId { get; set; }
+        //public PublicUser PublicUser { get; set; } = null!;
 
 
     }
