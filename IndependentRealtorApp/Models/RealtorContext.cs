@@ -89,7 +89,9 @@ namespace IndependentRealtorApp.Models
                 );
 
             // public user
-            modelBuilder.Entity<PublicUser>().HasMany(r => r.PropertyItems).WithOne(p => p.PublicUser);
+            // modelBuilder.Entity<PublicUser>().HasKey(p => new { p.PublicUserId });
+            //modelBuilder.Entity<PublicUser>().HasMany(r => r.PropertyItems).WithOne(p => p.PublicUser);
+            // modelBuilder.Entity<PublicUser>().HasOne(p => p.PublicUserId).withMany(r => r.PropertyItems);
             modelBuilder.Entity<PublicUser>().HasData(
                      new PublicUser
                      {

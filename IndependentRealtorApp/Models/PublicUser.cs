@@ -4,6 +4,8 @@
  * NOTES: We will use a mix of conventions, annotations and fluent API to config DB context and db models
  */
 
+using System.ComponentModel.DataAnnotations;
+
 namespace IndependentRealtorApp.Models
 {
     // some model names changed from original schema for additional clarity
@@ -11,6 +13,7 @@ namespace IndependentRealtorApp.Models
     {
         /* TODO: data annotations here or fluent API use in the DBContext seed file */
 
+        [Key]
         public int PublicUserId { get; set; }
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
