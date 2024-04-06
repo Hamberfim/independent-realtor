@@ -1,12 +1,12 @@
 using Microsoft.EntityFrameworkCore;
-using IndependentRealtorApp.Models;
+using IndependentRealtorApp.Models.DataLayer; // separated domain models from data layer classes
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// Add EF Core services to the container
+// Add EF Core services
 builder.Services.AddDbContext<RealtorContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("RealtorContext")));
 
 // TODO: enable session cookie and its expiration here
