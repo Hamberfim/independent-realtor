@@ -21,6 +21,14 @@ namespace IndependentRealtorApp.Models.DomainModels
 
         public string FullName => $"{FirstName} {LastName}";  // read-only property
 
+        [Display(Name = "User Email")]
+        [Required(ErrorMessage = "Please enter your email address.")]
+        public string UserEmail { get; set; } = string.Empty;
+
+        // FIXME: | TODO: implement in a registration model/form
+        //public string UserName { get; set; } = string.Empty;
+        //public string UserPassword { get; set; } = string.Empty;
+
         public ICollection<Property>? Properties { get; set; }
     }
 }

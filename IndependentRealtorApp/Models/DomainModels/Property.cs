@@ -42,6 +42,11 @@ namespace IndependentRealtorApp.Models.DomainModels
         [Required(ErrorMessage = "Please enter a property status (i.e.,  'for sale', 'pending', 'sold').")]
         public string PropertyStatus { get; set; } = string.Empty;  // could be a model with "for sale", "pending", "sold" etc.
 
+        [Display(Name = "Property Price")]
+        [Required(ErrorMessage = "Please enter the property price.")]
+        [Range(1.0, 999999999, ErrorMessage = "Price must be greater than zero but less than 999,999,999.")]
+        public double? PropertyPrice { get; set; } 
+
         public string? imageUrl { get; set; } = string.Empty;  // fixed url to image dir, no upload functionality
 
 
