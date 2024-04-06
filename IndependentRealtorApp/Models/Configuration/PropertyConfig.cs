@@ -9,6 +9,12 @@ namespace IndependentRealtorApp.Models.Configuration
     {
         public void Configure(EntityTypeBuilder<Property> entity)
         {
+            // fluent API - restrict delete behavior for realtor of one to many
+            entity.HasOne(p => p.Realtor)
+                .WithMany(r => r.Properties)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // data
             entity.HasData(
                     new Property
                     {
