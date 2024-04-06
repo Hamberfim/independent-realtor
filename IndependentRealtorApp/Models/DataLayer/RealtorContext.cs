@@ -25,7 +25,7 @@ namespace IndependentRealtorApp.Models.DataLayer
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // seed the data via config files based on book example /Models/Configuration
-            // order may be important
+            // order may be important - might have to switch these around
             modelBuilder.ApplyConfiguration(new PropertyConfig());
             modelBuilder.ApplyConfiguration(new RealtorConfig());
             modelBuilder.ApplyConfiguration(new UserConfig());

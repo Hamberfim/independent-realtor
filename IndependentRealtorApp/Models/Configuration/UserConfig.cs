@@ -8,6 +8,7 @@ namespace IndependentRealtorApp.Models.Configuration
     {
         public void Configure(EntityTypeBuilder<User> entity)
         {
+            // public users table
             entity.HasData(
                 new User { UserId = 1, FirstName = "Sam", LastName = "Smith", UserEmail = "ssmith@fakeworld.net" },
                 new User { UserId = 2, FirstName = "Linda", LastName = "Beltcher", UserEmail = "lbeltcher@fakeworld.net" },

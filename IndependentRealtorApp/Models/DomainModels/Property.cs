@@ -45,12 +45,12 @@ namespace IndependentRealtorApp.Models.DomainModels
         [Display(Name = "Property Price")]
         [Required(ErrorMessage = "Please enter the property price.")]
         [Range(1.0, 999999999, ErrorMessage = "Price must be greater than zero but less than 999,999,999.")]
-        public double? PropertyPrice { get; set; } 
+        public double? PropertyPrice { get; set; }
 
         public string? imageUrl { get; set; } = string.Empty;  // fixed url to image dir, no upload functionality
 
 
-        // foreign keys
+        // foreign keys -- third attempt to get the FK's right
         public int RealtorId { get; set; }
         [ValidateNever]
         public Realtor Realtor { get; set; } = null!;  // navigation property

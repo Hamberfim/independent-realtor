@@ -9,7 +9,7 @@ namespace IndependentRealtorApp.Models.Configuration
     {
         public void Configure(EntityTypeBuilder<Property> entity)
         {
-            // fluent API - restrict delete behavior for realtor of one to many
+            // fluent API - restrict delete behavior on realtor of one to many
             entity.HasOne(p => p.Realtor)
                 .WithMany(r => r.Properties)
                 .OnDelete(DeleteBehavior.Restrict);
@@ -114,7 +114,7 @@ namespace IndependentRealtorApp.Models.Configuration
                         PropertyPrice = 199900.00,
                         RealtorId = 1
                     }
-               ) ;
+               );
         }
     }
 
