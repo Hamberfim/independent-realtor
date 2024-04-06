@@ -12,14 +12,23 @@ namespace IndependentRealtorApp.Models.DataLayer
     public class RealtorContext : DbContext
     {
         // constructor to pass up to DbContext
-        public RealtorContext(DbContextOptions<RealtorContext> options) : base(options) { } 
+        public RealtorContext(DbContextOptions<RealtorContext> options) : base(options) { }
 
-        public DbSet<Realtor> Realtors { get; set; }  // a one to many
+        public DbSet<Realtor> Realtors { get; set; } = null!;  // a one to many
 
-        public DbSet<User> Users { get; set; }  // a one to many
+        public DbSet<User> Users { get; set; } = null!; // a one to many
 
-        public DbSet<Property> Properties { get; set; }  // the many
-        
+        public DbSet<Property> Properties { get; set; } = null!; // the many
+
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // seed the data
+
+
+        }
+
 
     }
 }
