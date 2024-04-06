@@ -4,6 +4,9 @@
  * NOTES: We will use a mix of conventions, annotations and fluent API to config DB context and db models
  */
 
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace IndependentRealtorApp.Models
 {
     // some model names changed from original schema for additional clarity
@@ -20,7 +23,13 @@ namespace IndependentRealtorApp.Models
 
 
         // from the other model  (one Realtor to many PropertyItems)
+        public int PropertyItemId { get; set; }
+        [ValidateNever]
+        public PropertyItem PropertyItem { get; set; } = null!;
         public ICollection<PropertyItem> PropertyItems { get; set; } = null!;
+
+
+        
 
     }
 }

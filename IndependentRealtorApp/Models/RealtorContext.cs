@@ -21,6 +21,8 @@ namespace IndependentRealtorApp.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // PropertyItems
+            //modelBuilder.Entity<PropertyItem>().HasOne(r => r.Realtor).WithMany(p => p.PropertyItems);
+            modelBuilder.Entity<PropertyItem>().HasMany(p => p.PublicUsers).WithMany(p => p.PropertyItems);
             modelBuilder.Entity<PropertyItem>().HasData(
                     new PropertyItem
                     {
@@ -32,7 +34,9 @@ namespace IndependentRealtorApp.Models
                         PropertyItemState = "IA",
                         PropertyItemZip = "50266",
                         PropertyItemStatus = "For Sale",  // could be a model with property fields of "for sale", "pending", "sold", "for rental?"
-                        imageUrl = "images/123oak.jpg"
+                        imageUrl = "images/123oak.jpg",
+                        RealtorId = 1,
+                        
                     },
                     new PropertyItem
                     {
@@ -44,7 +48,9 @@ namespace IndependentRealtorApp.Models
                         PropertyItemState = "IA",
                         PropertyItemZip = "50266",
                         PropertyItemStatus = "Pending",
-                        imageUrl = "images/456maple.jpg"
+                        imageUrl = "images/456maple.jpg",
+                        RealtorId = 1,
+
                     },
                     new PropertyItem
                     {
@@ -56,7 +62,9 @@ namespace IndependentRealtorApp.Models
                         PropertyItemState = "IA",
                         PropertyItemZip = "50266",
                         PropertyItemStatus = "For Sale",
-                        imageUrl = "images/789elm.jpg"
+                        imageUrl = "images/789elm.jpg",
+                        RealtorId = 1,
+
                     },
                     new PropertyItem
                     {
@@ -68,12 +76,13 @@ namespace IndependentRealtorApp.Models
                         PropertyItemState = "IA",
                         PropertyItemZip = "50266",
                         PropertyItemStatus = "For Sale",
-                        imageUrl = "images/812gravel.jpg"
+                        imageUrl = "images/812gravel.jpg",
+                        RealtorId = 1,
+                       
                     }
                 );
 
             // realtor 
-            // modelBuilder.Entity<Realtor>().HasMany(r => r.PropertyItems).WithOne(p => p.Realtor);
             modelBuilder.Entity<Realtor>().HasData(
                      new Realtor
                      {
@@ -89,43 +98,40 @@ namespace IndependentRealtorApp.Models
                 );
 
             // public user
-            // modelBuilder.Entity<PublicUser>().HasKey(p => new { p.PublicUserId });
-            //modelBuilder.Entity<PublicUser>().HasMany(r => r.PropertyItems).WithOne(p => p.PublicUser);
-            // modelBuilder.Entity<PublicUser>().HasOne(p => p.PublicUserId).withMany(r => r.PropertyItems);
-            //modelBuilder.Entity<PublicUser>().HasData(
-            //         new PublicUser
-            //         {
-            //             PublicUserId = 1,
-            //             FirstName = "Kimmy",
-            //             LastName = "Klein",
-            //             PublicUserNameEmail = "kklein@fakeworld.net",
-            //             PublicUserPassword = "password"
-            //         },
-            //         new PublicUser
-            //         {
-            //             PublicUserId = 2,
-            //             FirstName = "Billy",
-            //             LastName = "Williams",
-            //             PublicUserNameEmail = "bwilliams@fakeworld.net",
-            //             PublicUserPassword = "password"
-            //         },
-            //         new PublicUser
-            //         {
-            //             PublicUserId = 3,
-            //             FirstName = "Sal",
-            //             LastName = "Scarapini",
-            //             PublicUserNameEmail = "sscarapini@fakeworld.net",
-            //             PublicUserPassword = "password"
-            //         },
-            //         new PublicUser
-            //         {
-            //             PublicUserId = 4,
-            //             FirstName = "Shelly",
-            //             LastName = "Seashell",
-            //             PublicUserNameEmail = "sseashell@fakeworld.net",
-            //             PublicUserPassword = "password"
-            //         }
-            //    );
+            modelBuilder.Entity<PublicUser>().HasData(
+                     new PublicUser
+                     {
+                         PublicUserId = 1,
+                         FirstName = "Kimmy",
+                         LastName = "Klein",
+                         PublicUserNameEmail = "kklein@fakeworld.net",
+                         PublicUserPassword = "password"
+                     },
+                     new PublicUser
+                     {
+                         PublicUserId = 2,
+                         FirstName = "Billy",
+                         LastName = "Williams",
+                         PublicUserNameEmail = "bwilliams@fakeworld.net",
+                         PublicUserPassword = "password"
+                     },
+                     new PublicUser
+                     {
+                         PublicUserId = 3,
+                         FirstName = "Sal",
+                         LastName = "Scarapini",
+                         PublicUserNameEmail = "sscarapini@fakeworld.net",
+                         PublicUserPassword = "password"
+                     },
+                     new PublicUser
+                     {
+                         PublicUserId = 4,
+                         FirstName = "Shelly",
+                         LastName = "Seashell",
+                         PublicUserNameEmail = "sseashell@fakeworld.net",
+                         PublicUserPassword = "password"
+                     }
+                );
 
         }
 

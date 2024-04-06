@@ -5,6 +5,7 @@
  */
 
 
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -41,7 +42,15 @@ namespace IndependentRealtorApp.Models
 
 
         // from the other model (one PublicUser to many PropertyItems)
+        public int PropertyItemId { get; set; }
+        [ValidateNever]
+        public PropertyItem PropertyItem { get; set; } = null!;
         public ICollection<PropertyItem> PropertyItems { get; set; } = null!;
+
+
+        
+
+
 
     }
 }
