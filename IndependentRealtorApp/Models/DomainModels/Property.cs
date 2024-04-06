@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel.DataAnnotations;
 
 namespace IndependentRealtorApp.Models.DomainModels
 {
@@ -42,5 +43,16 @@ namespace IndependentRealtorApp.Models.DomainModels
         public string PropertyStatus { get; set; } = string.Empty;  // could be a model with "for sale", "pending", "sold" etc.
 
         public string? imageUrl { get; set; } = string.Empty;  // fixed url to image dir, no upload functionality
+
+
+        // foreign keys
+        public int RealtorId { get; set; }
+        [ValidateNever]
+        public Realtor Realtor { get; set; } = null!;  // navigation property
+
+
+        public int UserId { get; set; }
+        [ValidateNever]
+        public User User { get; set; } = null!;  // navigation property
     }
 }
