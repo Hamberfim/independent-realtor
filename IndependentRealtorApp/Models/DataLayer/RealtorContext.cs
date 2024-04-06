@@ -15,6 +15,8 @@ namespace IndependentRealtorApp.Models.DataLayer
         // constructor to pass up to DbContext
         public RealtorContext(DbContextOptions<RealtorContext> options) : base(options) { }
 
+        public DbSet<PropertyUser> PropertyUsers { get; set; } = null!; // the many
+
         public DbSet<Property> Properties { get; set; } = null!; // the many
 
         public DbSet<Realtor> Realtors { get; set; } = null!;  // a one to many
@@ -26,10 +28,10 @@ namespace IndependentRealtorApp.Models.DataLayer
         {
             // seed the data via config files based on book example /Models/Configuration
             // order may be important - might have to switch these around
-            modelBuilder.ApplyConfiguration(new PropertyConfig());
-            modelBuilder.ApplyConfiguration(new RealtorConfig());
+            modelBuilder.ApplyConfiguration(new PropertyUserConfig());
             modelBuilder.ApplyConfiguration(new UserConfig());
-
+            modelBuilder.ApplyConfiguration(new RealtorConfig());
+            modelBuilder.ApplyConfiguration(new PropertyConfig());
         }
     }
 }

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.ComponentModel;
+using System.Reflection.Emit;
 
 namespace IndependentRealtorApp.Models.Configuration
 {
@@ -13,6 +14,10 @@ namespace IndependentRealtorApp.Models.Configuration
             entity.HasOne(p => p.Realtor)
                 .WithMany(r => r.Properties)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            entity.HasMany(
+                    PropertyUser => PropertyUser.PropertyUsers
+                );
 
             // data
             entity.HasData(
@@ -28,8 +33,9 @@ namespace IndependentRealtorApp.Models.Configuration
                         PropertyStatus = "for sale",
                         imageUrl = "images/1234olive.jpg",
                         PropertyPrice = 215000.00,
-                        RealtorId = 1
-                    },
+                        RealtorId = 1,
+                        
+        },
                     new Property
                     {
                         PropertyId = 2,
@@ -42,7 +48,8 @@ namespace IndependentRealtorApp.Models.Configuration
                         PropertyStatus = "for sale",
                         imageUrl = "images/5561artnuevo.jpg",
                         PropertyPrice = 450000.00,
-                        RealtorId = 1
+                        RealtorId = 1,
+                        
                     },
                     new Property
                     {
@@ -56,7 +63,8 @@ namespace IndependentRealtorApp.Models.Configuration
                         PropertyStatus = "pending",
                         imageUrl = "images/12gravel.jpg",
                         PropertyPrice = 385000.00,
-                        RealtorId = 1
+                        RealtorId = 1,
+                        
                     },
                     new Property
                     {
@@ -70,7 +78,8 @@ namespace IndependentRealtorApp.Models.Configuration
                         PropertyStatus = "for sale",
                         imageUrl = "images/321corinda.jpg",
                         PropertyPrice = 205000.00,
-                        RealtorId = 1
+                        RealtorId = 1,
+                        
                     },
                     new Property
                     {
@@ -84,7 +93,8 @@ namespace IndependentRealtorApp.Models.Configuration
                         PropertyStatus = "for sale",
                         imageUrl = "images/756lincoln.jpg",
                         PropertyPrice = 279900.00,
-                        RealtorId = 1
+                        RealtorId = 1,
+                        
                     },
                     new Property
                     {
@@ -98,7 +108,8 @@ namespace IndependentRealtorApp.Models.Configuration
                         PropertyStatus = "for sale",
                         imageUrl = "images/5westwoods.jpg",
                         PropertyPrice = 86700.00,
-                        RealtorId = 1
+                        RealtorId = 1,
+                        
                     },
                     new Property
                     {
@@ -112,7 +123,8 @@ namespace IndependentRealtorApp.Models.Configuration
                         PropertyStatus = "for sale",
                         imageUrl = "images/16east.jpg",
                         PropertyPrice = 199900.00,
-                        RealtorId = 1
+                        RealtorId = 1,
+                        
                     }
                );
         }

@@ -10,7 +10,7 @@ namespace IndependentRealtorApp.Models.Configuration
         {
             // public users table
             entity.HasData(
-                new User { UserId = 1, FirstName = "Sam", LastName = "Smith", UserEmail = "ssmith@fakeworld.net" },
+                new User { UserId = 1, FirstName = "Sam", LastName = "Smith", UserEmail = "ssmith@fakeworld.net", },
                 new User { UserId = 2, FirstName = "Linda", LastName = "Beltcher", UserEmail = "lbeltcher@fakeworld.net" },
                 new User { UserId = 3, FirstName = "Bob", LastName = "Beltcher", UserEmail = "bbeltcher@fakeworld.net" },
                 new User { UserId = 4, FirstName = "Kathy", LastName = "Klien", UserEmail = "kklien@fakeworld.net" },

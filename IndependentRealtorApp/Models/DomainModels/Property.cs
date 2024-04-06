@@ -51,13 +51,24 @@ namespace IndependentRealtorApp.Models.DomainModels
 
 
         // foreign keys -- third attempt to get the FK's right
+        //public int? UserId { get; set; }  // nullable since id IS NOT specified in seed data
+
+        //[ValidateNever]
+        //public User User { get; set; } = null!;  // navigation property
+
+        //public int? PropertyUserId { get; set; }
+
+        //[ValidateNever]
+        //public PropertyUser PropertyUser { get; set; } = null!;
+
+
         public int RealtorId { get; set; }
+
         [ValidateNever]
         public Realtor Realtor { get; set; } = null!;  // navigation property
 
-
-        public int UserId { get; set; }
-        [ValidateNever]
-        public User User { get; set; } = null!;  // navigation property
+        // Navigation properties
+        // public List<User>? Users { get; set; }
+        public List<PropertyUser>? PropertyUsers { get; set; }
     }
 }
