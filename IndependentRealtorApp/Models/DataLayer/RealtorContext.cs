@@ -8,11 +8,16 @@ using IndependentRealtorApp.Models.Configuration;
 using IndependentRealtorApp.Models.DomainModels;
 using Microsoft.EntityFrameworkCore;
 
-namespace IndependentRealtorApp.Models.DataLayer
+namespace IndependentRealtorApp.Models
 {
     public class RealtorContext : DbContext
     {
+        // added for unit testing the UserService
+        public RealtorContext() { }
+
         // constructor to pass up to DbContext
+        public DbSet<User> Users { get; set; } = null!; // a one to many
+
         public RealtorContext(DbContextOptions<RealtorContext> options) : base(options) { }
 
         public DbSet<PropertyUser> PropertyUsers { get; set; } = null!; // the many
@@ -21,15 +26,14 @@ namespace IndependentRealtorApp.Models.DataLayer
 
         public DbSet<Realtor> Realtors { get; set; } = null!;  // a one to many
 
-        public DbSet<User> Users { get; set; } = null!; // a one to many
-
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // seed the data via config files based on book example /Models/Configuration
             // order may be important - might have to switch these around
-            modelBuilder.ApplyConfiguration(new PropertyUserConfig());
             modelBuilder.ApplyConfiguration(new UserConfig());
+            modelBuilder.ApplyConfiguration(new PropertyUserConfig());
+            
             modelBuilder.ApplyConfiguration(new RealtorConfig());
             modelBuilder.ApplyConfiguration(new PropertyConfig());
         }

@@ -2,9 +2,14 @@
 
 namespace IndependentRealtorApp.Models.DomainModels
 {
-    public class User
+    public class UserService : IUser
     {
-        /* NOTE: Implemented in UserService.cs */
+        private readonly RealtorContext _context;
+
+        public UserService(RealtorContext ctx)
+        {
+            _context = ctx;
+        }
 
         public int UserId { get; set; }
 
@@ -25,7 +30,10 @@ namespace IndependentRealtorApp.Models.DomainModels
 
         public string FullName => $"{FirstName} {LastName}";
 
-        // Navigation properties
-        public List<PropertyUser>? PropertyUsers { get; set; }
+        public List<User> GetUsers()
+        {
+            return _context.Users.ToList();
+        }
+
     }
 }
