@@ -1,5 +1,8 @@
+using IndependentRealtorApp.Models; // separated domain models from data layer classes
+using IndependentRealtorApp.Models.DomainModels;
 using Microsoft.EntityFrameworkCore;
-using IndependentRealtorApp.Models.DataLayer; // separated domain models from data layer classes
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +11,9 @@ builder.Services.AddControllersWithViews();
 
 // Add EF Core services
 builder.Services.AddDbContext<RealtorContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("RealtorContext")));
+
+// Dependency Injection mapping
+builder.Services.AddTransient<IUser, UserService>();
 
 // TODO: enable session cookie and its expiration here
 builder.Services.AddSession(options =>
@@ -40,5 +46,9 @@ app.UseSession();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
+    name: "UserList",
+    pattern: "{controller=User}/{action=Index}/{id?}");
 
 app.Run();
