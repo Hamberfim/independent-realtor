@@ -25,6 +25,11 @@ namespace IndependentRealtorApp.Models.DomainModels
 
         public string FullName => $"{FirstName} {LastName}";
 
+        /* NOTE: this implementation in the admin models */
+        // FIXME: | TODO: implement in a registration model/form
+        //public string UserName { get; set; } = string.Empty;
+        //public string UserPassword { get; set; } = string.Empty;
+
         // Navigation properties
         public List<PropertyUser>? PropertyUsers { get; set; }
     }

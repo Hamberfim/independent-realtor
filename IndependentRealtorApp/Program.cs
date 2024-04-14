@@ -14,6 +14,7 @@ builder.Services.AddDbContext<RealtorContext>(options => options.UseSqlServer(bu
 
 // Dependency Injection mapping
 builder.Services.AddTransient<IUser, UserService>();
+builder.Services.AddTransient<IProperty, PropertyService>();
 
 // TODO: enable session cookie and its expiration here
 builder.Services.AddSession(options =>

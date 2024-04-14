@@ -3,8 +3,15 @@ using System.ComponentModel.DataAnnotations;
 
 namespace IndependentRealtorApp.Models.DomainModels
 {
-    public class Property
+    public class PropertyService : IProperty
     {
+        private readonly RealtorContext _context;
+
+        public PropertyService(RealtorContext ctx)
+        {
+            _context = ctx;
+        }
+
         public int PropertyId { get; set; }
 
         [Display(Name = "Property Title")]
@@ -49,12 +56,19 @@ namespace IndependentRealtorApp.Models.DomainModels
 
         public string? imageUrl { get; set; } = string.Empty;  // fixed url to image dir, no upload functionality
 
+
         public int RealtorId { get; set; }
 
         [ValidateNever]
-        public Realtor Realtor { get; set; } = null!;  // navigation property
+        public Realtor Realtor { get; set; } = null!;
 
         // Navigation properties
         public List<PropertyUser>? PropertyUsers { get; set; }
+        public List<Property> GetProperties()
+        {
+            // return new List<Property>();
+            return _context.Properties.ToList();
+        }
+
     }
 }

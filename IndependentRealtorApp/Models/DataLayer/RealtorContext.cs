@@ -16,9 +16,9 @@ namespace IndependentRealtorApp.Models
         public RealtorContext() { }
 
         // constructor to pass up to DbContext
-        public DbSet<User> Users { get; set; } = null!; // a one to many
-
         public RealtorContext(DbContextOptions<RealtorContext> options) : base(options) { }
+
+        public DbSet<User> Users { get; set; } = null!; // a one to many
 
         public DbSet<PropertyUser> PropertyUsers { get; set; } = null!; // the many
 
