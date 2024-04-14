@@ -26,7 +26,7 @@ namespace IndependentRealtorApp.Models.DomainModels
         [Required(ErrorMessage = "Please enter your email address.")]
         public string RealtorEmail { get; set; } = string.Empty;
 
-        /* NOTE: this implementation will change the DB tables/columns */
+        /* NOTE: this implementation in the admin models */
         // FIXME: | TODO: implement in a registration model/form
         //public string UserName { get; set; } = string.Empty;
         //public string RealtorPassword { get; set; } = string.Empty;
