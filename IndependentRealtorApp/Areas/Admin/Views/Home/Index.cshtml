@@ -1,6 +1,38 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<IndependentRealtorApp.Models.DomainModels.Property>
 @{
+    ViewData["Title"] = "Admin Property List Page";
 }
-<h1> Admin Home</h1>
+
+<div class="bg-primary text-white text-center p-1">
+    <h1 class="m-2 p-3">Admin Property List</h1>
+</div>
+<table class="table table-bordered table-striped mt-2">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+            <th>Status</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var property in Model)
+        {
+            <tr>
+                <td>@property.PropertyTitle</td>
+                <td>@property.PropertyDescription</td>
+                <td>@property.PropertyAddress</td>
+                <td>@property.PropertyCity</td>
+                <td>@property.PropertyState</td>
+                <td>@property.PropertyZip</td>
+                <td>@property.PropertyStatus</td>
+                <td>@property.PropertyPrice</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="@Url.Action("Add", "Home")" class="btn btn-primary m-2">Add Property</a>

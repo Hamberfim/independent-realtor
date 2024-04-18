@@ -70,5 +70,9 @@ namespace IndependentRealtorApp.Models.DomainModels
             return _context.Properties.ToList();
         }
 
+        public Property? GetPropertyById(int id)
+        {
+            return _context.Properties.FirstOrDefault(p => p.PropertyId == id);
+        }
     }
 }

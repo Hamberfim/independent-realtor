@@ -1,0 +1,59 @@
+﻿@model IndependentRealtorApp.Models.DomainModels.Property
+
+<h2>Add Property</h2>
+
+<form asp-action="Add" method="post">
+    <div class="form-group">
+        <label asp-for="PropertyTitle"></label>
+        <input asp-for="PropertyTitle" class="form-control" />
+        <span asp-validation-for="PropertyTitle" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PropertyDescription"></label>
+        <input asp-for="PropertyDescription" class="form-control" />
+        <span asp-validation-for="PropertyDescription" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PropertyAddress"></label>
+        <input asp-for="PropertyAddress" class="form-control" />
+        <span asp-validation-for="PropertyAddress" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PropertyCity"></label>
+        <input asp-for="PropertyCity" class="form-control" />
+        <span asp-validation-for="PropertyCity" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PropertyState"></label>
+        <input asp-for="PropertyState" class="form-control" />
+        <span asp-validation-for="PropertyState" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PropertyZip"></label>
+        <input asp-for="PropertyZip" class="form-control" />
+        <span asp-validation-for="PropertyZip" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PropertyPrice"></label>
+        <input asp-for="PropertyPrice" class="form-control" />
+        <span asp-validation-for="PropertyPrice" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PropertyStatus"></label>
+        <input asp-for="PropertyStatus" class="form-control" />
+        <span asp-validation-for="PropertyStatus" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Add Property" class="btn btn-primary" />
+    </div>
+</form>
+
+<a href="@Url.Action("Index", "Home")" class="btn btn-secondary m-2">Back to List</a>
