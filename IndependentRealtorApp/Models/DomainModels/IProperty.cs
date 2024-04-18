@@ -29,7 +29,7 @@
         public Realtor Realtor { get; set; }
 
         public List<Property> GetProperties();
-        Property? GetPropertyById(int id);
+        //Property? GetPropertyById(int id);
 
         // Navigation properties
         public List<PropertyUser>? PropertyUsers { get; set; }

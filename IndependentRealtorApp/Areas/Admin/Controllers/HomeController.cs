@@ -1,4 +1,5 @@
-﻿using IndependentRealtorApp.Models.DomainModels;
+﻿
+using IndependentRealtorApp.Models.DomainModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IndependentRealtorApp.Areas.Admin.Controllers
@@ -6,6 +7,7 @@ namespace IndependentRealtorApp.Areas.Admin.Controllers
     [Area("Admin")]
     public class HomeController : Controller
     {
+        //inject IProperty instead of DbContext
         private IProperty _property;
         public HomeController(IProperty property) => _property = property;
 
@@ -15,17 +17,6 @@ namespace IndependentRealtorApp.Areas.Admin.Controllers
             return View(property);
         }
 
-       // placeholder methods for Add, Update, and Delete
-        public IActionResult Add() => View();
-        public IActionResult Update(int id)
-        {
-            var property = _property.GetPropertyById(id);
-            return View(property);
-        }
-        public IActionResult Delete(int id)
-        {
-            var property = _property.GetPropertyById(id);
-            return View(property);
-        }
+
     }
 }
