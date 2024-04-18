@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/IndependentRealtorApp.styles.css" asp-append-version="true" />
 </head>
-<body>
+<body style="background-color: #f5f5dc;" class="bg-image">
     <div class="container">
-        <header>
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <header style="background-color: #f2f2f2; text-align: center">
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light" style="background-color: #f2f2f2; border-bottom: 1px solid #ddd; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); margin-bottom: 1rem;">
+
                 <div class="container-fluid">
                     <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Independent Realtor App</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -36,9 +37,9 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - Independent Realtor App
+    <footer class="border-top footer text-muted" style="background-color: #f2f2f2;">
+        <div class="container text-center">
+            &copy; @DateTime.Now.Year - Independent Realtor App
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

@@ -64,11 +64,9 @@ namespace IndependentRealtorApp.Models.DomainModels
 
         // Navigation properties
         public List<PropertyUser>? PropertyUsers { get; set; }
-        public List<Property> GetProperties()
-        {
+        public List<Property> GetProperties() =>
             // return new List<Property>();
-            return _context.Properties.ToList();
-        }
+            _context.Properties.ToList();
 
     }
 }
