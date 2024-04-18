@@ -28,10 +28,12 @@ namespace IndependentRealtorApp.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
+                _context.Properties.Add(property);
+                _context.SaveChanges();
 
                 return RedirectToAction("Index");
             }
-            return View("AddEdit", new Property());
+            return View("AddEdit", property);
         }
     }
 }
