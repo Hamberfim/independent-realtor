@@ -7,7 +7,7 @@ namespace IndependentRealtorApp.Areas.Admin.Controllers
     [Area("Admin")]
     public class PropertyController : Controller
     {
-        private RealtorContext _context;
+        private readonly RealtorContext _context;
         public PropertyController(RealtorContext context) => _context = context;
 
         public IActionResult Index()

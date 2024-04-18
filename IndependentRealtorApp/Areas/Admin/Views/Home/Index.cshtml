@@ -18,7 +18,7 @@
                 <th>Zip</th>
                 <th>Status</th>
                 <th>Price</th>
-                <th>Edit Listing</th>
+                <th>Edit</th>
             </tr>
         </thead>
         <tbody>
@@ -33,7 +33,7 @@
                     <td>@property.PropertyZip</td>
                     <td>@property.PropertyStatus</td>
                     <td>@property.PropertyPrice</td>
-                    <td>Edit</td>
+                    <td><a asp-controller="Property" asp-action="Edit" asp-route-id="@property.PropertyId" class="nav-link">Edit</a></td>
                 </tr>
             }
         </tbody>
