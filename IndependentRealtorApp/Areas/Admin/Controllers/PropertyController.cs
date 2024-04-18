@@ -38,7 +38,7 @@ namespace IndependentRealtorApp.Areas.Admin.Controllers
                 }
 
                 _context.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
             return View("AddEdit", property);
         }

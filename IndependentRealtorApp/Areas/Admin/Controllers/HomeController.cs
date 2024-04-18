@@ -11,7 +11,7 @@ namespace IndependentRealtorApp.Areas.Admin.Controllers
         private IProperty _property;
         public HomeController(IProperty property) => _property = property;
 
-        //[Route("admin/Home")]
+        [Route("[area]/Home")]
         public IActionResult Index()
         {
             var property = _property.GetProperties();

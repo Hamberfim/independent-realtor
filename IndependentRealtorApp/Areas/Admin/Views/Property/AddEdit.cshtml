@@ -7,7 +7,7 @@
     <h1 class="m-2 p-3">Admin Add/Edit New Property</h1>
 </div>
 <div>
-    <form class="" asp-controller="Home" asp-action="Add" method="post">
+    <form class="" asp-controller="Property" asp-action="Add" method="post">
         <div asp-validation="All" class="text-danger"></div>
 
         <div class="form-group">
@@ -61,6 +61,6 @@
         <input type="hidden" asp-for="RealtorId" value="1" />
 
         <button type="submit" class="btn btn-primary m-2">Submit</button>
-        <a type="clear"  asp-controller="Home" asp-action="Index" class="btn btn-outline-warning m-2">Cancel</a>
+        <a type="clear" asp-controller="Home" asp-action="Index" class="btn btn-outline-warning m-2">Cancel</a>
     </form>
 </div>
