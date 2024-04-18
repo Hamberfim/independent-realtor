@@ -3,20 +3,6 @@
     ViewBag.Title = "Admin Property (Add or Edit)";
 }
 
-<!--
-    FORM FIELDS
-    PropertyId will be automatic - not needed on form!!
-    PropertyTitle = "Cottage Bungalow",
-    PropertyDescription = "3 bedroom, 2 bath cottage styled bungalow",
-    PropertyAddress = "1234 Olive St.",
-    PropertyCity = "Anytown",
-    PropertyState = "IA",
-    PropertyZip = "50266",
-    PropertyStatus = "for sale",
-    imageUrl = "images/1234olive.jpg",
-    PropertyPrice = 215000.00,
-    RealtorId = 1, hidden automatic setting !!
--->
 <div class="bg-danger text-white text-center p-1">
     <h1 class="m-2 p-3">Admin Add/Edit New Property</h1>
 </div>
@@ -75,6 +61,6 @@
         <input type="hidden" asp-for="RealtorId" value="1" />
 
         <button type="submit" class="btn btn-primary m-2">Submit</button>
-        <a type="clear" asp-action="Index" class="btn btn-outline-warning m-2">Cancel</a>
+        <a type="clear"  asp-controller="Home" asp-action="Index" class="btn btn-outline-warning m-2">Cancel</a>
     </form>
 </div>

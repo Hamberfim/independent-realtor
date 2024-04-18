@@ -10,10 +10,10 @@ namespace IndependentRealtorApp.Areas.Admin.Controllers
         private readonly RealtorContext _context;
         public PropertyController(RealtorContext context) => _context = context;
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+        //public IActionResult Index()
+        //{
+        //    return View();
+        //}
 
 
         [HttpGet]
@@ -28,9 +28,16 @@ namespace IndependentRealtorApp.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                _context.Properties.Add(property);
-                _context.SaveChanges();
+                if (property.PropertyId == 0)
+                {
+                    _context.Properties.Add(property);
+                }
+                else
+                {
+                    _context.Properties.Update(property);
+                }
 
+                _context.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View("AddEdit", property);
