@@ -74,5 +74,18 @@ namespace IndependentRealtorApp.Models.DomainModels
         {
             return _context.Properties.FirstOrDefault(p => p.PropertyId == id);
         }
+
+        // new methods for admin area
+        public void Add(Property property)
+        {
+            _context.Properties.Add(property);
+            _context.SaveChanges();
+        }
+
+        public void Update(Property property)
+        {
+            _context.Properties.Update(property);
+            _context.SaveChanges();
+        }
     }
 }

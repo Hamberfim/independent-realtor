@@ -29,7 +29,10 @@
         public Realtor Realtor { get; set; }
 
         public List<Property> GetProperties();
-        //Property? GetPropertyById(int id);
+
+        // new methods for admin area
+        void Add(Property property);
+        void Update(Property property);
 
         // Navigation properties
         public List<PropertyUser>? PropertyUsers { get; set; }

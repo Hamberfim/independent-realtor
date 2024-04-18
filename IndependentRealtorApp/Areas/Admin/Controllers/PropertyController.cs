@@ -1,19 +1,24 @@
 ﻿using IndependentRealtorApp.Models;
 using IndependentRealtorApp.Models.DomainModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace IndependentRealtorApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class PropertyController : Controller
     {
-        private readonly RealtorContext _context;
-        public PropertyController(RealtorContext context) => _context = context;
+        //private readonly RealtorContext _context;
+        //public PropertyController(RealtorContext context) => _context = context;
 
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
+        // inject IProperty instead of DbContext
+        private IProperty _property;
+        public PropertyController(IProperty property) => _property = property;
+
+        public IActionResult Index()
+        {
+            return View();
+        }
 
 
         [HttpGet]
@@ -30,16 +35,19 @@ namespace IndependentRealtorApp.Areas.Admin.Controllers
             {
                 if (property.PropertyId == 0)
                 {
-                    _context.Properties.Add(property);
+                    //_context.Properties.Add(property);
+                    _property.Add(property);
                 }
                 else
                 {
-                    _context.Properties.Update(property);
+                    //_context.Properties.Update(property);
+                    _property.Update(property);
+
                 }
 
-                _context.SaveChanges();
-                return View("Index");  //not routing to the right location
-                //return RedirectToAction("Index", "Home");  
+                // _context.SaveChanges();
+                // return View("Index");  //not routing to the right location
+                return RedirectToAction("Index", "Home");  
             }
             return View("AddEdit", property);
         }
