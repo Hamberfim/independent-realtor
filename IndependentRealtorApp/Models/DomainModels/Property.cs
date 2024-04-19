@@ -57,5 +57,14 @@ namespace IndependentRealtorApp.Models.DomainModels
 
         // Navigation properties
         public List<PropertyUser>? PropertyUsers { get; set; }
+
+        // read only slug property
+        public string Slug
+        {
+            get
+            {
+                return PropertyTitle.ToLower().Replace(" ", "-");
+            }
+        }
     }
 }

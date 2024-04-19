@@ -36,6 +36,7 @@
                     <td>@property.PropertyStatus</td>
                     <td>@property.PropertyPrice</td>
                     <td><a class="btn btn-outline-primary btn-sm" asp-controller="Property" asp-action="Add" asp-route-id="@property.PropertyId">Edit</a></td>
+                    <td><a class="btn btn-outline-danger btn-sm" asp-controller="Property" asp-action="Delete" asp-route-id="@property.PropertyId">Delete</a></td>
                 </tr>
             }
         </tbody>

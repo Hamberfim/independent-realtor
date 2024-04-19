@@ -86,5 +86,11 @@ namespace IndependentRealtorApp.Models.DomainModels
             _context.Properties.Update(property);
             _context.SaveChanges();
         }
+
+        public void Delete(Property property)
+        {
+            _context.Properties.Remove(property);
+            _context.SaveChanges();
+        }
     }
 }

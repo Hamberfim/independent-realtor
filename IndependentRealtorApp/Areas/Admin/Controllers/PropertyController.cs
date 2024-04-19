@@ -60,5 +60,32 @@ namespace IndependentRealtorApp.Areas.Admin.Controllers
             }
             return View("AddEdit", property);
         }
+
+        [HttpGet]
+        public IActionResult Delete(int? id)
+        {
+            if (id.HasValue)
+            {
+                var property = _property.GetPropertyById(id.Value);
+                if (property != null)
+                {
+                    return View(property);
+                }
+            }
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var property = _property.GetPropertyById(id);
+            if (property != null)
+            {
+                //_context.Properties.Remove(property);
+                _property.Delete(property);
+                //_context.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
