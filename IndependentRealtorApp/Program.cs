@@ -44,6 +44,11 @@ app.UseAuthorization();
 // TODO: use session services from above, must be called before any routes are mapped
 app.UseSession();
 
+app.MapAreaControllerRoute(
+    name: "admin",
+    areaName: "Admin",
+    pattern: "Admin/{controller=Home}/{action=Index}/{id?}");
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
