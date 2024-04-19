@@ -20,13 +20,13 @@
 
         public double? PropertyPrice { get; set; }
 
-        public string? imageUrl { get; set; }
+        public string? ImageUrl { get; set; }
 
 
         public int RealtorId { get; set; }
 
 
-        public Realtor Realtor { get; set; }
+        public Realtor? Realtor { get; set; }
 
         public List<Property> GetProperties();
 

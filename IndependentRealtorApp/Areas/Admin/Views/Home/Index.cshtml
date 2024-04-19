@@ -1,4 +1,4 @@
-﻿@model IEnumerable<IndependentRealtorApp.Models.DomainModels.Property>
+﻿@* @model IEnumerable<IndependentRealtorApp.Models.DomainModels.Property>
 @{
     ViewData["Title"] = "Admin Property List Page";
 }
@@ -10,6 +10,7 @@
     <table class="table table-bordered table-striped mt-2 less-transparent-table">
         <thead>
             <tr>
+                <td>Image</td>
                 <th>Title</th>
                 <th>Description</th>
                 <th>Address</th>
@@ -25,6 +26,7 @@
             @foreach (var property in Model)
             {
                 <tr>
+                    <td>@property.ImageUrl</td>
                     <td>@property.PropertyTitle</td>
                     <td>@property.PropertyDescription</td>
                     <td>@property.PropertyAddress</td>
@@ -41,4 +43,4 @@
     <div>
         <a class="btn btn-primary btn-sm" asp-controller="Property" asp-action="Add">Add New Property</a>
     </div>
-</div>
+</div> *@

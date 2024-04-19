@@ -30,7 +30,7 @@ namespace IndependentRealtorApp.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Add(Property property)
         {
-
+            property.ImageUrl = string.IsNullOrEmpty(property.ImageUrl) ? "none" : property.ImageUrl;
             if (ModelState.IsValid)
             {
                 if (property.PropertyId == 0)
@@ -47,7 +47,7 @@ namespace IndependentRealtorApp.Areas.Admin.Controllers
 
                 // _context.SaveChanges();
                 // return View("Index");  //not routing to the right location
-                return RedirectToAction("Index", "Home");  
+                return RedirectToAction("Index", "Property");  
             }
             return View("AddEdit", property);
         }

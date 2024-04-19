@@ -10,6 +10,7 @@
     <table class="table table-bordered table-striped mt-2 less-transparent-table">
         <thead>
             <tr>
+                <th>Image</th>
                 <th>Title</th>
                 <th>Description</th>
                 <th>Address</th>
@@ -25,6 +26,7 @@
             @foreach (var property in Model)
             {
                 <tr>
+                    <td>@property.ImageUrl</td>
                     <td>@property.PropertyTitle</td>
                     <td>@property.PropertyDescription</td>
                     <td>@property.PropertyAddress</td>

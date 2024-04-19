@@ -54,13 +54,14 @@ namespace IndependentRealtorApp.Models.DomainModels
         [Range(1.0, 999999999, ErrorMessage = "Price must be greater than zero but less than 999,999,999.")]
         public double? PropertyPrice { get; set; }
 
-        public string? imageUrl { get; set; } = string.Empty;  // fixed url to image dir, no upload functionality
+        // public string? ImageUrl { get; set; } = string.Empty;  // fixed url to image dir, no upload functionality
+        public string? ImageUrl { get; set; } = "none";
 
 
         public int RealtorId { get; set; }
 
         [ValidateNever]
-        public Realtor Realtor { get; set; } = null!;
+        public Realtor? Realtor { get; set; }
 
         // Navigation properties
         public List<PropertyUser>? PropertyUsers { get; set; }
