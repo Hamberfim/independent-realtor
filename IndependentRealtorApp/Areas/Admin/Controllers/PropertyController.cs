@@ -39,6 +39,7 @@ namespace IndependentRealtorApp.Areas.Admin.Controllers
         public IActionResult Add(Property property)
         {
             property.ImageUrl = string.IsNullOrEmpty(property.ImageUrl) ? "none" : property.ImageUrl;
+
             if (ModelState.IsValid)
             {
                 if (property.PropertyId == 0)

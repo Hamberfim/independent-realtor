@@ -56,8 +56,11 @@
             <input asp-for="ImageUrl" class="form-control" />
         </div>
 
+
         <!-- this hidden field should probably be more securely handled-->
         <input type="hidden" asp-for="RealtorId" value="1" />
+        <input type="hidden" asp-for="PropertyId" />
+
 
         <button type="submit" class="btn btn-primary m-2">Submit</button>
         <a type="clear" asp-controller="Property" asp-action="Index" class="btn btn-outline-primary m-2">Cancel</a>
