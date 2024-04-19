@@ -8,16 +8,16 @@ namespace IndependentRealtorApp.Areas.Admin.Controllers
     [Area("Admin")]
     public class PropertyController : Controller
     {
-        //private readonly RealtorContext _context;
-        //public PropertyController(RealtorContext context) => _context = context;
-
-        // inject IProperty instead of DbContext
+        //inject IProperty instead of DbContext
         private IProperty _property;
         public PropertyController(IProperty property) => _property = property;
 
+        [Route("[area]/Property")]
         public IActionResult Index()
         {
-            return View();
+            var property = _property.GetProperties();
+            return View(property);
+
         }
 
 
