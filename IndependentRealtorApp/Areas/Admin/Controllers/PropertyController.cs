@@ -22,8 +22,16 @@ namespace IndependentRealtorApp.Areas.Admin.Controllers
 
 
         [HttpGet]
-        public IActionResult Add()
+        public IActionResult Add(int? id)
         {
+            if (id.HasValue)
+            {
+                var property = _property.GetPropertyById(id.Value);
+                if (property != null)
+                {
+                    return View("AddEdit", property);
+                }
+            }
             return View("AddEdit", new Property());
         }
 

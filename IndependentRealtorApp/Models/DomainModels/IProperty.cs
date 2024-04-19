@@ -36,5 +36,6 @@
         // new methods for admin area
         void Add(Property property);
         void Update(Property property);
+        Property? GetPropertyById(int id);
     }
 }
