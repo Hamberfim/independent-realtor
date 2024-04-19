@@ -39,7 +39,8 @@ namespace IndependentRealtorApp.Models.DomainModels
         public string PropertyState { get; set; } = string.Empty;
 
         [Display(Name = "Property Zip")]
-        [Range(5, 5, ErrorMessage = "Property zip must be exactly 5 numeric characters.")]
+        //[StringLength(5, ErrorMessage = "Property zip must be exactly 5 numeric characters.")]
+        [Range(5, 9, ErrorMessage = "Property zip must be 5 - 7 numeric characters.")]
         [Required(ErrorMessage = "Please enter a property zip.")]
         public string PropertyZip { get; set; } = string.Empty;
 
