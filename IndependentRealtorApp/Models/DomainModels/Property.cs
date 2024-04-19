@@ -33,7 +33,7 @@ namespace IndependentRealtorApp.Models.DomainModels
 
         [Display(Name = "Property Zip")]
         //[StringLength(5, ErrorMessage = "Property zip must be exactly 5 numeric characters.")]
-        [Range(5, 9, ErrorMessage = "Property zip must be 5 - 7 numeric characters.")]
+        //[Range(5, 9, ErrorMessage = "Property zip must be 5 - 7 numeric characters.")]
         [Required(ErrorMessage = "Please enter a property zip.")]
         public string PropertyZip { get; set; } = string.Empty;
 
@@ -47,14 +47,24 @@ namespace IndependentRealtorApp.Models.DomainModels
         [Range(1.0, 999999999, ErrorMessage = "Price must be greater than zero but less than 999,999,999.")]
         public double? PropertyPrice { get; set; }
 
-        public string? imageUrl { get; set; } = string.Empty;  // fixed url to image dir, no upload functionality
+        // public string? ImageUrl { get; set; } = string.Empty;  // fixed url to image dir, no upload functionality
+        public string? ImageUrl { get; set; } = "none";
 
         public int RealtorId { get; set; }
 
         [ValidateNever]
-        public Realtor Realtor { get; set; } = null!;  // navigation property
+        public Realtor? Realtor { get; set; }  // navigation property
 
         // Navigation properties
         public List<PropertyUser>? PropertyUsers { get; set; }
+
+        // read only slug property
+        public string Slug
+        {
+            get
+            {
+                return PropertyTitle.ToLower().Replace(" ", "-");
+            }
+        }
     }
 }

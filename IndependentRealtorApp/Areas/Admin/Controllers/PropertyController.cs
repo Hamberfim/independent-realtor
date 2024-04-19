@@ -22,14 +22,23 @@ namespace IndependentRealtorApp.Areas.Admin.Controllers
 
 
         [HttpGet]
-        public IActionResult Add()
+        public IActionResult Add(int? id)
         {
+            if (id.HasValue)
+            {
+                var property = _property.GetPropertyById(id.Value);
+                if (property != null)
+                {
+                    return View("AddEdit", property);
+                }
+            }
             return View("AddEdit", new Property());
         }
 
         [HttpPost]
         public IActionResult Add(Property property)
         {
+            property.ImageUrl = string.IsNullOrEmpty(property.ImageUrl) ? "none" : property.ImageUrl;
 
             if (ModelState.IsValid)
             {
@@ -47,9 +56,36 @@ namespace IndependentRealtorApp.Areas.Admin.Controllers
 
                 // _context.SaveChanges();
                 // return View("Index");  //not routing to the right location
-                return RedirectToAction("Index", "Home");  
+                return RedirectToAction("Index", "Property");  
             }
             return View("AddEdit", property);
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int? id)
+        {
+            if (id.HasValue)
+            {
+                var property = _property.GetPropertyById(id.Value);
+                if (property != null)
+                {
+                    return View(property);
+                }
+            }
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var property = _property.GetPropertyById(id);
+            if (property != null)
+            {
+                //_context.Properties.Remove(property);
+                _property.Delete(property);
+                //_context.SaveChanges();
+            }
+            return RedirectToAction("Index");
         }
     }
 }

@@ -52,13 +52,15 @@
 
         <!-- TODO | FIX | OR FORGET | some sort of HttpPost async Task<IActionResult> in the controller and a modify model-->
         <div class="form-group">
-            <label asp-for="imageUrl" class="control-label"></label>
-            <input asp-for="imageUrl" class="form-control" />
-
+            <label asp-for="ImageUrl" class="control-label"></label>
+            <input asp-for="ImageUrl" class="form-control" />
         </div>
+
 
         <!-- this hidden field should probably be more securely handled-->
         <input type="hidden" asp-for="RealtorId" value="1" />
+        <input type="hidden" asp-for="PropertyId" />
+
 
         <button type="submit" class="btn btn-primary m-2">Submit</button>
         <a type="clear" asp-controller="Property" asp-action="Index" class="btn btn-outline-primary m-2">Cancel</a>

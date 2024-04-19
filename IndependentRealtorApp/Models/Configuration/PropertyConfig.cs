@@ -31,7 +31,7 @@ namespace IndependentRealtorApp.Models.Configuration
                         PropertyState = "IA",
                         PropertyZip = "50266",
                         PropertyStatus = "for sale",
-                        imageUrl = "images/1234olive.jpg",
+                        ImageUrl = "images/1234olive.jpg",
                         PropertyPrice = 215000.00,
                         RealtorId = 1,
                         
@@ -46,7 +46,7 @@ namespace IndependentRealtorApp.Models.Configuration
                         PropertyState = "IA",
                         PropertyZip = "50266",
                         PropertyStatus = "for sale",
-                        imageUrl = "images/5561artnuevo.jpg",
+                        ImageUrl = "images/5561artnuevo.jpg",
                         PropertyPrice = 450000.00,
                         RealtorId = 1,
                         
@@ -61,7 +61,7 @@ namespace IndependentRealtorApp.Models.Configuration
                         PropertyState = "IA",
                         PropertyZip = "50266",
                         PropertyStatus = "pending",
-                        imageUrl = "images/12gravel.jpg",
+                        ImageUrl = "images/12gravel.jpg",
                         PropertyPrice = 385000.00,
                         RealtorId = 1,
                         
@@ -76,7 +76,7 @@ namespace IndependentRealtorApp.Models.Configuration
                         PropertyState = "NY",
                         PropertyZip = "12345",
                         PropertyStatus = "for sale",
-                        imageUrl = "images/321corinda.jpg",
+                        ImageUrl = "images/321corinda.jpg",
                         PropertyPrice = 205000.00,
                         RealtorId = 1,
                         
@@ -91,7 +91,7 @@ namespace IndependentRealtorApp.Models.Configuration
                         PropertyState = "IA",
                         PropertyZip = "55555",
                         PropertyStatus = "for sale",
-                        imageUrl = "images/756lincoln.jpg",
+                        ImageUrl = "images/756lincoln.jpg",
                         PropertyPrice = 279900.00,
                         RealtorId = 1,
                         
@@ -106,7 +106,7 @@ namespace IndependentRealtorApp.Models.Configuration
                         PropertyState = "IA",
                         PropertyZip = "55555",
                         PropertyStatus = "for sale",
-                        imageUrl = "images/5westwoods.jpg",
+                        ImageUrl = "images/5westwoods.jpg",
                         PropertyPrice = 86700.00,
                         RealtorId = 1,
                         
@@ -121,7 +121,7 @@ namespace IndependentRealtorApp.Models.Configuration
                         PropertyState = "IA",
                         PropertyZip = "55555",
                         PropertyStatus = "for sale",
-                        imageUrl = "images/16east.jpg",
+                        ImageUrl = "images/16east.jpg",
                         PropertyPrice = 199900.00,
                         RealtorId = 1,
                         
