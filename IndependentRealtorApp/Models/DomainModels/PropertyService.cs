@@ -39,8 +39,8 @@ namespace IndependentRealtorApp.Models.DomainModels
         public string PropertyState { get; set; } = string.Empty;
 
         [Display(Name = "Property Zip")]
-        [StringLength(5, ErrorMessage = "Property zip must be exactly 5 numeric characters.")]
-        [Range(5, 5, ErrorMessage = "Property zip must be exactly 5 numeric characters.")]
+        //[StringLength(5, ErrorMessage = "Property zip must be exactly 5 numeric characters.")]
+        [Range(5, 9, ErrorMessage = "Property zip must be 5 - 7 numeric characters.")]
         [Required(ErrorMessage = "Please enter a property zip.")]
         public string PropertyZip { get; set; } = string.Empty;
 
@@ -68,5 +68,22 @@ namespace IndependentRealtorApp.Models.DomainModels
             // return new List<Property>();
             _context.Properties.ToList();
 
+        public Property? GetPropertyById(int id)
+        {
+            return _context.Properties.FirstOrDefault(p => p.PropertyId == id);
+        }
+
+        // new methods for admin area
+        public void Add(Property property)
+        {
+            _context.Properties.Add(property);
+            _context.SaveChanges();
+        }
+
+        public void Update(Property property)
+        {
+            _context.Properties.Update(property);
+            _context.SaveChanges();
+        }
     }
 }

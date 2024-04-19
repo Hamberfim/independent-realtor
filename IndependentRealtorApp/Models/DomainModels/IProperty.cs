@@ -32,5 +32,9 @@
 
         // Navigation properties
         public List<PropertyUser>? PropertyUsers { get; set; }
+
+        // new methods for admin area
+        void Add(Property property);
+        void Update(Property property);
     }
 }
