@@ -1,5 +1,5 @@
 ### Here is the 12 grading criteria with the max pts for each that Prof Hennis is going to use.
-They wil be rated as:
+They will be rated as:
 - Exceptional (Full Points)
 - Proficient (?? Points)
 - Competent (?? Points)
