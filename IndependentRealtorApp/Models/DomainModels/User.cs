@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IndependentRealtorApp.Models.DomainModels
 {
@@ -25,10 +26,19 @@ namespace IndependentRealtorApp.Models.DomainModels
 
         public string FullName => $"{FirstName} {LastName}";
 
-        /* NOTE: this implementation in the admin models */
-        // FIXME: | TODO: implement in a registration model/form
-        //public string UserName { get; set; } = string.Empty;
-        //public string UserPassword { get; set; } = string.Empty;
+        /* NOTE: this implementation in the user and admin models */
+        [Required(ErrorMessage = "Please enter user name.")]
+        public string UserName { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Please enter a password.")]
+        [DataType(DataType.Password)]
+        public string UserPassword { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Please enter to confirm your password.")]
+        [DataType(DataType.Password)]
+        [Compare("Password")]
+        [NotMapped]
+        public string ConfirmPassword { get; set; } = string.Empty;
 
         // Navigation properties
         public List<PropertyUser>? PropertyUsers { get; set; }

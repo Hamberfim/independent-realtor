@@ -6,11 +6,13 @@
 
 using IndependentRealtorApp.Models.Configuration;
 using IndependentRealtorApp.Models.DomainModels;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace IndependentRealtorApp.Models
 {
-    public class RealtorContext : DbContext
+    public class RealtorContext : IdentityDbContext
     {
         // added for unit testing the UserService
         public RealtorContext() { }
@@ -36,6 +38,10 @@ namespace IndependentRealtorApp.Models
             
             modelBuilder.ApplyConfiguration(new RealtorConfig());
             modelBuilder.ApplyConfiguration(new PropertyConfig());
+
+            // adding Identity to the context
+            base.OnModelCreating(modelBuilder); // this will include the default configurations needed for the identity entities primary keys
+            modelBuilder.Entity<IdentityUserLogin<string>>();
         }
     }
 }

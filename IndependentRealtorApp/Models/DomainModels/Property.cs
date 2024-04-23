@@ -48,7 +48,7 @@ namespace IndependentRealtorApp.Models.DomainModels
         public double? PropertyPrice { get; set; }
 
         // public string? ImageUrl { get; set; } = string.Empty;  // fixed url to image dir, no upload functionality
-        public string? ImageUrl { get; set; } = "none";
+        public string? ImageUrl { get; set; } = "..image to come.";
 
         public int RealtorId { get; set; }
 

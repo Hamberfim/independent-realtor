@@ -4,6 +4,7 @@ using IndependentRealtorApp.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IndependentRealtorApp.Migrations
 {
     [DbContext(typeof(RealtorContext))]
-    partial class RealtorContextModelSnapshot : ModelSnapshot
+    [Migration("20240423185457_IdentityToContext")]
+    partial class IdentityToContext
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -289,14 +292,6 @@ namespace IndependentRealtorApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("RealtorPassword")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("RealtorId");
 
                     b.ToTable("Realtors");
@@ -307,9 +302,7 @@ namespace IndependentRealtorApp.Migrations
                             RealtorId = 1,
                             FirstName = "Timothy",
                             LastName = "Goodsale",
-                            RealtorEmail = "tgoodsale@fakerealty.com",
-                            RealtorPassword = "pass2",
-                            UserName = "Tim"
+                            RealtorEmail = "tgoodsale@fakerealty.com"
                         });
                 });
 
@@ -335,14 +328,6 @@ namespace IndependentRealtorApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserPassword")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("UserId");
 
                     b.ToTable("Users");
@@ -353,63 +338,49 @@ namespace IndependentRealtorApp.Migrations
                             UserId = 1,
                             FirstName = "Sam",
                             LastName = "Smith",
-                            UserEmail = "ssmith@fakeworld.net",
-                            UserName = "Sam",
-                            UserPassword = "pass1"
+                            UserEmail = "ssmith@fakeworld.net"
                         },
                         new
                         {
                             UserId = 2,
                             FirstName = "Linda",
                             LastName = "Beltcher",
-                            UserEmail = "lbeltcher@fakeworld.net",
-                            UserName = "Linda",
-                            UserPassword = "pass1"
+                            UserEmail = "lbeltcher@fakeworld.net"
                         },
                         new
                         {
                             UserId = 3,
                             FirstName = "Bob",
                             LastName = "Beltcher",
-                            UserEmail = "bbeltcher@fakeworld.net",
-                            UserName = "Bob",
-                            UserPassword = "pass1"
+                            UserEmail = "bbeltcher@fakeworld.net"
                         },
                         new
                         {
                             UserId = 4,
                             FirstName = "Kathy",
                             LastName = "Klien",
-                            UserEmail = "kklien@fakeworld.net",
-                            UserName = "Kathy",
-                            UserPassword = "pass1"
+                            UserEmail = "kklien@fakeworld.net"
                         },
                         new
                         {
                             UserId = 5,
                             FirstName = "Billy",
                             LastName = "Williams",
-                            UserEmail = "bwilliams@fakeworld.net",
-                            UserName = "Billy",
-                            UserPassword = "pass1"
+                            UserEmail = "bwilliams@fakeworld.net"
                         },
                         new
                         {
                             UserId = 6,
                             FirstName = "Sarah",
                             LastName = "Seashell",
-                            UserEmail = "sseashell@fakeworld.net",
-                            UserName = "Sarah",
-                            UserPassword = "pass1"
+                            UserEmail = "sseashell@fakeworld.net"
                         },
                         new
                         {
                             UserId = 7,
                             FirstName = "Steven",
                             LastName = "Klien",
-                            UserEmail = "sklien@fakeworld.net",
-                            UserName = "Steven",
-                            UserPassword = "pass1"
+                            UserEmail = "sklien@fakeworld.net"
                         });
                 });
 

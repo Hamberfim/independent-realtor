@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IndependentRealtorApp.Models.DomainModels
 {
@@ -8,6 +9,7 @@ namespace IndependentRealtorApp.Models.DomainModels
         // when I construct the Realtor object, I want to initialize the Properties collection
         public Realtor() => Properties = new HashSet<Property>();  // HashSet is a collection type that doesn't allow duplicates
 
+        [Key]
         public int RealtorId { get; set; }
 
         [Display(Name = "First Name")]
@@ -26,10 +28,19 @@ namespace IndependentRealtorApp.Models.DomainModels
         [Required(ErrorMessage = "Please enter your email address.")]
         public string RealtorEmail { get; set; } = string.Empty;
 
-        /* NOTE: this implementation in the admin models */
-        // FIXME: | TODO: implement in a registration model/form
-        //public string UserName { get; set; } = string.Empty;
-        //public string RealtorPassword { get; set; } = string.Empty;
+        /* NOTE: this implementation in the user and admin models */
+        [Required(ErrorMessage = "Please enter user name.")]
+        public string UserName { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Please enter a password.")]
+        [DataType(DataType.Password)]
+        public string RealtorPassword { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Please enter to confirm your password.")]
+        [DataType(DataType.Password)]
+        [Compare("Password")]
+        [NotMapped]
+        public string ConfirmPassword { get; set; } = string.Empty;
 
         public ICollection<Property>? Properties { get; set; }
     }
