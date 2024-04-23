@@ -33,9 +33,65 @@
                             <li class="nav-item ms-auto">
                                 <a class="nav-link text-dark" asp-area="Admin" asp-controller="Property" asp-action="Index">Admin Area</a>
                             </li>
+                            <!-- Login buttons and links -->
+                            @using Microsoft.AspNetCore.Identity
+                            @using IndependentRealtorApp.Models.DomainModels
+                            @inject SignInManager<Realtor> signInManager
+                            <li class="nav-item ms-auto">
+                                @if (signInManager.IsSignedIn(User))
+                                {
+                                // signed-in user - Log Out button and username
+                                    <li class="nav-item">
+
+                                        <form method="post" asp-action="LogOut" asp-controller="Account" asp-area="Admin">
+                                            <input type="submit" value="Log Out" />
+                                            <span class="text-light">@User.Identity?.Name</span>
+                                        </form>
+                                    </li>
+                                }
+                                else
+                                {
+                                    // anonymous user - Register link and Log In button
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Log In</a>
+                                    </li>
+                                }
+                            </li>
                         </ul>
                     </div>
                 </div>
+               @*  <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <!-- Login buttons and links -->
+                    @using Microsoft.AspNetCore.Identity
+                    @using IndependentRealtorApp.Models.DomainModels
+                    @inject SignInManager<Realtor> signInManager
+                    <ul class="navbar-nav flex-grow-1">
+                        @if (signInManager.IsSignedIn(User))
+                        {
+                        // signed-in user - Log Out button and username
+                            <li class="nav-item">
+
+                                <form method="post" asp-action="LogOut" asp-controller="Account" asp-area="Admin">
+                                    <input type="submit" value="Log Out" />
+                                    <span class="text-light">@User.Identity?.Name</span>
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            // anonymous user - Register link and Log In button
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Log In</a>
+                            </li>
+                        }
+                    </ul>
+                </div> *@
             </nav>
         </header>
         <main role="main" class="pb-3">

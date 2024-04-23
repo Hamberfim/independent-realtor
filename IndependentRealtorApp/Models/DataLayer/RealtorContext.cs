@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IndependentRealtorApp.Models
 {
-    public class RealtorContext : IdentityDbContext
+    public class RealtorContext : IdentityDbContext<Realtor>
     {
         // added for unit testing the UserService
         public RealtorContext() { }
@@ -20,7 +20,8 @@ namespace IndependentRealtorApp.Models
         // constructor to pass up to DbContext
         public RealtorContext(DbContextOptions<RealtorContext> options) : base(options) { }
 
-        public DbSet<User> Users { get; set; } = null!; // a one to many
+        // implemented through IdentityDbContext
+        public DbSet<User> publicUsers { get; set; } = null!; // a one to many
 
         public DbSet<PropertyUser> PropertyUsers { get; set; } = null!; // the many
 
@@ -42,6 +43,35 @@ namespace IndependentRealtorApp.Models
             // adding Identity to the context
             base.OnModelCreating(modelBuilder); // this will include the default configurations needed for the identity entities primary keys
             modelBuilder.Entity<IdentityUserLogin<string>>();
+        }
+
+        public static async Task CreateAdminUser(IServiceProvider serviceProvider)
+        {
+            using (var scoped = serviceProvider.CreateScope())
+            {
+                UserManager<Realtor> userManager = scoped.ServiceProvider.GetRequiredService<UserManager<Realtor>>();
+                RoleManager<IdentityRole> roleManager = scoped.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+                string username = "admin";
+                string pwd = "admin";
+                string roleName = "Admin";
+
+                // if role doesn't exist, create it
+                if (await roleManager.FindByNameAsync(roleName) == null)
+                {
+                    await roleManager.CreateAsync(new IdentityRole(roleName));
+                }
+
+                if (await userManager.FindByNameAsync(username) == null)
+                {
+                    Realtor user = new Realtor() { UserName = username };
+                    var result = await userManager.CreateAsync(user, pwd);
+                    if (result.Succeeded)
+                    {
+                        await userManager.AddToRoleAsync(user, roleName);
+                    }
+                }
+            }
         }
     }
 }
