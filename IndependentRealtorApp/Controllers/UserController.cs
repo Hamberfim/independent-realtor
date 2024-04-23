@@ -14,10 +14,11 @@ namespace IndependentRealtorApp.Controllers
             var users = _user.GetUsers();
             return View(users);
         }
-    		public IActionResult Add()
-		{
-			return View(); // This will render the "Add.cshtml" view
-		}
+
+        public IActionResult Add()
+        {
+            return View(); // This will render the "Add.cshtml" view
+        }
 
     }
 }
