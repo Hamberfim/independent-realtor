@@ -1,0 +1,34 @@
+﻿@model IndependentRealtorApp.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="text-center">
+    <h1 class="m-2 p-3">Login</h1>
+</div>
+<div class="p-2 m-2 less-transparent-table">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <form method="post" asp-action="Login" asp-route-ReturnUrl="@Model.ReturnUrl">
+        <div class="form-group">
+            <label asp-for="UserName">Username:</label>
+            <input type="text" asp-for="UserName" class="form-control" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password">Password:</label>
+            <input type="password" asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" title="Remember Me" asp-for="RememberMe" class="form-check-inline" />
+            <label asp-for="RememberMe">Remember Me</label>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary m-1">Log In</button>
+        </div>
+        <div>
+            Not registered? <a asp-action="Register">Register as a new user</a>
+        </div>
+    </form>
+</div>
