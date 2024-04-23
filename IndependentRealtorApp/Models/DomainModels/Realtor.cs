@@ -8,6 +8,7 @@ namespace IndependentRealtorApp.Models.DomainModels
         // when I construct the Realtor object, I want to initialize the Properties collection
         public Realtor() => Properties = new HashSet<Property>();  // HashSet is a collection type that doesn't allow duplicates
 
+        [Key]
         public int RealtorId { get; set; }
 
         [Display(Name = "First Name")]
