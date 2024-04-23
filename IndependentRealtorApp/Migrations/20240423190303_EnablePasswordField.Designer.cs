@@ -4,6 +4,7 @@ using IndependentRealtorApp.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IndependentRealtorApp.Migrations
 {
     [DbContext(typeof(RealtorContext))]
-    partial class RealtorContextModelSnapshot : ModelSnapshot
+    [Migration("20240423190303_EnablePasswordField")]
+    partial class EnablePasswordField
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -308,8 +311,8 @@ namespace IndependentRealtorApp.Migrations
                             FirstName = "Timothy",
                             LastName = "Goodsale",
                             RealtorEmail = "tgoodsale@fakerealty.com",
-                            RealtorPassword = "pass2",
-                            UserName = "Tim"
+                            RealtorPassword = "",
+                            UserName = ""
                         });
                 });
 
@@ -354,8 +357,8 @@ namespace IndependentRealtorApp.Migrations
                             FirstName = "Sam",
                             LastName = "Smith",
                             UserEmail = "ssmith@fakeworld.net",
-                            UserName = "Sam",
-                            UserPassword = "pass1"
+                            UserName = "",
+                            UserPassword = ""
                         },
                         new
                         {
@@ -363,8 +366,8 @@ namespace IndependentRealtorApp.Migrations
                             FirstName = "Linda",
                             LastName = "Beltcher",
                             UserEmail = "lbeltcher@fakeworld.net",
-                            UserName = "Linda",
-                            UserPassword = "pass1"
+                            UserName = "",
+                            UserPassword = ""
                         },
                         new
                         {
@@ -372,8 +375,8 @@ namespace IndependentRealtorApp.Migrations
                             FirstName = "Bob",
                             LastName = "Beltcher",
                             UserEmail = "bbeltcher@fakeworld.net",
-                            UserName = "Bob",
-                            UserPassword = "pass1"
+                            UserName = "",
+                            UserPassword = ""
                         },
                         new
                         {
@@ -381,8 +384,8 @@ namespace IndependentRealtorApp.Migrations
                             FirstName = "Kathy",
                             LastName = "Klien",
                             UserEmail = "kklien@fakeworld.net",
-                            UserName = "Kathy",
-                            UserPassword = "pass1"
+                            UserName = "",
+                            UserPassword = ""
                         },
                         new
                         {
@@ -390,8 +393,8 @@ namespace IndependentRealtorApp.Migrations
                             FirstName = "Billy",
                             LastName = "Williams",
                             UserEmail = "bwilliams@fakeworld.net",
-                            UserName = "Billy",
-                            UserPassword = "pass1"
+                            UserName = "",
+                            UserPassword = ""
                         },
                         new
                         {
@@ -399,8 +402,8 @@ namespace IndependentRealtorApp.Migrations
                             FirstName = "Sarah",
                             LastName = "Seashell",
                             UserEmail = "sseashell@fakeworld.net",
-                            UserName = "Sarah",
-                            UserPassword = "pass1"
+                            UserName = "",
+                            UserPassword = ""
                         },
                         new
                         {
@@ -408,8 +411,8 @@ namespace IndependentRealtorApp.Migrations
                             FirstName = "Steven",
                             LastName = "Klien",
                             UserEmail = "sklien@fakeworld.net",
-                            UserName = "Steven",
-                            UserPassword = "pass1"
+                            UserName = "",
+                            UserPassword = ""
                         });
                 });
 

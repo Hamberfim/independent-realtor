@@ -10,7 +10,7 @@ namespace IndependentRealtorApp.Models.Configuration
         {
             entity.HasData(
                     // only one realtor for now
-                    new Realtor { RealtorId = 1, FirstName = "Timothy", LastName = "Goodsale", RealtorEmail = "tgoodsale@fakerealty.com" }
+                    new Realtor { RealtorId = 1, FirstName = "Timothy", LastName = "Goodsale", RealtorEmail = "tgoodsale@fakerealty.com", UserName = "Tim", RealtorPassword = "pass2" }
                 );
         }
     }
