@@ -6,13 +6,13 @@ namespace IndependentRealtorApp.Models.Configuration
 {
     public class PropertyUserConfig : IEntityTypeConfiguration<PropertyUser>
     {
-        public void Configure(EntityTypeBuilder<PropertyUser> entity) 
-        { 
+        public void Configure(EntityTypeBuilder<PropertyUser> entity)
+        {
             entity.HasKey(pu => new { pu.PropertyId, pu.UserId });
 
-            entity.HasOne(pu => pu.Property)
-                .WithMany(p => p.PropertyUsers)
-                .HasForeignKey(pu => pu.PropertyId);
+            //entity.HasOne(pu => pu.Property)
+            //    .WithMany(p => p.PropertyUsers)
+            //    .HasForeignKey(pu => pu.PropertyId);
 
             entity.HasOne(pu => pu.User)
                 .WithMany(u => u.PropertyUsers)

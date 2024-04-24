@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using IndependentRealtorApp.Models.DomainModels;
+﻿using IndependentRealtorApp.Models.DomainModels;
+using Microsoft.AspNetCore.Mvc;
 
 namespace IndependentRealtorApp.Controllers
 {

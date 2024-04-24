@@ -12,18 +12,17 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IndependentRealtorApp.Migrations
 {
     [DbContext(typeof(RealtorContext))]
-    [Migration("20240419162119_zipRequireChange")]
-    partial class zipRequireChange
+    [Migration("20240424174723_Cleaning")]
+    partial class Cleaning
     {
-        /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.17")
+                .HasAnnotation("ProductVersion", "6.0.29")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
             modelBuilder.Entity("IndependentRealtorApp.Models.DomainModels.Property", b =>
                 {
@@ -31,7 +30,10 @@ namespace IndependentRealtorApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PropertyId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PropertyId"), 1L, 1);
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PropertyAddress")
                         .IsRequired()
@@ -70,11 +72,8 @@ namespace IndependentRealtorApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RealtorId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("imageUrl")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("RealtorId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("PropertyId");
 
@@ -86,6 +85,7 @@ namespace IndependentRealtorApp.Migrations
                         new
                         {
                             PropertyId = 1,
+                            ImageUrl = "images/1234olive.jpg",
                             PropertyAddress = "1234 Olive St.",
                             PropertyCity = "Anytown",
                             PropertyDescription = "3 bedroom, 2 bath cottage styled bungalow",
@@ -93,13 +93,12 @@ namespace IndependentRealtorApp.Migrations
                             PropertyState = "IA",
                             PropertyStatus = "for sale",
                             PropertyTitle = "Cottage Bungalow",
-                            PropertyZip = "50266",
-                            RealtorId = 1,
-                            imageUrl = "images/1234olive.jpg"
+                            PropertyZip = "50266"
                         },
                         new
                         {
                             PropertyId = 2,
+                            ImageUrl = "images/5561artnuevo.jpg",
                             PropertyAddress = "5561 Art Nuevo Ave.",
                             PropertyCity = "Sometown",
                             PropertyDescription = "5 bedroom, 2.5 bath turn of the century deco styled two story",
@@ -107,13 +106,12 @@ namespace IndependentRealtorApp.Migrations
                             PropertyState = "IA",
                             PropertyStatus = "for sale",
                             PropertyTitle = "Deco Two Story",
-                            PropertyZip = "50266",
-                            RealtorId = 1,
-                            imageUrl = "images/5561artnuevo.jpg"
+                            PropertyZip = "50266"
                         },
                         new
                         {
                             PropertyId = 3,
+                            ImageUrl = "images/12gravel.jpg",
                             PropertyAddress = "12 Gravel Rd.",
                             PropertyCity = "Ruraltown",
                             PropertyDescription = "4 bedroom, 2 bath ranch acreage",
@@ -121,13 +119,12 @@ namespace IndependentRealtorApp.Migrations
                             PropertyState = "IA",
                             PropertyStatus = "pending",
                             PropertyTitle = "Ranch Acreage",
-                            PropertyZip = "50266",
-                            RealtorId = 1,
-                            imageUrl = "images/12gravel.jpg"
+                            PropertyZip = "50266"
                         },
                         new
                         {
                             PropertyId = 4,
+                            ImageUrl = "images/321corinda.jpg",
                             PropertyAddress = "321 Corinda St",
                             PropertyCity = "Anytown",
                             PropertyDescription = "2 bedroom, 1.5 bath bungalow",
@@ -135,13 +132,12 @@ namespace IndependentRealtorApp.Migrations
                             PropertyState = "NY",
                             PropertyStatus = "for sale",
                             PropertyTitle = "Two bedroom Bungalow",
-                            PropertyZip = "12345",
-                            RealtorId = 1,
-                            imageUrl = "images/321corinda.jpg"
+                            PropertyZip = "12345"
                         },
                         new
                         {
                             PropertyId = 5,
+                            ImageUrl = "images/756lincoln.jpg",
                             PropertyAddress = "756 Lincoln Blvd.",
                             PropertyCity = "Metro-City",
                             PropertyDescription = "3 bedroom, 2 bath Stylish Townhome",
@@ -149,13 +145,12 @@ namespace IndependentRealtorApp.Migrations
                             PropertyState = "IA",
                             PropertyStatus = "for sale",
                             PropertyTitle = "Stylish Townhome",
-                            PropertyZip = "55555",
-                            RealtorId = 1,
-                            imageUrl = "images/756lincoln.jpg"
+                            PropertyZip = "55555"
                         },
                         new
                         {
                             PropertyId = 6,
+                            ImageUrl = "images/5westwoods.jpg",
                             PropertyAddress = "5 West Woods Rd",
                             PropertyCity = "Anytown",
                             PropertyDescription = "17 undeveloped acres just west of the city.",
@@ -163,13 +158,12 @@ namespace IndependentRealtorApp.Migrations
                             PropertyState = "IA",
                             PropertyStatus = "for sale",
                             PropertyTitle = "17 acres for development",
-                            PropertyZip = "55555",
-                            RealtorId = 1,
-                            imageUrl = "images/5westwoods.jpg"
+                            PropertyZip = "55555"
                         },
                         new
                         {
                             PropertyId = 7,
+                            ImageUrl = "images/16east.jpg",
                             PropertyAddress = "16 East Prosaic St",
                             PropertyCity = "Metro-City",
                             PropertyDescription = "2 bedroom, 2 bath just minutes from downtown.",
@@ -177,9 +171,7 @@ namespace IndependentRealtorApp.Migrations
                             PropertyState = "IA",
                             PropertyStatus = "for sale",
                             PropertyTitle = "Charming home close to downtown",
-                            PropertyZip = "55555",
-                            RealtorId = 1,
-                            imageUrl = "images/16east.jpg"
+                            PropertyZip = "55555"
                         });
                 });
 
@@ -272,11 +264,22 @@ namespace IndependentRealtorApp.Migrations
 
             modelBuilder.Entity("IndependentRealtorApp.Models.DomainModels.Realtor", b =>
                 {
-                    b.Property<int>("RealtorId")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RealtorId"));
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -288,21 +291,76 @@ namespace IndependentRealtorApp.Migrations
                         .HasMaxLength(125)
                         .HasColumnType("nvarchar(125)");
 
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
                     b.Property<string>("RealtorEmail")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("RealtorId");
+                    b.Property<string>("RealtorPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("Realtors");
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id")
+                        .HasName("PK_Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
 
                     b.HasData(
                         new
                         {
-                            RealtorId = 1,
+                            Id = "76cd1c1a-a753-4e6f-8d73-a8b587054a5b",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "bfa9d33e-4ed2-40e4-94bf-7045851a2eac",
+                            EmailConfirmed = false,
                             FirstName = "Timothy",
                             LastName = "Goodsale",
-                            RealtorEmail = "tgoodsale@fakerealty.com"
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            RealtorEmail = "tgoodsale@fakerealty.com",
+                            RealtorPassword = "pass2",
+                            SecurityStamp = "1f962a18-6cf4-489f-8886-4832d1df846c",
+                            TwoFactorEnabled = false,
+                            UserName = "Tim"
                         });
                 });
 
@@ -312,7 +370,7 @@ namespace IndependentRealtorApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"), 1L, 1);
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -328,9 +386,17 @@ namespace IndependentRealtorApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("UserId");
 
-                    b.ToTable("Users");
+                    b.ToTable("publicUsers");
 
                     b.HasData(
                         new
@@ -338,59 +404,204 @@ namespace IndependentRealtorApp.Migrations
                             UserId = 1,
                             FirstName = "Sam",
                             LastName = "Smith",
-                            UserEmail = "ssmith@fakeworld.net"
+                            UserEmail = "ssmith@fakeworld.net",
+                            UserName = "Sam",
+                            UserPassword = "pass1"
                         },
                         new
                         {
                             UserId = 2,
                             FirstName = "Linda",
                             LastName = "Beltcher",
-                            UserEmail = "lbeltcher@fakeworld.net"
+                            UserEmail = "lbeltcher@fakeworld.net",
+                            UserName = "Linda",
+                            UserPassword = "pass1"
                         },
                         new
                         {
                             UserId = 3,
                             FirstName = "Bob",
                             LastName = "Beltcher",
-                            UserEmail = "bbeltcher@fakeworld.net"
+                            UserEmail = "bbeltcher@fakeworld.net",
+                            UserName = "Bob",
+                            UserPassword = "pass1"
                         },
                         new
                         {
                             UserId = 4,
                             FirstName = "Kathy",
                             LastName = "Klien",
-                            UserEmail = "kklien@fakeworld.net"
+                            UserEmail = "kklien@fakeworld.net",
+                            UserName = "Kathy",
+                            UserPassword = "pass1"
                         },
                         new
                         {
                             UserId = 5,
                             FirstName = "Billy",
                             LastName = "Williams",
-                            UserEmail = "bwilliams@fakeworld.net"
+                            UserEmail = "bwilliams@fakeworld.net",
+                            UserName = "Billy",
+                            UserPassword = "pass1"
                         },
                         new
                         {
                             UserId = 6,
                             FirstName = "Sarah",
                             LastName = "Seashell",
-                            UserEmail = "sseashell@fakeworld.net"
+                            UserEmail = "sseashell@fakeworld.net",
+                            UserName = "Sarah",
+                            UserPassword = "pass1"
                         },
                         new
                         {
                             UserId = 7,
                             FirstName = "Steven",
                             LastName = "Klien",
-                            UserEmail = "sklien@fakeworld.net"
+                            UserEmail = "sklien@fakeworld.net",
+                            UserName = "Steven",
+                            UserPassword = "pass1"
                         });
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens", (string)null);
                 });
 
             modelBuilder.Entity("IndependentRealtorApp.Models.DomainModels.Property", b =>
                 {
                     b.HasOne("IndependentRealtorApp.Models.DomainModels.Realtor", "Realtor")
                         .WithMany("Properties")
-                        .HasForeignKey("RealtorId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("RealtorId");
 
                     b.Navigation("Realtor");
                 });
@@ -412,6 +623,57 @@ namespace IndependentRealtorApp.Migrations
                     b.Navigation("Property");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.HasOne("IndependentRealtorApp.Models.DomainModels.Realtor", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("IndependentRealtorApp.Models.DomainModels.Realtor", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("IndependentRealtorApp.Models.DomainModels.Realtor", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("IndependentRealtorApp.Models.DomainModels.Realtor", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("IndependentRealtorApp.Models.DomainModels.Property", b =>

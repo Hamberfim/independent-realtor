@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -7,10 +6,9 @@ namespace IndependentRealtorApp.Models.DomainModels
 {
     public class Realtor : IdentityUser
     {
-        // when I construct the Realtor object, I want to initialize the Properties collection
-        public Realtor() => Properties = new HashSet<Property>();  // HashSet is a collection type that doesn't allow duplicates
+        public Realtor() => Properties = new HashSet<Property>();
 
-        public int RealtorId { get; set; }
+        //public string RealtorId { get; set; } = string.Empty;
 
         [Display(Name = "First Name")]
         [StringLength(125, ErrorMessage = "First name must be 125 characters or less")]
