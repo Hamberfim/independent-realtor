@@ -48,8 +48,9 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
 app.UseAuthentication();
+app.UseAuthorization();
+
 
 // TODO: use session services from above, must be called before any routes are mapped
 app.UseSession();
