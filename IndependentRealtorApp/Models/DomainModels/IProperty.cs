@@ -22,11 +22,8 @@
 
         public string? ImageUrl { get; set; }
 
-
-        public int RealtorId { get; set; }
-
-
         public Realtor? Realtor { get; set; }
+        //string RealtorId { get; set; }
 
         public List<Property> GetProperties();
 
@@ -38,6 +35,6 @@
         void Update(Property property);
         void Delete(Property property);
         public Property? GetPropertyById(int id);
-        
+
     }
 }

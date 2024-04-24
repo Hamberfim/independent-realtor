@@ -17,10 +17,10 @@ namespace IndependentRealtorApp.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.17")
+                .HasAnnotation("ProductVersion", "6.0.29")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
             modelBuilder.Entity("IndependentRealtorApp.Models.DomainModels.Property", b =>
                 {
@@ -28,7 +28,7 @@ namespace IndependentRealtorApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PropertyId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PropertyId"), 1L, 1);
 
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
@@ -70,15 +70,12 @@ namespace IndependentRealtorApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RealtorId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("RealtorId1")
+                    b.Property<string>("RealtorId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("PropertyId");
 
-                    b.HasIndex("RealtorId1");
+                    b.HasIndex("RealtorId");
 
                     b.ToTable("Properties");
 
@@ -94,8 +91,7 @@ namespace IndependentRealtorApp.Migrations
                             PropertyState = "IA",
                             PropertyStatus = "for sale",
                             PropertyTitle = "Cottage Bungalow",
-                            PropertyZip = "50266",
-                            RealtorId = 1
+                            PropertyZip = "50266"
                         },
                         new
                         {
@@ -108,8 +104,7 @@ namespace IndependentRealtorApp.Migrations
                             PropertyState = "IA",
                             PropertyStatus = "for sale",
                             PropertyTitle = "Deco Two Story",
-                            PropertyZip = "50266",
-                            RealtorId = 1
+                            PropertyZip = "50266"
                         },
                         new
                         {
@@ -122,8 +117,7 @@ namespace IndependentRealtorApp.Migrations
                             PropertyState = "IA",
                             PropertyStatus = "pending",
                             PropertyTitle = "Ranch Acreage",
-                            PropertyZip = "50266",
-                            RealtorId = 1
+                            PropertyZip = "50266"
                         },
                         new
                         {
@@ -136,8 +130,7 @@ namespace IndependentRealtorApp.Migrations
                             PropertyState = "NY",
                             PropertyStatus = "for sale",
                             PropertyTitle = "Two bedroom Bungalow",
-                            PropertyZip = "12345",
-                            RealtorId = 1
+                            PropertyZip = "12345"
                         },
                         new
                         {
@@ -150,8 +143,7 @@ namespace IndependentRealtorApp.Migrations
                             PropertyState = "IA",
                             PropertyStatus = "for sale",
                             PropertyTitle = "Stylish Townhome",
-                            PropertyZip = "55555",
-                            RealtorId = 1
+                            PropertyZip = "55555"
                         },
                         new
                         {
@@ -164,8 +156,7 @@ namespace IndependentRealtorApp.Migrations
                             PropertyState = "IA",
                             PropertyStatus = "for sale",
                             PropertyTitle = "17 acres for development",
-                            PropertyZip = "55555",
-                            RealtorId = 1
+                            PropertyZip = "55555"
                         },
                         new
                         {
@@ -178,8 +169,7 @@ namespace IndependentRealtorApp.Migrations
                             PropertyState = "IA",
                             PropertyStatus = "for sale",
                             PropertyTitle = "Charming home close to downtown",
-                            PropertyZip = "55555",
-                            RealtorId = 1
+                            PropertyZip = "55555"
                         });
                 });
 
@@ -326,9 +316,6 @@ namespace IndependentRealtorApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RealtorId")
-                        .HasColumnType("int");
-
                     b.Property<string>("RealtorPassword")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -343,7 +330,8 @@ namespace IndependentRealtorApp.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("PK_Id");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -358,18 +346,17 @@ namespace IndependentRealtorApp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "bfb022b3-4004-48ee-aa05-b34d18df1503",
+                            Id = "76cd1c1a-a753-4e6f-8d73-a8b587054a5b",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "313d961e-8c6a-4ca7-b11f-4a5815c77dbe",
+                            ConcurrencyStamp = "bfa9d33e-4ed2-40e4-94bf-7045851a2eac",
                             EmailConfirmed = false,
                             FirstName = "Timothy",
                             LastName = "Goodsale",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             RealtorEmail = "tgoodsale@fakerealty.com",
-                            RealtorId = 1,
                             RealtorPassword = "pass2",
-                            SecurityStamp = "49efcdb4-fdf2-428d-b2e6-fa6139b94cef",
+                            SecurityStamp = "1f962a18-6cf4-489f-8886-4832d1df846c",
                             TwoFactorEnabled = false,
                             UserName = "Tim"
                         });
@@ -381,7 +368,7 @@ namespace IndependentRealtorApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"), 1L, 1);
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -508,7 +495,7 @@ namespace IndependentRealtorApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("nvarchar(max)");
@@ -533,7 +520,7 @@ namespace IndependentRealtorApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("nvarchar(max)");
@@ -612,8 +599,7 @@ namespace IndependentRealtorApp.Migrations
                 {
                     b.HasOne("IndependentRealtorApp.Models.DomainModels.Realtor", "Realtor")
                         .WithMany("Properties")
-                        .HasForeignKey("RealtorId1")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("RealtorId");
 
                     b.Navigation("Realtor");
                 });

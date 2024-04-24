@@ -1,7 +1,5 @@
-﻿using IndependentRealtorApp.Models;
-using IndependentRealtorApp.Models.DomainModels;
+﻿using IndependentRealtorApp.Models.DomainModels;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace IndependentRealtorApp.Areas.Admin.Controllers
 {
@@ -56,7 +54,7 @@ namespace IndependentRealtorApp.Areas.Admin.Controllers
 
                 // _context.SaveChanges();
                 // return View("Index");  //not routing to the right location
-                return RedirectToAction("Index", "Property");  
+                return RedirectToAction("Index", "Property");
             }
             return View("AddEdit", property);
         }

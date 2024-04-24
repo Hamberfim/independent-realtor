@@ -21,24 +21,25 @@ namespace IndependentRealtorApp.Models
         public RealtorContext(DbContextOptions<RealtorContext> options) : base(options) { }
 
         // implemented through IdentityDbContext
+        public DbSet<Realtor> Realtors { get; set; } = null!;  // a one to many
+
+        public DbSet<Property> Properties { get; set; } = null!; // the many
+
         public DbSet<User> publicUsers { get; set; } = null!; // a one to many
 
         public DbSet<PropertyUser> PropertyUsers { get; set; } = null!; // the many
 
-        public DbSet<Property> Properties { get; set; } = null!; // the many
-
-        public DbSet<Realtor> Realtors { get; set; } = null!;  // a one to many
-
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // seed the data via config files based on book example /Models/Configuration
             // order may be important - might have to switch these around
-            modelBuilder.ApplyConfiguration(new UserConfig());
-            modelBuilder.ApplyConfiguration(new PropertyUserConfig());
-            
             modelBuilder.ApplyConfiguration(new RealtorConfig());
+
             modelBuilder.ApplyConfiguration(new PropertyConfig());
+
+            modelBuilder.ApplyConfiguration(new UserConfig());
+
+            modelBuilder.ApplyConfiguration(new PropertyUserConfig());
 
             // adding Identity to the context
             base.OnModelCreating(modelBuilder); // this will include the default configurations needed for the identity entities primary keys
