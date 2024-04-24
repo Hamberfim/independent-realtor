@@ -1,0 +1,18 @@
+﻿@model IndependentRealtorApp.Models.DomainModels.Property
+
+@{
+    ViewData["Title"] = "Property Details";
+}
+
+<div>
+    <h1>@Model.PropertyTitle</h1>
+    <div>
+        <img src="@Model.ImageUrl" alt="@Model.PropertyTitle" />
+    </div>
+    <div>
+        <p><strong>Description:</strong> @Model.PropertyDescription</p>
+        <p><strong>Address:</strong> @Model.PropertyAddress, @Model.PropertyCity, @Model.PropertyState @Model.PropertyZip</p>
+        <p><strong>Status:</strong> @Model.PropertyStatus</p>
+        <p><strong>Price:</strong> @Model.PropertyPrice</p>
+    </div>
+</div>
