@@ -61,12 +61,13 @@ app.MapAreaControllerRoute(
     pattern: "Admin/{controller=Home}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
+    name: "UserList",
+    pattern: "{controller=User}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.MapControllerRoute(
-    name: "UserList",
-    pattern: "{controller=User}/{action=Index}/{id?}");
 
 await RealtorContext.CreateAdminUser(app.Services);
 
