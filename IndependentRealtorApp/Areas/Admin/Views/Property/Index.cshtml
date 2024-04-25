@@ -1,0 +1,47 @@
+﻿@model IEnumerable<IndependentRealtorApp.Models.DomainModels.Property>
+@{
+    ViewData["Title"] = "Admin Property List Page";
+}
+
+<div class="bg-danger text-white text-center p-1">
+    <h1 class="m-2 p-3">Admin Property List</h1>
+</div>
+<div>
+    <table class="table table-bordered table-striped mt-2 less-transparent-table">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip</th>
+                <th>Status</th>
+                <th>Price</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var property in Model)
+            {
+                <tr>
+                    <td><img class="landing-listing-img-size" src="../@property.ImageUrl" alt="@property.PropertyTitle" name="@property.PropertyTitle"></td>
+                    <td>@property.PropertyTitle</td>
+                    <td>@property.PropertyDescription</td>
+                    <td>@property.PropertyAddress</td>
+                    <td>@property.PropertyCity</td>
+                    <td>@property.PropertyState</td>
+                    <td>@property.PropertyZip</td>
+                    <td>@property.PropertyStatus</td>
+                    <td>@property.PropertyPrice</td>
+                    <td><a class="btn btn-outline-primary btn-sm" asp-controller="Property" asp-action="Add" asp-route-id="@property.Id">Edit</a></td>
+                    <td><a class="btn btn-outline-danger btn-sm" asp-controller="Property" asp-action="Delete" asp-route-id="@property.Id">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div>
+        <a class="btn btn-primary btn-sm" asp-controller="Property" asp-action="Add">Add New Property</a>
+    </div>
+</div>

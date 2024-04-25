@@ -1,0 +1,53 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+
+.bg-image {
+    background-image: url('../images/development-background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.bg-image-opacity {
+    opacity: 0.8;
+}
+
+.less-transparent-table {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+}
+
+.landing-listing-img-size {
+    width: auto;
+    height: auto;
+    max-width: 125px;
+}

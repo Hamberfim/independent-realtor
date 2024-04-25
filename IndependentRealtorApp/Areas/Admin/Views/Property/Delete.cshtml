@@ -1,0 +1,14 @@
+﻿@model IndependentRealtorApp.Models.DomainModels.Property
+
+@{
+    ViewBag.Title = "Admin Property Delete";
+}
+<div class="p-2 m-2 less-transparent-table">
+    <h1 class=""> Do you really want to delete <span class="text-danger">@Model.Slug</span>?</h1>
+    <h2>This can not be undone!</h2>
+<form asp-controller="Property" asp-action="delete" asp-method="post">
+    <input type="hidden" asp-for="Id" />
+    <input type="submit" value="Delete" class="btn btn-danger m-2" />
+    <a asp-controller="Property" asp-action="Index" class="btn btn-outline-primary m-2">Cancel</a>
+</form>
+</div>
