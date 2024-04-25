@@ -24,7 +24,6 @@ namespace IndependentRealtorApp.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Add(User user)
         {
             if (ModelState.IsValid)
@@ -52,7 +51,6 @@ namespace IndependentRealtorApp.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, User user)
         {
             if (id != user.UserId)
@@ -95,7 +93,7 @@ namespace IndependentRealtorApp.Controllers
             }
 
             _user.Delete(user);
-            return RedirectToAction(nameof(Index));
+           
         }
     }
 }
