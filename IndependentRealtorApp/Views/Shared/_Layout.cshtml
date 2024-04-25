@@ -1,4 +1,5 @@
-﻿﻿<!DOCTYPE html>
+﻿﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -33,7 +34,7 @@
                             <li class="nav-item ms-auto">
                                 <a class="nav-link text-dark" asp-area="admin" asp-controller="Property" asp-action="Index">Admin Area</a>
                             </li>
-                           @*  <!-- Login buttons and links -->
+                            @* <!-- Login buttons and links -->
                             @using Microsoft.AspNetCore.Identity
                             @using IndependentRealtorApp.Models.DomainModels
                             @inject SignInManager<Realtor> signInManager
@@ -41,23 +42,22 @@
                                 @if (signInManager.IsSignedIn(User))
                                 {
                                 // signed-in user - Log Out button and username
-                                    <li class="nav-item">
-
+                                    <div class="nav-item">
                                         <form method="post" asp-action="LogOut" asp-controller="Account" asp-area="Admin">
                                             <input type="submit" value="Log Out" />
                                             <span class="text-light">@User.Identity?.Name</span>
                                         </form>
-                                    </li>
+                                    </div>
                                 }
                                 else
                                 {
                                     // anonymous user - Register link and Log In button
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Log In</a>
-                                    </li>
+                                <li class="nav-item ms-auto">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+                                </li>
+                                <li class="nav-item ms-auto">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Log In</a>
+                                </li>
                                 }
                             </li> *@
                         </ul>
