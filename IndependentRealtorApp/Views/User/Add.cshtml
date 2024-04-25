@@ -1,36 +1,26 @@
 @model IndependentRealtorApp.Models.DomainModels.User
 
 @{
-    ViewData["Title"] = "Add New User";
+    ViewData["Title"] = "Add User";
 }
 
-<div class="text-center">
-    <h1 class="m-2 p-3">Add New User</h1>
-</div>
-@if (ViewData.ModelState.IsValid)
-{
-    <div class="alert alert-success">User added successfully!</div>
-}
-<div class="p-3 mt-2 less-transparent-table">
-<form method="post">
+<h2>Add User</h2>
+
+<form asp-action="Add" method="post">
     <div class="form-group">
-        <label asp-for="FirstName" class="control-label">First Name:</label>
+        <label asp-for="FirstName">First Name:</label>
         <input asp-for="FirstName" class="form-control" />
         <span asp-validation-for="FirstName" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="LastName" class="control-label">Last Name:</label>
+        <label asp-for="LastName">Last Name:</label>
         <input asp-for="LastName" class="form-control" />
         <span asp-validation-for="LastName" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="UserEmail" class="control-label">Email Address:</label>
+        <label asp-for="UserEmail">Email Address:</label>
         <input asp-for="UserEmail" class="form-control" />
         <span asp-validation-for="UserEmail" class="text-danger"></span>
     </div>
-    <button type="submit" class="btn btn-primary mt-2">Add User</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-</div>
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
