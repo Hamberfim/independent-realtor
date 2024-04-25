@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using IndependentRealtorApp.Models.DomainModels;
+﻿using IndependentRealtorApp.Models.DomainModels;
+using Microsoft.AspNetCore.Mvc;
 
 namespace IndependentRealtorApp.Controllers
 {
@@ -14,21 +14,7 @@ namespace IndependentRealtorApp.Controllers
             var users = _user.GetUsers();
             return View(users);
         }
-    	public IActionResult Add()
-	{
-		return View(); // This will render the "Add.cshtml" view
-	}
-        [HttpPost]
-        public IActionResult Add(User user)
-        {
-            if (ModelState.IsValid)
-            {
-                ViewData["SuccessMessage"] = "User added successfully!";
-            }
-            else
-            {
-                return View(user);
-            }
+
 
             return RedirectToAction(nameof(Index));
         }

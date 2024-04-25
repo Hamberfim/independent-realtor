@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace IndependentRealtorApp.Models.DomainModels
+﻿namespace IndependentRealtorApp.Models.DomainModels
 {
     public class PropertyUser
     {

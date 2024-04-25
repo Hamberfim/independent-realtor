@@ -1,4 +1,26 @@
-# Independent Realtor Web Application
+### Here is the 12 grading criteria with the max pts for each that Prof Hennis is going to use.
+They will be rated as:
+- Exceptional (Full Points)
+- Proficient (?? Points)
+- Competent (?? Points)
+- Novice (No Points)
+
+1.) Routing (10 points)<br /> 
+2.) 3.5 Validation (20 points)<br /> 
+3.) Tag helpers (10 points)<br /> 
+4.) 3.2 Database initialization (20 points)<br /> 
+5.) MVC Services (10 points)<br /> 
+6.) Identity Core (10 points)<br /> 
+7.) 7. Authorization (10 points)<br /> 
+8.) 7. Session State (10 points)<br /> 
+9.) 9. Unit Testing (20 points)<br /> 
+10.) Presentation & Peer Review (100 points)<br /> 
+11.) Azure Deployment (20 points)<br /> 
+12.) Custom Error Handling (10 points)<br /> 
+
+Max of 250 points
+
+## Independent Realtor Web Application
 ### CIS174 Final Project for Brody Boell, Cole Cooley, Anthony Hamlin
 
 Project Description: <br />The is an independent realtor web application utilizing C# ASP.NET MVC Core, and provides a way to share to the public information about the realtor and their property listings.  A realtor can have many properties listed and a realtor can have many public users interested in the realtor's property listings. The independent realtors is the admin and the admin can authorize and set access level roles for other agents/employees to use portions of the app. The primary functionality available through the site, but not limited to, will be login authentication, authorization-access restrictions, Session/cookie handing, Admin area and CRUD actions to manage the content and will be deployed to azure.
@@ -40,3 +62,21 @@ Project Description: <br />The is an independent realtor web application utilizi
   - The grades will be based on your honesty and how you were evaluated. 
 
   <br />
+
+| --- | Final Project Grading Criteria | --- |
+| --- | --- | --- |
+| **Criteria** | **Ratings** | **Pts** |
+| --- | --- | --- |
+| Routing | **10 pts**<br><br>**Exceptional**<br><br>Correctly using routing techniques, route templates for website and attribute routing for web api.<br><br>**7 pts**<br><br>**Proficient**<br><br>Missing one of/ or incorrect routing techniques, route templates for website and attribute routing for web api.<br><br>**4 pts**<br><br>**Competent**<br><br>Missing two of/ or incorrect routing techniques, route templates for website and attribute routing for web api.<br><br>**0 pts**<br><br>**Novice**<br><br>Not attempted or incorrect | / 10 pts |
+| 3.5 Validation | **20 pts**<br><br>**Exceptional**<br><br>Correctly using binding models and validating all user input in a logical manner to give the users a good experience and keep your application safe.<br><br>**14 pts**<br><br>**Proficient**<br><br>Incorrectly using binding models or missing validation on some user input or does keep your application safe.<br><br>**8 pts**<br><br>**Competent**<br><br>Incorrectly using binding models and/or missing validation on some user input and/or does keep your application safe.<br><br>**0 pts**<br><br>**Novice**<br><br>Not attempted or incorrect | / 20 pts |
+| Tag helpers | **10 pts**<br><br>**Exceptional**<br><br>Use tag helpers to create your forms in your web application for a nice user experience.<br><br>**0 pts**<br><br>**Competent**<br><br>N/A<br><br>**0 pts**<br><br>**Novice**<br><br>Not attempted or incorrect<br><br>**0 pts**<br><br>**Proficient**<br><br>N/A | / 10 pts |
+| 3.2 Database initialization | **20 pts**<br><br>**Exceptional**<br><br>SQL Server database created using at least one data context and entity framework core migrations.<br><br>**14 pts**<br><br>**Proficient**<br><br>Database and data context out of sync.<br><br>**8 pts**<br><br>**Competent**<br><br>Framework core migrations not properly used<br><br>**0 pts**<br><br>**Novice**<br><br>Not attempted | / 20 pts |
+| MVC Services | _Cont…_<br><br>**10 pts**<br><br>**Exceptional**<br><br>Effectively used MVC filters to clean up code and remove redundancy<br><br>**7 pts**<br><br>**Proficient**<br><br>Mostly used MVC filters to clean up code and remove redundancy<br><br>**4 pts**<br><br>**Competent**<br><br>Minimally used MVC filters to clean up code and remove redundancy<br><br>**0 pts**<br><br>**Novice**<br><br>Not attempted | / 10 pts |
+| Identity Core | **10 pts**<br><br>**Exceptional**<br><br>Implement user accounts, registration and login using identity<br><br>**7 pts**<br><br>**Proficient**<br><br>Implemented most of user accounts, registration and login using identity<br><br>**4 pts**<br><br>**Competent**<br><br>Implemented some of user accounts, registration and login using identity<br><br>**0 pts**<br><br>**Novice**<br><br>Not attempted | / 10 pts |
+| 7\. Authorization | **10 pts**<br><br>**Exceptional**<br><br>Limit access to parts of website, showing/hiding elements based on authorization<br><br>**7 pts**<br><br>**Proficient**<br><br>Missing one of limit access to parts of website, showing/hiding elements based on authorization<br><br>**4 pts**<br><br>**Competent**<br><br>Missing two or more of Limit access to parts of website, showing/hiding elements based on authorization<br><br>**0 pts**<br><br>**Novice**<br><br>Not attempted | / 10 pts |
+| 7\. Session State | **10 pts**<br><br>**Exceptional**<br><br>Included https and CORS, prevented XSS, prevented XSRF<br><br>**7 pts**<br><br>**Proficient**<br><br>(Missing https OR missing CORS) OR did not prevent one of XSS, XSRF<br><br>**4 pts**<br><br>**Competent**<br><br>(Missing https AND/OR missing CORS) AND/OR did not prevent one of XSS, XSRF<br><br>**0 pts**<br><br>**Novice**<br><br>Not attempted | / 10 pts |
+| 9\. Unit Testing | _Cont…_<br><br>**20 pts**<br><br>**Exceptional**<br><br>100% business logic coverage<br><br>**14 pts**<br><br>**Proficient**<br><br>70% business logic coverage<br><br>**8 pts**<br><br>**Competent**<br><br>40% business logic coverage<br><br>**0 pts**<br><br>**Novice**<br><br>Not attempted or less than 40% business logic coverage | / 20 pts |
+| Presentation & Peer Review | **100 pts**<br><br>**Excellent**<br><br>**70 pts**<br><br>**Proficient**<br><br>**40 pts**<br><br>**Competent**<br><br>**0 pts**<br><br>**Novice** | / 100 pts |
+| Azure Deployment | **20 pts**<br><br>**Excellent**<br><br>WebSite is deployed and visible<br><br>**0 pts**<br><br>**Novice**<br><br>Error in Deployment | / 20 pts |
+| Custom Error Handling | **10 pts**<br><br>**Excellent**<br><br>Create and utilize proper error handling techniques including having a custom error handling view<br><br>**7 pts**<br><br>**Proficient**<br><br>Most errors are handled<br><br>**5 pts**<br><br>**Competent**<br><br>Minimal error handling- Error screen is present.<br><br>**0 pts**<br><br>**No Marks** | / 10 pts |
+|     |     | Total Points: 250 |

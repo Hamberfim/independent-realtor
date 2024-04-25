@@ -1,14 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IndependentRealtorApp.Models.DomainModels
 {
-    public class Realtor
+    public class Realtor : IdentityUser
     {
-        // when I construct the Realtor object, I want to initialize the Properties collection
-        public Realtor() => Properties = new HashSet<Property>();  // HashSet is a collection type that doesn't allow duplicates
+        public Realtor() => Properties = new HashSet<Property>();
 
-        public int RealtorId { get; set; }
+        //public string RealtorId { get; set; } = string.Empty;
 
         [Display(Name = "First Name")]
         [StringLength(125, ErrorMessage = "First name must be 125 characters or less")]
@@ -26,10 +26,19 @@ namespace IndependentRealtorApp.Models.DomainModels
         [Required(ErrorMessage = "Please enter your email address.")]
         public string RealtorEmail { get; set; } = string.Empty;
 
-        /* NOTE: this implementation in the admin models */
-        // FIXME: | TODO: implement in a registration model/form
+        /* NOTE: this implementation in Identity.EntityFramework */
+        //[Required(ErrorMessage = "Please enter user name.")]
         //public string UserName { get; set; } = string.Empty;
-        //public string RealtorPassword { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Please enter a password.")]
+        [DataType(DataType.Password)]
+        public string RealtorPassword { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Please enter to confirm your password.")]
+        [DataType(DataType.Password)]
+        [Compare("Password")]
+        [NotMapped]
+        public string ConfirmPassword { get; set; } = string.Empty;
 
         public ICollection<Property>? Properties { get; set; }
     }

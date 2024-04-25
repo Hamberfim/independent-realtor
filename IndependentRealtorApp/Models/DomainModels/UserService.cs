@@ -32,7 +32,7 @@ namespace IndependentRealtorApp.Models.DomainModels
 
         public List<User> GetUsers()
         {
-            return _context.Users.ToList();
+            return _context.publicUsers.ToList();
         }
 
     }

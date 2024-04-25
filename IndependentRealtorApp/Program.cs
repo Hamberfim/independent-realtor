@@ -1,8 +1,7 @@
 using IndependentRealtorApp.Models; // separated domain models from data layer classes
 using IndependentRealtorApp.Models.DomainModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-
-
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +14,16 @@ builder.Services.AddDbContext<RealtorContext>(options => options.UseSqlServer(bu
 // Dependency Injection mapping
 builder.Services.AddTransient<IUser, UserService>();
 builder.Services.AddTransient<IProperty, PropertyService>();
+
+// Identity services
+builder.Services.AddIdentity<Realtor, IdentityRole>(options =>
+{
+    options.Password.RequiredLength = 6;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireDigit = false;
+})
+        .AddEntityFrameworkStores<RealtorContext>()
+        .AddDefaultTokenProviders();
 
 // TODO: enable session cookie and its expiration here
 builder.Services.AddSession(options =>
@@ -39,7 +48,9 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
+
 
 // TODO: use session services from above, must be called before any routes are mapped
 app.UseSession();
@@ -50,11 +61,21 @@ app.MapAreaControllerRoute(
     pattern: "Admin/{controller=Home}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
+    name: "UserList",
+    pattern: "{controller=User}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+
 app.MapControllerRoute(
-    name: "UserList",
-    pattern: "{controller=User}/{action=Index}/{id?}");
+    name: "PropertyDetails",
+    pattern: "Property/Details/{id}/{title?}", 
+    defaults: new { controller = "Property", action = "Details" });
+
+
+
+await RealtorContext.CreateAdminUser(app.Services);
 
 app.Run();

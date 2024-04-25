@@ -8,9 +8,10 @@ namespace IndependentRealtorApp.Models.Configuration
     {
         public void Configure(EntityTypeBuilder<Realtor> entity)
         {
+            entity.HasKey(r => r.Id).HasName("PK_Id");
             entity.HasData(
                     // only one realtor for now
-                    new Realtor { RealtorId = 1, FirstName = "Timothy", LastName = "Goodsale", RealtorEmail = "tgoodsale@fakerealty.com" }
+                    new Realtor { FirstName = "Timothy", LastName = "Goodsale", RealtorEmail = "tgoodsale@fakerealty.com", UserName = "Tim", RealtorPassword = "pass2" }
                 );
         }
     }

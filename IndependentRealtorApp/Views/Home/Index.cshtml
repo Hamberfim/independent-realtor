@@ -9,6 +9,7 @@
 <table class="table table-bordered table-striped mt-2 less-transparent-table">
     <thead>
         <tr>
+            <th>Image</th>
             <th>Title</th>
             <th>Description</th>
             <th>Address</th>
@@ -23,7 +24,8 @@
         @foreach (var property in Model)
         {
             <tr>
-                <td>@property.PropertyTitle</td>
+                <td><img class="landing-listing-img-size" src="@property.ImageUrl" alt="@property.PropertyTitle" name="@property.PropertyTitle"></td>
+                <td><a href="@Url.Action("Details", "Property", new { id = property.PropertyId, title = property.PropertyTitle })">@property.PropertyTitle</a></td>
                 <td>@property.PropertyDescription</td>
                 <td>@property.PropertyAddress</td>
                 <td>@property.PropertyCity</td>
