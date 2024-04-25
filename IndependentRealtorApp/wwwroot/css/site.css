@@ -51,3 +51,9 @@ body {
     height: auto;
     max-width: 125px;
 }
+
+.detail-listing-img-size {
+    padding: 1.5em;
+    width: auto;
+    height: auto;
+}

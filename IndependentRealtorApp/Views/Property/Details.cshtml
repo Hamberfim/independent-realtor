@@ -3,16 +3,17 @@
 @{
     ViewData["Title"] = "Property Details";
 }
-
-<div>
-    <h1>@Model.PropertyTitle</h1>
+<div class="bg-muted text-dark text-center p-1">
+    <h1 class="m-2 p-3">@Model.PropertyTitle</h1>
+</div>
+<div class="p-4 mt-2 less-transparent-table">
     <div>
-        <img src="@Model.ImageUrl" alt="@Model.PropertyTitle" />
+        <img class="detail-listing-img-size img-fluid" src="/@Model.ImageUrl" alt="@Model.PropertyTitle" />
     </div>
     <div>
-        <p><strong>Description:</strong> @Model.PropertyDescription</p>
-        <p><strong>Address:</strong> @Model.PropertyAddress, @Model.PropertyCity, @Model.PropertyState @Model.PropertyZip</p>
-        <p><strong>Status:</strong> @Model.PropertyStatus</p>
-        <p><strong>Price:</strong> @Model.PropertyPrice</p>
+        <p class="display-5"><strong>Description:</strong> @Model.PropertyDescription</p>
+        <p class="display-6"><strong>Address:</strong> @Model.PropertyAddress, @Model.PropertyCity, @Model.PropertyState @Model.PropertyZip</p>
+        <p class="display-6"><strong>Status:</strong> @Model.PropertyStatus</p>
+        <p class="display-5"><strong>Price:</strong> @Model.PropertyPrice?.ToString("C", new CultureInfo("en-US"))</p>
     </div>
 </div>
