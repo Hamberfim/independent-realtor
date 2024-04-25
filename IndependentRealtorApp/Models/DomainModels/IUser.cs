@@ -7,6 +7,7 @@
         string LastName { get; set; }
         string UserEmail { get; set; }
         public string FullName { get; }
+        void Add(User user);
 
         public List<User> GetUsers();
     }
