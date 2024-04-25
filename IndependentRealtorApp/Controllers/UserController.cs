@@ -15,10 +15,8 @@ namespace IndependentRealtorApp.Controllers
             return View(users);
         }
 
-        public IActionResult Add()
-        {
-            return View(); // This will render the "Add.cshtml" view
-        }
 
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
