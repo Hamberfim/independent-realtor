@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace IndependentRealtorApp.Models.DomainModels
 {
     public class Property
-    { 
+    {
         public int Id { get; set; }
 
         [Display(Name = "Property Title")]
@@ -40,7 +40,7 @@ namespace IndependentRealtorApp.Models.DomainModels
         [Display(Name = "Property Status")]
         [StringLength(10, ErrorMessage = "Property status must be 10 characters or less.")]
         [Required(ErrorMessage = "Please enter a property status (i.e.,  'for sale', 'pending', 'sold').")]
-        public string PropertyStatus { get; set; } = string.Empty;  
+        public string PropertyStatus { get; set; } = string.Empty;
 
         [Display(Name = "Property Price")]
         [Required(ErrorMessage = "Please enter the property price.")]

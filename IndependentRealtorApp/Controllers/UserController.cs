@@ -21,6 +21,5 @@ namespace IndependentRealtorApp.Controllers
         {
             return View(); 
         }
-
     }
 }

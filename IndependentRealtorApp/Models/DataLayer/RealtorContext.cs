@@ -231,4 +231,3 @@ namespace IndependentRealtorApp.Models.DataLayer
         //}
     }
 }
-

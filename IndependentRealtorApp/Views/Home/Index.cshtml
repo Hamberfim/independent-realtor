@@ -25,7 +25,7 @@
         {
             <tr>
                 <td><img class="landing-listing-img-size" src="@property.ImageUrl" alt="@property.PropertyTitle" name="@property.PropertyTitle"></td>
-                <td>@property.PropertyTitle</td>
+                <td><a href="@Url.Action("Details", "Property", new { id = property.Id, title = property.PropertyTitle })">@property.PropertyTitle</a></td>
                 <td>@property.PropertyDescription</td>
                 <td>@property.PropertyAddress</td>
                 <td>@property.PropertyCity</td>

@@ -1,6 +1,4 @@
 using IndependentRealtorApp.Models.DataLayer;
-using IndependentRealtorApp.Models;
-using IndependentRealtorApp.Models.DomainModels;
 using Microsoft.EntityFrameworkCore;
 using IndependentRealtorApp.Area.Admin.Models;
 
@@ -45,5 +43,6 @@ app.MapControllerRoute(
     pattern: "{controller=PublicUsers}/{action=Index}/{id?}");
 
 
+// await RealtorContext.CreateAdminUser(app.Services);
 
 app.Run();
