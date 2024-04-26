@@ -11,11 +11,11 @@ namespace IndependentRealtorApp.Controllers
      * Not sure I have time to fix this */
     public class AccountController : Controller
     {
-        private UserManager<Realtor> userManager;
-        private SignInManager<Realtor> signInManager;
+        private UserManager<PublicUser> userManager;
+        private SignInManager<PublicUser> signInManager;
 
         // constructor
-        public AccountController(UserManager<Realtor> userMgr, SignInManager<Realtor> signInMgr)
+        public AccountController(UserManager<PublicUser> userMgr, SignInManager<PublicUser> signInMgr)
         {
             this.userManager = userMgr;
             this.signInManager = signInMgr;
@@ -32,7 +32,7 @@ namespace IndependentRealtorApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new Realtor
+                var user = new PublicUser
                 {
                     UserName = model.UserName,
                     Email = model.Email,
@@ -117,7 +117,7 @@ namespace IndependentRealtorApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                Realtor? user = await userManager.FindByNameAsync(model.Username);
+                PublicUser? user = await userManager.FindByNameAsync(model.Username);
 
 
                 if (user == null)

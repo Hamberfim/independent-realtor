@@ -37,7 +37,7 @@ namespace IndependentRealtorApp.Models.DataLayer
      */
     //public class RealtorContext : IdentityDbContext<PublicUser, ApplicationRole, int>
     //public class RealtorContext : IdentityDbContext<Realtor, IdentityRole<int>, int>
-    public class RealtorContext : IdentityDbContext<Realtor, ApplicationRole, int>
+    public class RealtorContext : IdentityDbContext<PublicUser, ApplicationRole, int>
     {
         public RealtorContext() { }
 
