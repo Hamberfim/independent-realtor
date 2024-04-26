@@ -3,14 +3,15 @@
 * CIS174 - Final Project - Spring 2024
 * NOTES: We will use a mix of conventions, annotations and fluent API to config DB context and db models
 */
-
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using IndependentRealtorApp.Area.Admin.Models;
 using IndependentRealtorApp.Models.DomainModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace IndependentRealtorApp.Models.DataLayer
 {
-    public class RealtorContext : DbContext
+    public class RealtorContext : IdentityDbContext<Realtor, IdentityRole<int>, int>
     {
         public RealtorContext() { }
 
@@ -28,8 +29,11 @@ namespace IndependentRealtorApp.Models.DataLayer
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // order may be important - might have to switch these around
+            // adding Identity to the context
+            base.OnModelCreating(modelBuilder); // this will include the default configurations needed for the identity entities primary keys
+            //modelBuilder.Entity<IdentityUserLogin<string>>();
 
+            // order may be important - might have to switch these around
             /* PROPERTY CONFIG & SEED DATA */
             modelBuilder.Entity<Property>().HasOne(p => p.Realtor).WithMany(r => r.Properties).HasForeignKey(p => p.RealtorId);
             modelBuilder.Entity<Property>().HasMany(p => p.PropertyUsers).WithOne(pu => pu.Property).HasForeignKey(pu => pu.PropertyId).OnDelete(DeleteBehavior.Cascade);
@@ -195,9 +199,6 @@ namespace IndependentRealtorApp.Models.DataLayer
                 new PublicUser { Id = 7, FirstName = "Steven", LastName = "Klien", UserEmail = "sklien@fakeworld.net", UserName = "Steven", UserPassword = "pass1" }
                 );
 
-            // adding Identity to the context
-            //base.OnModelCreating(modelBuilder); // this will include the default configurations needed for the identity entities primary keys
-            //modelBuilder.Entity<IdentityUserLogin<string>>();
         }
 
 
