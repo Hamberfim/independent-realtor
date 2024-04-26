@@ -1,18 +1,19 @@
-﻿using Microsoft.AspNetCore.Mvc.TagHelpers;
-using Microsoft.AspNetCore.Razor.TagHelpers;
+﻿using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace IndependentRealtorApp.Areas.Admin.TagHelpers
 {
-    // TODO: FIX THIS, Doesn't seem to be working
-    [HtmlTargetElement("button", Attributes = "id=delete,name=delete,asp-controller=Property,asp-action=Delete")]
+    [HtmlTargetElement("button", Attributes = "id,name,asp-controller,asp-action")]
     public class DeleteButton : TagHelper
     {
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            /* specifically added to the top of /Admin/Views/Property/index.cshtml 
-             * @addTagHelper IndependentRealtorApp.Areas.Admin.TagHelpers.*, IndependentRealtorApp 
-             * and still not working so I set the class on that page for now */
-            output.Attributes.SetAttribute("class", "btn btn-danger btn-sm");
+            if (context.AllAttributes["id"].Value.ToString() == "delete" &&
+                context.AllAttributes["name"].Value.ToString() == "delete" &&
+                context.AllAttributes["asp-controller"].Value.ToString() == "Property" &&
+                context.AllAttributes["asp-action"].Value.ToString() == "Delete")
+            {
+                output.Attributes.SetAttribute("class", "btn btn-outline-danger btn-sm");
+            }
         }
     }
 }

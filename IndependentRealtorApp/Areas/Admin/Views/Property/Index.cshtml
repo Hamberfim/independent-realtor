@@ -1,6 +1,4 @@
-﻿@addTagHelper IndependentRealtorApp.Areas.Admin.TagHelpers.*, IndependentRealtorApp
-@addTagHelper *, IndependentRealtorApp
-@model IEnumerable<IndependentRealtorApp.Models.DomainModels.Property>
+﻿@model IEnumerable<IndependentRealtorApp.Models.DomainModels.Property>
 @{
     ViewData["Title"] = "Admin Property List Page";
 }
@@ -38,8 +36,6 @@
                     <td>@property.PropertyStatus</td>
                     <td>@property.PropertyPrice</td>
                     <td><button id="edit" name="edit" class="btn btn-outline-primary btn-sm" asp-controller="Property" asp-action="Add" asp-route-id="@property.Id">Edit</button></td>
-                    @* <td><a id="delete" name="delete" class="btn btn-outline-danger btn-sm" asp-controller="Property" asp-action="Delete" asp-route-id="@property.Id">Delete</a></td> *@
-                    @* <td><a id="delete" name="delete" asp-controller="Property" asp-action="Delete" asp-route-id="@property.Id">Delete</a></td> *@
                     <td><button id="delete" name="delete" asp-controller="Property" asp-action="Delete" asp-route-id="@property.Id">Delete</button></td>
                 </tr>
             }
