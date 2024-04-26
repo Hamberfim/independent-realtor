@@ -18,10 +18,9 @@ namespace IndependentRealtorApp.Models.DomainModels
         [StringLength(50, ErrorMessage = "Last name must be 50 characters or less.")]
         public string LastName { get; set; } = string.Empty;
 
-        [Display(Name = "Email Address")]
-        [Required(ErrorMessage = "Please enter your email address.")]
-        [EmailAddress(ErrorMessage = "Please enter a valid email address.")]
-        public string UserEmail { get; set; } = string.Empty;
+        //[Required(ErrorMessage = "Please enter an email address.")]
+        //[DataType(DataType.EmailAddress)]
+        //public string Email { get; set; } = string.Empty;
 
         public string FullName => $"{FirstName} {LastName}";
 

@@ -1,5 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@inject SignInManager<Realtor> signInManager
+@inject SignInManager<PublicUser> signInManager
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,20 +29,22 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">User List</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Add">Add New User</a>
-                            </li>
+                            <!-- Replaced by Registration -->
+                            @* <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Add">Add New User</a>
+                            </li> *@
                             <!-- Login buttons and links -->
                             <li class="nav-item">
                                 @if (signInManager.IsSignedIn(User))
                                 {
                                 // user is signed-in - Log Out button and username
-                                <li class="nav-item ms-auto">
+                                <li class="nav-link text-dark ms-auto">Welcome back, @User.Identity?.Name!</li>
+                                <li class="nav-item">
                                     <form method="post" asp-controller="Account" asp-action="LogOut" asp-area="">
-                                        <input class="" type="submit" value="Log Out" />
-                                        <span class="nav-link text-dark">@User.Identity?.Name</span>
+                                        <input class="btn btn-outline-primary btn-sm" type="submit" value="Log Out" />
                                     </form>
                                 </li>
+                                
                                 }
                                 else
                                 {

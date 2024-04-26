@@ -17,22 +17,22 @@ namespace IndependentRealtorApp.Controllers
             return View(users);
         }
 
-        
-        public IActionResult Add()
-        {
-            return View();
-        }
+        // replaced with registration
+        //public IActionResult Add()
+        //{
+        //    return View();
+        //}
 
-        [HttpPost]
-        public IActionResult Add(PublicUser user)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.PublicUsers.Add(user);
-                return RedirectToAction(nameof(Index));
-            }
-            return View(user);
+        //[HttpPost]
+        //public IActionResult Add(PublicUser user)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _context.PublicUsers.Add(user);
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    return View(user);
 
-        }
+        //}
     }
 }

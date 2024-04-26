@@ -175,30 +175,26 @@ namespace IndependentRealtorApp.Models.DataLayer
             /* PROPERTYUSER CONFIG & SEED DATA */
             modelBuilder.Entity<PropertyUser>().HasKey(pu => new { pu.PublicUserId, pu.PropertyId });
 
-            //modelBuilder.Entity<PropertyUser>().HasOne(pu => pu.PublicUser).WithMany(u => u.PropertyUserLinks).HasForeignKey(pu => pu.PublicUserId).OnDelete(DeleteBehavior.Cascade);
             modelBuilder.Entity<PropertyUser>().HasOne(pu => pu.PublicUser).WithMany().HasForeignKey(pu => pu.PublicUserId).OnDelete(DeleteBehavior.Cascade);
 
-            //modelBuilder.Entity<PropertyUser>().HasOne(pu => pu.Property).WithMany(p => p.PropertyUsers).HasForeignKey(pu => pu.PropertyId).OnDelete(DeleteBehavior.Cascade);
             modelBuilder.Entity<PropertyUser>().HasOne(pu => pu.Property).WithMany().HasForeignKey(pu => pu.PropertyId).OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<Property>().HasMany(p => p.PropertyUsers).WithOne(pu => pu.Property).HasForeignKey(pu => pu.PropertyId).OnDelete(DeleteBehavior.Cascade);
-
-            modelBuilder.Entity<PropertyUser>().HasData(
-                new PropertyUser { PropertyId = 1, PublicUserId = 1 },
-                new PropertyUser { PropertyId = 1, PublicUserId = 2 },
-                new PropertyUser { PropertyId = 2, PublicUserId = 1 },
-                new PropertyUser { PropertyId = 2, PublicUserId = 3 },
-                new PropertyUser { PropertyId = 3, PublicUserId = 4 },
-                new PropertyUser { PropertyId = 3, PublicUserId = 7 },
-                new PropertyUser { PropertyId = 4, PublicUserId = 5 },
-                new PropertyUser { PropertyId = 4, PublicUserId = 6 },
-                new PropertyUser { PropertyId = 5, PublicUserId = 5 },
-                new PropertyUser { PropertyId = 5, PublicUserId = 3 },
-                new PropertyUser { PropertyId = 6, PublicUserId = 2 },
-                new PropertyUser { PropertyId = 6, PublicUserId = 4 },
-                new PropertyUser { PropertyId = 7, PublicUserId = 1 },
-                new PropertyUser { PropertyId = 7, PublicUserId = 7 }
-                );
+            //modelBuilder.Entity<PropertyUser>().HasData(
+            //    new PropertyUser { PropertyId = 1, PublicUserId = 1 },
+            //    new PropertyUser { PropertyId = 1, PublicUserId = 2 },
+            //    new PropertyUser { PropertyId = 2, PublicUserId = 1 },
+            //    new PropertyUser { PropertyId = 2, PublicUserId = 3 },
+            //    new PropertyUser { PropertyId = 3, PublicUserId = 4 },
+            //    new PropertyUser { PropertyId = 3, PublicUserId = 7 },
+            //    new PropertyUser { PropertyId = 4, PublicUserId = 5 },
+            //    new PropertyUser { PropertyId = 4, PublicUserId = 6 },
+            //    new PropertyUser { PropertyId = 5, PublicUserId = 5 },
+            //    new PropertyUser { PropertyId = 5, PublicUserId = 3 },
+            //    new PropertyUser { PropertyId = 6, PublicUserId = 2 },
+            //    new PropertyUser { PropertyId = 6, PublicUserId = 4 },
+            //    new PropertyUser { PropertyId = 7, PublicUserId = 1 },
+            //    new PropertyUser { PropertyId = 7, PublicUserId = 7 }
+            //    );
 
 
             /* REALTOR SEED DATA */
@@ -215,15 +211,15 @@ namespace IndependentRealtorApp.Models.DataLayer
 
             modelBuilder.Entity<Property>().HasMany(p => p.PropertyUsers).WithOne(pu => pu.Property).HasForeignKey(pu => pu.PropertyId).OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<PublicUser>().HasData(
-                new PublicUser { Id = 1, FirstName = "Sam", LastName = "Smith", UserEmail = "ssmith@fakeworld.net", UserName = "Sam", UserPassword = "pass1" },
-                new PublicUser { Id = 2, FirstName = "Linda", LastName = "Beltcher", UserEmail = "lbeltcher@fakeworld.net", UserName = "Linda", UserPassword = "pass1" },
-                new PublicUser { Id = 3, FirstName = "Bob", LastName = "Beltcher", UserEmail = "bbeltcher@fakeworld.net", UserName = "Bob", UserPassword = "pass1" },
-                new PublicUser { Id = 4, FirstName = "Kathy", LastName = "Klien", UserEmail = "kklien@fakeworld.net", UserName = "Kathy", UserPassword = "pass1" },
-                new PublicUser { Id = 5, FirstName = "Billy", LastName = "Williams", UserEmail = "bwilliams@fakeworld.net", UserName = "Billy", UserPassword = "pass1" },
-                new PublicUser { Id = 6, FirstName = "Sarah", LastName = "Seashell", UserEmail = "sseashell@fakeworld.net", UserName = "Sarah", UserPassword = "pass1" },
-                new PublicUser { Id = 7, FirstName = "Steven", LastName = "Klien", UserEmail = "sklien@fakeworld.net", UserName = "Steven", UserPassword = "pass1" }
-                );
+            //modelBuilder.Entity<PublicUser>().HasData(
+            //    new PublicUser { Id = 1, FirstName = "Sam", LastName = "Smith", Email = "ssmith@fakeworld.net", UserName = "Sam", UserPassword = "pass1" },
+            //    new PublicUser { Id = 2, FirstName = "Linda", LastName = "Beltcher", Email = "lbeltcher@fakeworld.net", UserName = "Linda", UserPassword = "pass1" },
+            //    new PublicUser { Id = 3, FirstName = "Bob", LastName = "Beltcher", Email = "bbeltcher@fakeworld.net", UserName = "Bob", UserPassword = "pass1" },
+            //    new PublicUser { Id = 4, FirstName = "Kathy", LastName = "Klien", Email = "kklien@fakeworld.net", UserName = "Kathy", UserPassword = "pass1" },
+            //    new PublicUser { Id = 5, FirstName = "Billy", LastName = "Williams", Email = "bwilliams@fakeworld.net", UserName = "Billy", UserPassword = "pass1" },
+            //    new PublicUser { Id = 6, FirstName = "Sarah", LastName = "Seashell", Email = "sseashell@fakeworld.net", UserName = "Sarah", UserPassword = "pass1" },
+            //    new PublicUser { Id = 7, FirstName = "Steven", LastName = "Klien", Email = "sklien@fakeworld.net", UserName = "Steven", UserPassword = "pass1" }
+            //    );
 
         }
 
