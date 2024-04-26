@@ -10,33 +10,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IndependentRealtorApp.Models.DataLayer
 {
-    /* Possible replacement so that ApplicationUser is the base class for both Realtor and PublicUser under a single IdentityDbContext
-     * 
-     public class ApplicationUser : IdentityUser<int>
-    {
-        // Common properties here
-    }
-
-    public class Realtor : ApplicationUser
-    {
-        // Realtor specific properties here
-    }
-
-    public class PublicUser : ApplicationUser
-    {
-        // PublicUser specific properties here
-    }
-
-    public class RealtorContext : IdentityDbContext<ApplicationUser, ApplicationRole, int>
-    {
-        public DbSet<Realtor> Realtors { get; set; }
-        public DbSet<PublicUser> PublicUsers { get; set; }
-
-        // Your properties here
-    } 
-     */
-    //public class RealtorContext : IdentityDbContext<PublicUser, ApplicationRole, int>
-    //public class RealtorContext : IdentityDbContext<Realtor, IdentityRole<int>, int>
     public class RealtorContext : IdentityDbContext<PublicUser, ApplicationRole, int>
     {
         public RealtorContext() { }
@@ -222,35 +195,5 @@ namespace IndependentRealtorApp.Models.DataLayer
                 );
 
         }
-
-
-        //public static async Task CreateAdminUser(IServiceProvider serviceProvider)
-        //{
-        //    using (var scoped = serviceProvider.CreateScope())
-        //    {
-        //        UserManager<Realtor> userManager = scoped.ServiceProvider.GetRequiredService<UserManager<Realtor>>();
-        //        RoleManager<IdentityRole> roleManager = scoped.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-
-        //        string username = "admin";
-        //        string pwd = "admin";
-        //        string roleName = "Admin";
-
-        //        // if role doesn't exist, create it
-        //        if (await roleManager.FindByNameAsync(roleName) == null)
-        //        {
-        //            await roleManager.CreateAsync(new IdentityRole(roleName));
-        //        }
-
-        //        if (await userManager.FindByNameAsync(username) == null)
-        //        {
-        //            Realtor user = new Realtor() { UserName = username };
-        //            var result = await userManager.CreateAsync(user, pwd);
-        //            if (result.Succeeded)
-        //            {
-        //                await userManager.AddToRoleAsync(user, roleName);
-        //            }
-        //        }
-        //    }
-        //}
     }
 }
