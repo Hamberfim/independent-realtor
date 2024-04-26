@@ -6,9 +6,9 @@ using IndependentRealtorApp.Models.DomainModels﻿;
 
 namespace IndependentRealtorApp.Controllers
 {
-    /* I have this set up backwards  a Realtor is a user with advanced privileges
+    /* I have this set up backwards -- a Realtor is a user with advanced privileges
      * I should have a User class and a Realtor class that inherits from User
-     *  I'll need to fix this */
+     * I'll need to fix this */
     public class AccountController : Controller
     {
         private UserManager<Realtor> userManager;
