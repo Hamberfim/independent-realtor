@@ -1,11 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 
 namespace IndependentRealtorApp.Models.DomainModels
 {
-    public class PublicUser
+    public class PublicUser : IdentityUser<int>
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
 
         [Display(Name = "First Name")]
         [Required(ErrorMessage = "Please enter your first name.")]
@@ -25,8 +26,8 @@ namespace IndependentRealtorApp.Models.DomainModels
         public string FullName => $"{FirstName} {LastName}";
 
         /* NOTE: this implementation in the user and admin models */
-        [Required(ErrorMessage = "Please enter user name.")]
-        public string UserName { get; set; } = string.Empty;
+        //[Required(ErrorMessage = "Please enter user name.")]
+        //public string UserName { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Please enter a password.")]
         [DataType(DataType.Password)]

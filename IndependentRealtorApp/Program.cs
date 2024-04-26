@@ -23,6 +23,13 @@ builder.Services.AddIdentity<Realtor, ApplicationRole>(options => {
     options.Password.RequireDigit = false;
 }).AddEntityFrameworkStores<RealtorContext>().AddDefaultTokenProviders();
 
+//builder.Services.AddIdentity<PublicUser, ApplicationRole>(options => {
+//    // override default password setting
+//    options.Password.RequiredLength = 6;
+//    options.Password.RequireNonAlphanumeric = false;
+//    options.Password.RequireDigit = false;
+//}).AddEntityFrameworkStores<RealtorContext>().AddDefaultTokenProviders();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
