@@ -32,7 +32,7 @@
                 <td>@property.PropertyState</td>
                 <td>@property.PropertyZip</td>
                 <td>@property.PropertyStatus</td>
-                <td>@property.PropertyPrice</td>
+                <td>@property.PropertyPrice?.ToString("C", new CultureInfo("en-US"))</td>
             </tr>
         }
     </tbody>

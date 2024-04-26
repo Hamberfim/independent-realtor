@@ -1,4 +1,5 @@
-﻿﻿
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<PublicUser> signInManager
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,38 +29,37 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">User List</a>
                             </li>
+                            <!-- Replaced by Registration -->
+                            @* <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Add">Add New User</a>
+                            </li> *@
+                            <!-- Login buttons and links -->
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Add">Add New User</a>
-                            </li>
-                            <li class="nav-item ms-auto">
-                                <a class="nav-link text-dark" asp-area="admin" asp-controller="Property" asp-action="Index">Admin Area</a>
-                            </li>
-                            @* <!-- Login buttons and links -->
-                            @using Microsoft.AspNetCore.Identity
-                            @using IndependentRealtorApp.Models.DomainModels
-                            @inject SignInManager<Realtor> signInManager
-                            <li class="nav-item ms-auto">
                                 @if (signInManager.IsSignedIn(User))
                                 {
-                                // signed-in user - Log Out button and username
-                                    <div class="nav-item">
-                                        <form method="post" asp-action="LogOut" asp-controller="Account" asp-area="Admin">
-                                            <input type="submit" value="Log Out" />
-                                            <span class="text-light">@User.Identity?.Name</span>
-                                        </form>
-                                    </div>
+                                // user is signed-in - Log Out button and username
+                                <li class="nav-link text-dark ms-auto">Welcome back, @User.Identity?.Name!</li>
+                                <li class="nav-item">
+                                    <form method="post" asp-controller="Account" asp-action="LogOut" asp-area="">
+                                        <input class="btn btn-outline-primary btn-sm" type="submit" value="Log Out" />
+                                    </form>
+                                </li>
+                                
                                 }
                                 else
                                 {
-                                    // anonymous user - Register link and Log In button
                                 <li class="nav-item ms-auto">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+                                    <a class="nav-link text-dark" asp-action="Register" asp-controller="Account" asp-area="">Register</a>
                                 </li>
+
                                 <li class="nav-item ms-auto">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Log In</a>
+                                    <a class="nav-link text-dark" asp-controller="Account" asp-action="Login" asp-area="">Log In</a>
                                 </li>
                                 }
-                            </li> *@
+                            </li>
+                            <li class="nav-item ms-auto">
+                                <a class="nav-link text-dark" asp-area="admin" asp-controller="Property" asp-action="Index">Admin</a>
+                            </li>
                         </ul>
                     </div>
                 </div>

@@ -1,16 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IndependentRealtorApp.Models.DomainModels
 {
-    public class Realtor
+    public class Realtor : IdentityUser<int>
     {
-        // public Realtor() => Properties = new HashSet<Property>();
-
-        public int Id { get; set; }
-
-        // public string RealtorId { get; set; } = string.Empty;
+        // public int Id { get; set; }
 
         [Display(Name = "First Name")]
         [StringLength(125, ErrorMessage = "First name must be 125 characters or less")]
@@ -24,22 +20,23 @@ namespace IndependentRealtorApp.Models.DomainModels
 
         public string FullName => $"{FirstName} {LastName}";  // read-only property
 
+        // Moving to IdentityUser
         [Display(Name = "Realtor Email")]
         [Required(ErrorMessage = "Please enter your email address.")]
         public string RealtorEmail { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Please enter user name.")]
-        public string UserName { get; set; } = string.Empty;
+        //[Required(ErrorMessage = "Please enter user name.")]
+        //public string UserName { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Please enter a password.")]
         [DataType(DataType.Password)]
         public string RealtorPassword { get; set; } = string.Empty;
 
-        //[Required(ErrorMessage = "Please enter to confirm your password.")]
-        //[DataType(DataType.Password)]
-        //[Compare("Password")]
-        //[NotMapped]
-        //public string ConfirmPassword { get; set; } = string.Empty;
+        [Required(ErrorMessage = "Please enter to confirm your password.")]
+        [DataType(DataType.Password)]
+        [Compare("Password")]
+        [NotMapped]
+        public string ConfirmPassword { get; set; } = string.Empty;
 
         public ICollection<Property>? Properties { get; set; }
     }

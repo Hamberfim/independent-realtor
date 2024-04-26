@@ -1,6 +1,4 @@
-﻿using IndependentRealtorApp.Models.DataLayer;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System.ComponentModel.DataAnnotations;
 
 namespace IndependentRealtorApp.Models.DomainModels

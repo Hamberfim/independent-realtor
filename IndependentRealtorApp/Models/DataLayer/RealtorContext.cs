@@ -3,14 +3,14 @@
 * CIS174 - Final Project - Spring 2024
 * NOTES: We will use a mix of conventions, annotations and fluent API to config DB context and db models
 */
-
-using IndependentRealtorApp.Area.Admin.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using IndependentRealtorApp.Models.DomainModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace IndependentRealtorApp.Models.DataLayer
 {
-    public class RealtorContext : DbContext
+    public class RealtorContext : IdentityDbContext<PublicUser, ApplicationRole, int>
     {
         public RealtorContext() { }
 
@@ -28,8 +28,11 @@ namespace IndependentRealtorApp.Models.DataLayer
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // order may be important - might have to switch these around
+            // adding Identity to the context
+            base.OnModelCreating(modelBuilder); // this will include the default configurations needed for the identity entities primary keys
+            //modelBuilder.Entity<IdentityUserLogin<string>>();
 
+            // order may be important - might have to switch these around
             /* PROPERTY CONFIG & SEED DATA */
             modelBuilder.Entity<Property>().HasOne(p => p.Realtor).WithMany(r => r.Properties).HasForeignKey(p => p.RealtorId);
             modelBuilder.Entity<Property>().HasMany(p => p.PropertyUsers).WithOne(pu => pu.Property).HasForeignKey(pu => pu.PropertyId).OnDelete(DeleteBehavior.Cascade);
@@ -145,13 +148,9 @@ namespace IndependentRealtorApp.Models.DataLayer
             /* PROPERTYUSER CONFIG & SEED DATA */
             modelBuilder.Entity<PropertyUser>().HasKey(pu => new { pu.PublicUserId, pu.PropertyId });
 
-            //modelBuilder.Entity<PropertyUser>().HasOne(pu => pu.PublicUser).WithMany(u => u.PropertyUserLinks).HasForeignKey(pu => pu.PublicUserId).OnDelete(DeleteBehavior.Cascade);
             modelBuilder.Entity<PropertyUser>().HasOne(pu => pu.PublicUser).WithMany().HasForeignKey(pu => pu.PublicUserId).OnDelete(DeleteBehavior.Cascade);
 
-            //modelBuilder.Entity<PropertyUser>().HasOne(pu => pu.Property).WithMany(p => p.PropertyUsers).HasForeignKey(pu => pu.PropertyId).OnDelete(DeleteBehavior.Cascade);
             modelBuilder.Entity<PropertyUser>().HasOne(pu => pu.Property).WithMany().HasForeignKey(pu => pu.PropertyId).OnDelete(DeleteBehavior.Cascade);
-
-            modelBuilder.Entity<Property>().HasMany(p => p.PropertyUsers).WithOne(pu => pu.Property).HasForeignKey(pu => pu.PropertyId).OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<PropertyUser>().HasData(
                 new PropertyUser { PropertyId = 1, PublicUserId = 1 },
@@ -186,48 +185,15 @@ namespace IndependentRealtorApp.Models.DataLayer
             modelBuilder.Entity<Property>().HasMany(p => p.PropertyUsers).WithOne(pu => pu.Property).HasForeignKey(pu => pu.PropertyId).OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<PublicUser>().HasData(
-                new PublicUser { Id = 1, FirstName = "Sam", LastName = "Smith", UserEmail = "ssmith@fakeworld.net", UserName = "Sam", UserPassword = "pass1" },
-                new PublicUser { Id = 2, FirstName = "Linda", LastName = "Beltcher", UserEmail = "lbeltcher@fakeworld.net", UserName = "Linda", UserPassword = "pass1" },
-                new PublicUser { Id = 3, FirstName = "Bob", LastName = "Beltcher", UserEmail = "bbeltcher@fakeworld.net", UserName = "Bob", UserPassword = "pass1" },
-                new PublicUser { Id = 4, FirstName = "Kathy", LastName = "Klien", UserEmail = "kklien@fakeworld.net", UserName = "Kathy", UserPassword = "pass1" },
-                new PublicUser { Id = 5, FirstName = "Billy", LastName = "Williams", UserEmail = "bwilliams@fakeworld.net", UserName = "Billy", UserPassword = "pass1" },
-                new PublicUser { Id = 6, FirstName = "Sarah", LastName = "Seashell", UserEmail = "sseashell@fakeworld.net", UserName = "Sarah", UserPassword = "pass1" },
-                new PublicUser { Id = 7, FirstName = "Steven", LastName = "Klien", UserEmail = "sklien@fakeworld.net", UserName = "Steven", UserPassword = "pass1" }
+                new PublicUser { Id = 1, FirstName = "Sam", LastName = "Smith", Email = "ssmith@fakeworld.net", UserName = "Sam", UserPassword = "pass1" },
+                new PublicUser { Id = 2, FirstName = "Linda", LastName = "Beltcher", Email = "lbeltcher@fakeworld.net", UserName = "Linda", UserPassword = "pass1" },
+                new PublicUser { Id = 3, FirstName = "Bob", LastName = "Beltcher", Email = "bbeltcher@fakeworld.net", UserName = "Bob", UserPassword = "pass1" },
+                new PublicUser { Id = 4, FirstName = "Kathy", LastName = "Klien", Email = "kklien@fakeworld.net", UserName = "Kathy", UserPassword = "pass1" },
+                new PublicUser { Id = 5, FirstName = "Billy", LastName = "Williams", Email = "bwilliams@fakeworld.net", UserName = "Billy", UserPassword = "pass1" },
+                new PublicUser { Id = 6, FirstName = "Sarah", LastName = "Seashell", Email = "sseashell@fakeworld.net", UserName = "Sarah", UserPassword = "pass1" },
+                new PublicUser { Id = 7, FirstName = "Steven", LastName = "Klien", Email = "sklien@fakeworld.net", UserName = "Steven", UserPassword = "pass1" }
                 );
 
-            // adding Identity to the context
-            //base.OnModelCreating(modelBuilder); // this will include the default configurations needed for the identity entities primary keys
-            //modelBuilder.Entity<IdentityUserLogin<string>>();
         }
-
-
-        //public static async Task CreateAdminUser(IServiceProvider serviceProvider)
-        //{
-        //    using (var scoped = serviceProvider.CreateScope())
-        //    {
-        //        UserManager<Realtor> userManager = scoped.ServiceProvider.GetRequiredService<UserManager<Realtor>>();
-        //        RoleManager<IdentityRole> roleManager = scoped.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-
-        //        string username = "admin";
-        //        string pwd = "admin";
-        //        string roleName = "Admin";
-
-        //        // if role doesn't exist, create it
-        //        if (await roleManager.FindByNameAsync(roleName) == null)
-        //        {
-        //            await roleManager.CreateAsync(new IdentityRole(roleName));
-        //        }
-
-        //        if (await userManager.FindByNameAsync(username) == null)
-        //        {
-        //            Realtor user = new Realtor() { UserName = username };
-        //            var result = await userManager.CreateAsync(user, pwd);
-        //            if (result.Succeeded)
-        //            {
-        //                await userManager.AddToRoleAsync(user, roleName);
-        //            }
-        //        }
-        //    }
-        //}
     }
 }

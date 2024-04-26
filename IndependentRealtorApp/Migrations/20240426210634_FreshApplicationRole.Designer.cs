@@ -4,6 +4,7 @@ using IndependentRealtorApp.Models.DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IndependentRealtorApp.Migrations
 {
     [DbContext(typeof(RealtorContext))]
-    partial class RealtorContextModelSnapshot : ModelSnapshot
+    [Migration("20240426210634_FreshApplicationRole")]
+    partial class FreshApplicationRole
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -309,12 +312,10 @@ namespace IndependentRealtorApp.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
@@ -336,12 +337,10 @@ namespace IndependentRealtorApp.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("NormalizedEmail")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
@@ -358,9 +357,12 @@ namespace IndependentRealtorApp.Migrations
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
+                    b.Property<string>("UserEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("UserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserPassword")
                         .IsRequired()
@@ -368,29 +370,21 @@ namespace IndependentRealtorApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("NormalizedEmail")
-                        .HasDatabaseName("EmailIndex");
-
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasDatabaseName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.ToTable("AspNetUsers", (string)null);
+                    b.ToTable("PublicUsers");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "da1530e9-36bd-45a6-bbc1-28cffa963630",
-                            Email = "ssmith@fakeworld.net",
+                            ConcurrencyStamp = "3ff3fe14-86d0-4791-8ba5-df46464623a4",
                             EmailConfirmed = false,
                             FirstName = "Sam",
                             LastName = "Smith",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
+                            UserEmail = "ssmith@fakeworld.net",
                             UserName = "Sam",
                             UserPassword = "pass1"
                         },
@@ -398,14 +392,14 @@ namespace IndependentRealtorApp.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e6d345be-9bae-4991-8eb8-2838af892779",
-                            Email = "lbeltcher@fakeworld.net",
+                            ConcurrencyStamp = "10bc1d37-e5c8-4c59-bedf-87adad2a84a6",
                             EmailConfirmed = false,
                             FirstName = "Linda",
                             LastName = "Beltcher",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
+                            UserEmail = "lbeltcher@fakeworld.net",
                             UserName = "Linda",
                             UserPassword = "pass1"
                         },
@@ -413,14 +407,14 @@ namespace IndependentRealtorApp.Migrations
                         {
                             Id = 3,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2e68aea5-2909-4f9e-9db8-4c6472985b4d",
-                            Email = "bbeltcher@fakeworld.net",
+                            ConcurrencyStamp = "1b0af444-17d4-433a-b5ee-4812789a1078",
                             EmailConfirmed = false,
                             FirstName = "Bob",
                             LastName = "Beltcher",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
+                            UserEmail = "bbeltcher@fakeworld.net",
                             UserName = "Bob",
                             UserPassword = "pass1"
                         },
@@ -428,14 +422,14 @@ namespace IndependentRealtorApp.Migrations
                         {
                             Id = 4,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9fd832ff-db1d-41fb-8168-70a7c11cca73",
-                            Email = "kklien@fakeworld.net",
+                            ConcurrencyStamp = "90ce9475-5b9f-40b1-a493-69b7deee4cee",
                             EmailConfirmed = false,
                             FirstName = "Kathy",
                             LastName = "Klien",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
+                            UserEmail = "kklien@fakeworld.net",
                             UserName = "Kathy",
                             UserPassword = "pass1"
                         },
@@ -443,14 +437,14 @@ namespace IndependentRealtorApp.Migrations
                         {
                             Id = 5,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4b8ec8e6-8e0a-4325-a076-03bcb80f0049",
-                            Email = "bwilliams@fakeworld.net",
+                            ConcurrencyStamp = "3468731c-e3a7-46f2-9365-1fc3bb05fce4",
                             EmailConfirmed = false,
                             FirstName = "Billy",
                             LastName = "Williams",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
+                            UserEmail = "bwilliams@fakeworld.net",
                             UserName = "Billy",
                             UserPassword = "pass1"
                         },
@@ -458,14 +452,14 @@ namespace IndependentRealtorApp.Migrations
                         {
                             Id = 6,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3b2dc22b-855c-44da-a8bc-ba444fe7faa7",
-                            Email = "sseashell@fakeworld.net",
+                            ConcurrencyStamp = "a2a8c37f-a4f1-4528-9e12-3f21ebb19c7d",
                             EmailConfirmed = false,
                             FirstName = "Sarah",
                             LastName = "Seashell",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
+                            UserEmail = "sseashell@fakeworld.net",
                             UserName = "Sarah",
                             UserPassword = "pass1"
                         },
@@ -473,14 +467,14 @@ namespace IndependentRealtorApp.Migrations
                         {
                             Id = 7,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4b418baa-1af7-49df-897d-a3883ee6cfa8",
-                            Email = "sklien@fakeworld.net",
+                            ConcurrencyStamp = "750ab18f-e53b-4dff-b479-81011ac2af23",
                             EmailConfirmed = false,
                             FirstName = "Steven",
                             LastName = "Klien",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
+                            UserEmail = "sklien@fakeworld.net",
                             UserName = "Steven",
                             UserPassword = "pass1"
                         });
@@ -498,10 +492,12 @@ namespace IndependentRealtorApp.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
@@ -523,10 +519,12 @@ namespace IndependentRealtorApp.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("NormalizedEmail")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("NormalizedUserName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
@@ -552,18 +550,27 @@ namespace IndependentRealtorApp.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Realtors");
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
 
                     b.HasData(
                         new
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0f57636f-a722-4597-855e-9575e82a6d2b",
+                            ConcurrencyStamp = "dc9c6e12-46fe-41da-971f-f31db1087f48",
                             EmailConfirmed = false,
                             FirstName = "Timothy",
                             LastName = "Goodsale",
@@ -720,7 +727,7 @@ namespace IndependentRealtorApp.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
                 {
-                    b.HasOne("IndependentRealtorApp.Models.DomainModels.PublicUser", null)
+                    b.HasOne("IndependentRealtorApp.Models.DomainModels.Realtor", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -729,7 +736,7 @@ namespace IndependentRealtorApp.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
                 {
-                    b.HasOne("IndependentRealtorApp.Models.DomainModels.PublicUser", null)
+                    b.HasOne("IndependentRealtorApp.Models.DomainModels.Realtor", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -744,7 +751,7 @@ namespace IndependentRealtorApp.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("IndependentRealtorApp.Models.DomainModels.PublicUser", null)
+                    b.HasOne("IndependentRealtorApp.Models.DomainModels.Realtor", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -753,7 +760,7 @@ namespace IndependentRealtorApp.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
                 {
-                    b.HasOne("IndependentRealtorApp.Models.DomainModels.PublicUser", null)
+                    b.HasOne("IndependentRealtorApp.Models.DomainModels.Realtor", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

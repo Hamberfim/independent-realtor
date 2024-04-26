@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using IndependentRealtorApp.Models.DataLayer;
+using Microsoft.AspNetCore.Identity;
 
 namespace IndependentRealtorApp.Models.DomainModels
 {
-    public class PublicUser
+    public class PublicUser : IdentityUser<int>
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
 
         [Display(Name = "First Name")]
         [Required(ErrorMessage = "Please enter your first name.")]
@@ -18,16 +18,15 @@ namespace IndependentRealtorApp.Models.DomainModels
         [StringLength(50, ErrorMessage = "Last name must be 50 characters or less.")]
         public string LastName { get; set; } = string.Empty;
 
-        [Display(Name = "Email Address")]
-        [Required(ErrorMessage = "Please enter your email address.")]
-        [EmailAddress(ErrorMessage = "Please enter a valid email address.")]
-        public string UserEmail { get; set; } = string.Empty;
+        //[Required(ErrorMessage = "Please enter an email address.")]
+        //[DataType(DataType.EmailAddress)]
+        //public string Email { get; set; } = string.Empty;
 
         public string FullName => $"{FirstName} {LastName}";
 
         /* NOTE: this implementation in the user and admin models */
-        [Required(ErrorMessage = "Please enter user name.")]
-        public string UserName { get; set; } = string.Empty;
+        //[Required(ErrorMessage = "Please enter user name.")]
+        //public string UserName { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Please enter a password.")]
         [DataType(DataType.Password)]

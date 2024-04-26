@@ -4,6 +4,7 @@ using IndependentRealtorApp.Models.DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IndependentRealtorApp.Migrations
 {
     [DbContext(typeof(RealtorContext))]
-    partial class RealtorContextModelSnapshot : ModelSnapshot
+    [Migration("20240426212330_PublicUserIdentity")]
+    partial class PublicUserIdentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -358,6 +361,10 @@ namespace IndependentRealtorApp.Migrations
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
+                    b.Property<string>("UserEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -383,14 +390,14 @@ namespace IndependentRealtorApp.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "da1530e9-36bd-45a6-bbc1-28cffa963630",
-                            Email = "ssmith@fakeworld.net",
+                            ConcurrencyStamp = "2c8c79ac-d753-4345-93f7-85f4212fc9fa",
                             EmailConfirmed = false,
                             FirstName = "Sam",
                             LastName = "Smith",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
+                            UserEmail = "ssmith@fakeworld.net",
                             UserName = "Sam",
                             UserPassword = "pass1"
                         },
@@ -398,14 +405,14 @@ namespace IndependentRealtorApp.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e6d345be-9bae-4991-8eb8-2838af892779",
-                            Email = "lbeltcher@fakeworld.net",
+                            ConcurrencyStamp = "24becca5-f91e-4407-8a57-51b737b6f950",
                             EmailConfirmed = false,
                             FirstName = "Linda",
                             LastName = "Beltcher",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
+                            UserEmail = "lbeltcher@fakeworld.net",
                             UserName = "Linda",
                             UserPassword = "pass1"
                         },
@@ -413,14 +420,14 @@ namespace IndependentRealtorApp.Migrations
                         {
                             Id = 3,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2e68aea5-2909-4f9e-9db8-4c6472985b4d",
-                            Email = "bbeltcher@fakeworld.net",
+                            ConcurrencyStamp = "18a33c5e-056a-4662-8146-ee889cfc8d7e",
                             EmailConfirmed = false,
                             FirstName = "Bob",
                             LastName = "Beltcher",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
+                            UserEmail = "bbeltcher@fakeworld.net",
                             UserName = "Bob",
                             UserPassword = "pass1"
                         },
@@ -428,14 +435,14 @@ namespace IndependentRealtorApp.Migrations
                         {
                             Id = 4,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9fd832ff-db1d-41fb-8168-70a7c11cca73",
-                            Email = "kklien@fakeworld.net",
+                            ConcurrencyStamp = "214582ff-429c-4821-bc60-e5db51d4b7b8",
                             EmailConfirmed = false,
                             FirstName = "Kathy",
                             LastName = "Klien",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
+                            UserEmail = "kklien@fakeworld.net",
                             UserName = "Kathy",
                             UserPassword = "pass1"
                         },
@@ -443,14 +450,14 @@ namespace IndependentRealtorApp.Migrations
                         {
                             Id = 5,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4b8ec8e6-8e0a-4325-a076-03bcb80f0049",
-                            Email = "bwilliams@fakeworld.net",
+                            ConcurrencyStamp = "795aafc7-f355-4eb3-8d35-8bab69ebabe7",
                             EmailConfirmed = false,
                             FirstName = "Billy",
                             LastName = "Williams",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
+                            UserEmail = "bwilliams@fakeworld.net",
                             UserName = "Billy",
                             UserPassword = "pass1"
                         },
@@ -458,14 +465,14 @@ namespace IndependentRealtorApp.Migrations
                         {
                             Id = 6,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3b2dc22b-855c-44da-a8bc-ba444fe7faa7",
-                            Email = "sseashell@fakeworld.net",
+                            ConcurrencyStamp = "519c527e-cfae-40f6-a7e9-84835cba6691",
                             EmailConfirmed = false,
                             FirstName = "Sarah",
                             LastName = "Seashell",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
+                            UserEmail = "sseashell@fakeworld.net",
                             UserName = "Sarah",
                             UserPassword = "pass1"
                         },
@@ -473,14 +480,14 @@ namespace IndependentRealtorApp.Migrations
                         {
                             Id = 7,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4b418baa-1af7-49df-897d-a3883ee6cfa8",
-                            Email = "sklien@fakeworld.net",
+                            ConcurrencyStamp = "748e1860-f428-45f8-b6f3-401f85eebbf8",
                             EmailConfirmed = false,
                             FirstName = "Steven",
                             LastName = "Klien",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
+                            UserEmail = "sklien@fakeworld.net",
                             UserName = "Steven",
                             UserPassword = "pass1"
                         });
@@ -563,7 +570,7 @@ namespace IndependentRealtorApp.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0f57636f-a722-4597-855e-9575e82a6d2b",
+                            ConcurrencyStamp = "aa2377b3-dce6-49b7-ab3e-4d99725b566a",
                             EmailConfirmed = false,
                             FirstName = "Timothy",
                             LastName = "Goodsale",
