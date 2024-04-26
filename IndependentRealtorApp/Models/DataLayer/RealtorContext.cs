@@ -5,7 +5,6 @@
 */
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using IndependentRealtorApp.Area.Admin.Models;
 using IndependentRealtorApp.Models.DomainModels;
 using Microsoft.EntityFrameworkCore;
 

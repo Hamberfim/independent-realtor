@@ -1,6 +1,9 @@
 using IndependentRealtorApp.Models.DataLayer;
 using Microsoft.EntityFrameworkCore;
 using IndependentRealtorApp.Area.Admin.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using IndependentRealtorApp.Models.DomainModels;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +14,15 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<RealtorContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("RealtorContext")));
 
 builder.Services.AddScoped<PropertyService>();
+
+// Identity services
+builder.Services.AddIdentity<Realtor, IdentityRole>(options => {
+    // override default password setting
+    options.Password.RequiredLength = 6;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireDigit = false;
+}).AddEntityFrameworkStores<RealtorContext>().AddDefaultTokenProviders();
 
 var app = builder.Build();
 
@@ -27,6 +39,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapAreaControllerRoute(
