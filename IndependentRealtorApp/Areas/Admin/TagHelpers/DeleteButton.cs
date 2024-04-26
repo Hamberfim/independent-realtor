@@ -2,7 +2,7 @@
 
 namespace IndependentRealtorApp.Areas.Admin.TagHelpers
 {
-    [HtmlTargetElement("button", Attributes = "id,name,asp-controller,asp-action")]
+    [HtmlTargetElement("a", Attributes = "id,name,asp-controller,asp-action")]
     public class DeleteButton : TagHelper
     {
         public override void Process(TagHelperContext context, TagHelperOutput output)
