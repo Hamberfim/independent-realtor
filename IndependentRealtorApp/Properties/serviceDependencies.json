@@ -2,11 +2,8 @@
   "dependencies": {
     "mssql1": {
       "type": "mssql",
-      "connectionId": "ConnectionStrings"
-    },
-    "mssql2": {
-      "type": "mssql",
-      "connectionId": "CSRealtor"
+      "connectionId": "ConnectionStrings:RealtorContext",
+      "dynamicId": null
     }
   }
 }
