@@ -4,6 +4,7 @@ using IndependentRealtorApp.Models.DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IndependentRealtorApp.Migrations
 {
     [DbContext(typeof(RealtorContext))]
-    partial class RealtorContextModelSnapshot : ModelSnapshot
+    [Migration("20240426220703_UserSeed")]
+    partial class UserSeed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -223,78 +226,6 @@ namespace IndependentRealtorApp.Migrations
                     b.HasIndex("PropertyId");
 
                     b.ToTable("PropertyUsers");
-
-                    b.HasData(
-                        new
-                        {
-                            PublicUserId = 1,
-                            PropertyId = 1
-                        },
-                        new
-                        {
-                            PublicUserId = 2,
-                            PropertyId = 1
-                        },
-                        new
-                        {
-                            PublicUserId = 1,
-                            PropertyId = 2
-                        },
-                        new
-                        {
-                            PublicUserId = 3,
-                            PropertyId = 2
-                        },
-                        new
-                        {
-                            PublicUserId = 4,
-                            PropertyId = 3
-                        },
-                        new
-                        {
-                            PublicUserId = 7,
-                            PropertyId = 3
-                        },
-                        new
-                        {
-                            PublicUserId = 5,
-                            PropertyId = 4
-                        },
-                        new
-                        {
-                            PublicUserId = 6,
-                            PropertyId = 4
-                        },
-                        new
-                        {
-                            PublicUserId = 5,
-                            PropertyId = 5
-                        },
-                        new
-                        {
-                            PublicUserId = 3,
-                            PropertyId = 5
-                        },
-                        new
-                        {
-                            PublicUserId = 2,
-                            PropertyId = 6
-                        },
-                        new
-                        {
-                            PublicUserId = 4,
-                            PropertyId = 6
-                        },
-                        new
-                        {
-                            PublicUserId = 1,
-                            PropertyId = 7
-                        },
-                        new
-                        {
-                            PublicUserId = 7,
-                            PropertyId = 7
-                        });
                 });
 
             modelBuilder.Entity("IndependentRealtorApp.Models.DomainModels.PublicUser", b =>
@@ -383,7 +314,7 @@ namespace IndependentRealtorApp.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "da1530e9-36bd-45a6-bbc1-28cffa963630",
+                            ConcurrencyStamp = "0b005b89-be18-46e7-a27c-49391be2610b",
                             Email = "ssmith@fakeworld.net",
                             EmailConfirmed = false,
                             FirstName = "Sam",
@@ -398,7 +329,7 @@ namespace IndependentRealtorApp.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e6d345be-9bae-4991-8eb8-2838af892779",
+                            ConcurrencyStamp = "deccdf89-495a-49b8-ba29-10e8d72e9af5",
                             Email = "lbeltcher@fakeworld.net",
                             EmailConfirmed = false,
                             FirstName = "Linda",
@@ -413,7 +344,7 @@ namespace IndependentRealtorApp.Migrations
                         {
                             Id = 3,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2e68aea5-2909-4f9e-9db8-4c6472985b4d",
+                            ConcurrencyStamp = "f3d0deb3-497e-47f5-9b01-5248065ace8b",
                             Email = "bbeltcher@fakeworld.net",
                             EmailConfirmed = false,
                             FirstName = "Bob",
@@ -428,7 +359,7 @@ namespace IndependentRealtorApp.Migrations
                         {
                             Id = 4,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9fd832ff-db1d-41fb-8168-70a7c11cca73",
+                            ConcurrencyStamp = "6bb2744f-0f2b-4bdb-ad83-b248de1542d1",
                             Email = "kklien@fakeworld.net",
                             EmailConfirmed = false,
                             FirstName = "Kathy",
@@ -443,7 +374,7 @@ namespace IndependentRealtorApp.Migrations
                         {
                             Id = 5,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4b8ec8e6-8e0a-4325-a076-03bcb80f0049",
+                            ConcurrencyStamp = "e6aec2f2-6b52-4a64-9bd9-35335e40c77c",
                             Email = "bwilliams@fakeworld.net",
                             EmailConfirmed = false,
                             FirstName = "Billy",
@@ -458,7 +389,7 @@ namespace IndependentRealtorApp.Migrations
                         {
                             Id = 6,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3b2dc22b-855c-44da-a8bc-ba444fe7faa7",
+                            ConcurrencyStamp = "127f41cd-f4aa-4c22-b608-74b932c53a04",
                             Email = "sseashell@fakeworld.net",
                             EmailConfirmed = false,
                             FirstName = "Sarah",
@@ -473,7 +404,7 @@ namespace IndependentRealtorApp.Migrations
                         {
                             Id = 7,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4b418baa-1af7-49df-897d-a3883ee6cfa8",
+                            ConcurrencyStamp = "b4ce4434-83c4-425d-9e27-6d231c14b8ac",
                             Email = "sklien@fakeworld.net",
                             EmailConfirmed = false,
                             FirstName = "Steven",
@@ -563,7 +494,7 @@ namespace IndependentRealtorApp.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0f57636f-a722-4597-855e-9575e82a6d2b",
+                            ConcurrencyStamp = "8576a48c-baf9-4546-b8dc-4fc4831bd197",
                             EmailConfirmed = false,
                             FirstName = "Timothy",
                             LastName = "Goodsale",
