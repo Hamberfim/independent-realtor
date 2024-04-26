@@ -8,7 +8,7 @@ namespace IndependentRealtorApp.Controllers
 {
     /* I have this set up backwards -- a Realtor is a user with advanced privileges
      * I should have a User class and a Realtor class that inherits from User
-     * I'll need to fix this */
+     * Not sure I have time to fix this */
     public class AccountController : Controller
     {
         private UserManager<Realtor> userManager;
