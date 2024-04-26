@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Razor.TagHelpers;
+﻿using Microsoft.AspNetCore.Mvc.TagHelpers;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace IndependentRealtorApp.Areas.Admin.TagHelpers
 {
@@ -8,6 +9,9 @@ namespace IndependentRealtorApp.Areas.Admin.TagHelpers
     {
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
+            /* specifically added to the top of /Admin/Views/Property/index.cshtml 
+             * @addTagHelper IndependentRealtorApp.Areas.Admin.TagHelpers.*, IndependentRealtorApp 
+             * and still not working so I set the class on that page for now */
             output.Attributes.SetAttribute("class", "btn btn-danger btn-sm");
         }
     }
