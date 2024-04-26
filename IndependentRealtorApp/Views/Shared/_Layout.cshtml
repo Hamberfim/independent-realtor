@@ -38,17 +38,17 @@
                                 @if (signInManager.IsSignedIn(User))
                                 {
                                 // user is signed-in - Log Out button and username
-                                <li class="nav-item">
+                                <li class="nav-item ms-auto">
                                     <form method="post" asp-controller="Account" asp-action="LogOut" asp-area="Admin">
-                                        <input class="btn btn-outline-light btn-sm" type="submit" value="Log Out" />
+                                        <input class="" type="submit" value="Log Out" />
                                         <span class="nav-link text-dark">@User.Identity?.Name</span>
                                     </form>
                                 </li>
                                 }
                                 else
                                 {
-                                <li class="nav-item">
-                                    <a class="nav-link nav-link btn btn-outline-light btn-sm" asp-controller="Account" asp-action="Login" asp-area="Admin">Log In</a>
+                                <li class="nav-item ms-auto">
+                                    <a class="nav-link nav-link btn btn-outline-light btn-sm" asp-controller="Account" asp-action="Admin Login" asp-area="Admin">Log In</a>
                                 </li>
                                 }
                             </li>
