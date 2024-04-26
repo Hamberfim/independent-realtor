@@ -16,10 +16,9 @@ builder.Services.AddDbContext<RealtorContext>(options => options.UseSqlServer(bu
 builder.Services.AddScoped<PropertyService>();
 
 // Identity services
-builder.Services.AddIdentity<Realtor, IdentityRole>(options => {
+builder.Services.AddIdentity<Realtor, ApplicationRole>(options => {
     // override default password setting
     options.Password.RequiredLength = 6;
-    options.Password.RequireUppercase = false;
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequireDigit = false;
 }).AddEntityFrameworkStores<RealtorContext>().AddDefaultTokenProviders();
