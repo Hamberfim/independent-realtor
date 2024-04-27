@@ -24,10 +24,10 @@
                     <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                         <ul class="navbar-nav flex-grow-1">
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">User List</a>
+                                <a class="nav-link" asp-area="" asp-controller="User" asp-action="Index">User List</a>
                             </li>
                             <!-- Replaced by Registration -->
                             @* <li class="nav-item">
@@ -38,32 +38,32 @@
                                 @if (signInManager.IsSignedIn(User))
                                 {
                                 // user is signed-in - Log Out button and username
-                                <li class="nav-link text-dark ms-auto fs-6">Welcome back, @User.Identity?.Name!</li>
+                                <li class="nav-link text-dark ms-auto fs-6">Welcome back, @User.Identity?.Name! &nbsp;</li>
                                 <li class="nav-item">
                                     <form method="post" asp-controller="Account" asp-action="LogOut" asp-area="">
                                         <input class="btn btn-outline-primary btn-sm" type="submit" value="Log Out" />
                                     </form>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark ms-auto fs-6" asp-action="ChangePassword" asp-controller="Account" asp-area="">Change Password</a>
+                                    <a class="nav-link" asp-action="ChangePassword" asp-controller="Account" asp-area="">&nbsp;Change Password</a>
                                 </li>
 
                                 }
                                 else
                                 {
                                 <li class="nav-item ms-auto">
-                                    <a class="nav-link text-dark" asp-action="Register" asp-controller="Account" asp-area="">Register</a>
+                                    <a class="nav-link" asp-action="Register" asp-controller="Account" asp-area="">Register</a>
                                 </li>
 
-                                <li class="nav-item ms-auto">
-                                    <a class="nav-link text-dark" asp-controller="Account" asp-action="Login" asp-area="">Log In</a>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Account" asp-action="Login" asp-area="">Log In</a>
                                 </li>
                                 }
                             </li>
                             @if (signInManager.IsSignedIn(User))
                             { @if(User.IsInRole("Admin")){
                                 <li class="nav-item ms-auto">
-                                    <a class="nav-link text-dark" asp-area="admin" asp-controller="Property" asp-action="Index">Admin</a>
+                                    <a class="nav-link text-dark btn btn-outline-warning btn-sm" asp-area="admin" asp-controller="Property" asp-action="Index">Admin</a>
                                 </li>
                                 }
                             }

@@ -14,7 +14,7 @@ namespace IndependentRealtorApp.Models.Configuration
                 provider.GetRequiredService<UserManager<PublicUser>>();
 
             string username = "admin";
-            string password = "Password321";
+            string password = "&Password321";
             string roleName = "Admin";
 
             // if role doesn't exist, create it
