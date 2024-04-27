@@ -44,7 +44,10 @@
                                         <input class="btn btn-outline-primary btn-sm" type="submit" value="Log Out" />
                                     </form>
                                 </li>
-                                
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark ms-auto fs-6" asp-action="ChangePassword" asp-controller="Account" asp-area="">Change Password</a>
+                                </li>
+
                                 }
                                 else
                                 {
@@ -57,13 +60,13 @@
                                 </li>
                                 }
                             </li>
-@*                             @if (signInManager.IsSignedIn(User))
-                            { @if(User.IsInRole("Admin")){ *@
+                            @if (signInManager.IsSignedIn(User))
+                            { @if(User.IsInRole("Admin")){
                                 <li class="nav-item ms-auto">
                                     <a class="nav-link text-dark" asp-area="admin" asp-controller="Property" asp-action="Index">Admin</a>
                                 </li>
-@*                                 }
-                            } *@
+                                }
+                            }
                         </ul>
                     </div>
                 </div>
