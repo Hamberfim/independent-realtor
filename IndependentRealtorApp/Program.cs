@@ -3,11 +3,15 @@ using Microsoft.EntityFrameworkCore;
 using IndependentRealtorApp.Area.Admin.Models;
 using Microsoft.AspNetCore.Identity;
 using IndependentRealtorApp.Models.DomainModels;
+using IndependentRealtorApp.Models.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddMemoryCache();
+builder.Services.AddSession();
 
 // Add EF Core services
 builder.Services.AddDbContext<RealtorContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("RealtorContext")));
@@ -48,6 +52,13 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+
+var scopeFactory = app.Services.GetRequiredService<IServiceScopeFactory>();
+using (var scope = scopeFactory.CreateScope())
+{
+    await ConfigureIdentity.CreateAdminUserAsync(scope.ServiceProvider);
+}
+
 app.UseSession();
 
 app.MapAreaControllerRoute(
@@ -62,8 +73,5 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "UserList",
     pattern: "{controller=PublicUsers}/{action=Index}/{id?}");
-
-
-// await RealtorContext.CreateAdminUser(app.Services);
 
 app.Run();
