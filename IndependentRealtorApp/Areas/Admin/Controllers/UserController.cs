@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IndependentRealtorApp.Areas.Admin.Controllers
 {
-    // [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     //[Authorize]
     [Area("Admin")]
     public class UserController : Controller
