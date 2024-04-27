@@ -16,7 +16,7 @@
             <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light" style="background-color: #f2f2f2; border-bottom: 1px solid #ddd; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); margin-bottom: 1rem;">
 
                 <div class="container-fluid">
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Independent Realtor App</a>
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Independent Realtor</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -38,7 +38,7 @@
                                 @if (signInManager.IsSignedIn(User))
                                 {
                                 // user is signed-in - Log Out button and username
-                                <li class="nav-link text-dark ms-auto">Welcome back, @User.Identity?.Name!</li>
+                                <li class="nav-link text-dark ms-auto fs-6">Welcome back, @User.Identity?.Name!</li>
                                 <li class="nav-item">
                                     <form method="post" asp-controller="Account" asp-action="LogOut" asp-area="">
                                         <input class="btn btn-outline-primary btn-sm" type="submit" value="Log Out" />
