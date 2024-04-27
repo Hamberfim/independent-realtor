@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndependentRealtorApp", "IndependentRealtorApp.csproj", "{28FAD1FF-14DA-4727-8EF8-4A6E46F6F20A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndependentRealtorApp", "IndependentRealtorApp.csproj", "{28FAD1FF-14DA-4727-8EF8-4A6E46F6F20A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublicUserTest", "..\PublicUserTest\PublicUserTest.csproj", "{A71B188B-85FB-454C-8AD2-CB1AE8F511FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{28FAD1FF-14DA-4727-8EF8-4A6E46F6F20A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28FAD1FF-14DA-4727-8EF8-4A6E46F6F20A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28FAD1FF-14DA-4727-8EF8-4A6E46F6F20A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A71B188B-85FB-454C-8AD2-CB1AE8F511FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A71B188B-85FB-454C-8AD2-CB1AE8F511FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A71B188B-85FB-454C-8AD2-CB1AE8F511FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A71B188B-85FB-454C-8AD2-CB1AE8F511FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
