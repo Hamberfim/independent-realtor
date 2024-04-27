@@ -1,11 +1,14 @@
 ﻿using IndependentRealtorApp.Area.Admin.Models;
 using IndependentRealtorApp.Models.DataLayer;
 using IndependentRealtorApp.Models.DomainModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IndependentRealtorApp.Area.Admin.Controllers
 {
-    [Area("admin")]
+    // [Authorize(Roles = "Admin")]
+    // [Authorize]
+    [Area("Admin")]
     public class PropertyController : Controller
     {
         private readonly PropertyService _propertyService;

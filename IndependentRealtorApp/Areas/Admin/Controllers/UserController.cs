@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace IndependentRealtorApp.Areas.Admin.Controllers
 {
     // [Authorize(Roles = "Admin")]
+    //[Authorize]
     [Area("Admin")]
     public class UserController : Controller
     {
@@ -38,6 +39,96 @@ namespace IndependentRealtorApp.Areas.Admin.Controllers
             return View(model);
         }
 
-        
+        //[HttpPost]
+        //public async Task<IActionResult> Delete(string id)
+        //{
+        //    PublicUser? user = await userManager.FindByIdAsync(id);
+        //    if (user != null)
+        //    {
+        //        IdentityResult result = await userManager.DeleteAsync(user);
+        //        if (!result.Succeeded) // if failed
+        //        {
+        //            string errorMessage = "";
+        //            foreach (IdentityError error in result.Errors)
+        //            {
+        //                errorMessage += error.Description + " | ";
+        //            }
+        //            TempData["message"] = errorMessage;
+        //        }
+        //    }
+        //    return RedirectToAction("Index");
+        //}
+
+        //[HttpGet]
+        //public IActionResult Add()
+        //{
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //public async Task<IActionResult> Add(RegisterViewModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var user = new PublicUser { UserName = model.UserName };
+        //        var result = await userManager.CreateAsync(user, model.Password);
+
+        //        if (result.Succeeded)
+        //        {
+        //            return RedirectToAction("Index");
+        //        }
+        //        else
+        //        {
+        //            foreach (var error in result.Errors)
+        //            {
+        //                ModelState.AddModelError("", error.Description);
+        //            }
+        //        }
+        //    }
+        //    return View(model);
+        //}
+
+        //[HttpPost]
+        //public async Task<IActionResult> AddToAdmin(string id)
+        //{
+        //    IdentityRole? adminRole = await roleManager.FindByNameAsync("Admin");
+        //    if (adminRole == null)
+        //    {
+        //        TempData["message"] = "Admin role does not exist. "
+        //            + "Click 'Create Admin Role' button to create it.";
+        //    }
+        //    else
+        //    {
+        //        PublicUser? user = await userManager.FindByIdAsync(id);
+        //        await userManager.AddToRoleAsync(user, adminRole.Name);
+        //    }
+        //    return RedirectToAction("Index");
+        //}
+
+        //[HttpPost]
+        //public async Task<IActionResult> RemoveFromAdmin(string id)
+        //{
+        //    PublicUser? user = await userManager.FindByIdAsync(id);
+        //    var result = await userManager.RemoveFromRoleAsync(user, "Admin");
+        //    if (result.Succeeded) { }
+        //    return RedirectToAction("Index");
+        //}
+
+        //[HttpPost]
+        //public async Task<IActionResult> DeleteRole(string id)
+        //{
+        //    IdentityRole? role = await roleManager.FindByIdAsync(id);
+        //    var result = await roleManager.DeleteAsync(role);
+        //    if (result.Succeeded) { }
+        //    return RedirectToAction("Index");
+        //}
+
+        //[HttpPost]
+        //public async Task<IActionResult> CreateAdminRole()
+        //{
+        //    var result = await roleManager.CreateAsync(new IdentityRole("Admin"));
+        //    if (result.Succeeded) { }
+        //    return RedirectToAction("Index");
+        //}
     }
 }
