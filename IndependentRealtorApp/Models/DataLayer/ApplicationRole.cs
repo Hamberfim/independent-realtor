@@ -4,6 +4,9 @@ namespace IndependentRealtorApp.Models.DataLayer
 {
     public class ApplicationRole : IdentityRole<int>
     {
-        // inherit all properties from IdentityRole
+        public ApplicationRole() : base() { }
+        public ApplicationRole(string roleName) : base(roleName) { }
+
+        // inherits all properties from IdentityRole
     }
 }

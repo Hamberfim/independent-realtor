@@ -39,6 +39,66 @@ namespace IndependentRealtorApp.Areas.Admin.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> CreateAdminRole()
+        {
+            var result = await roleManager.CreateAsync(new ApplicationRole("Admin"));
+            if (result.Succeeded) { }
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteRole(string id)
+        {
+            // look the role up
+            ApplicationRole? role = await roleManager.FindByIdAsync(id);
+            if (role != null)
+            {
+                var result = await roleManager.DeleteAsync(role);
+                if (result.Succeeded) { }
+            }
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddToAdmin(string id)
+        {
+            ApplicationRole? adminRole = await roleManager.FindByNameAsync("Admin");
+            if (adminRole == null || adminRole.Name == null)
+            {
+                TempData["message"] = "Admin role does not exist. Click 'Create Admin Role' button to create it.";
+            }
+            else
+            {
+                PublicUser? user = await userManager.FindByIdAsync(id);
+                if (user != null)
+                {
+                    await userManager.AddToRoleAsync(user, adminRole.Name);
+                }
+                else
+                {
+                    TempData["message"] = "User not found.";
+                }
+            }
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RemoveFromAdmin(string id)
+        {
+            PublicUser? user = await userManager.FindByIdAsync(id);
+            if (user != null)
+            {
+                var result = await userManager.RemoveFromRoleAsync(user, "Admin");
+                if (result.Succeeded) { }
+            }
+            else
+            {
+                TempData["message"] = "User not found.";
+            }
+            return RedirectToAction("Index");
+        }
+
         //[HttpPost]
         //public async Task<IActionResult> Delete(string id)
         //{
@@ -88,47 +148,5 @@ namespace IndependentRealtorApp.Areas.Admin.Controllers
         //    return View(model);
         //}
 
-        //[HttpPost]
-        //public async Task<IActionResult> AddToAdmin(string id)
-        //{
-        //    IdentityRole? adminRole = await roleManager.FindByNameAsync("Admin");
-        //    if (adminRole == null)
-        //    {
-        //        TempData["message"] = "Admin role does not exist. "
-        //            + "Click 'Create Admin Role' button to create it.";
-        //    }
-        //    else
-        //    {
-        //        PublicUser? user = await userManager.FindByIdAsync(id);
-        //        await userManager.AddToRoleAsync(user, adminRole.Name);
-        //    }
-        //    return RedirectToAction("Index");
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> RemoveFromAdmin(string id)
-        //{
-        //    PublicUser? user = await userManager.FindByIdAsync(id);
-        //    var result = await userManager.RemoveFromRoleAsync(user, "Admin");
-        //    if (result.Succeeded) { }
-        //    return RedirectToAction("Index");
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> DeleteRole(string id)
-        //{
-        //    IdentityRole? role = await roleManager.FindByIdAsync(id);
-        //    var result = await roleManager.DeleteAsync(role);
-        //    if (result.Succeeded) { }
-        //    return RedirectToAction("Index");
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> CreateAdminRole()
-        //{
-        //    var result = await roleManager.CreateAsync(new IdentityRole("Admin"));
-        //    if (result.Succeeded) { }
-        //    return RedirectToAction("Index");
-        //}
     }
 }

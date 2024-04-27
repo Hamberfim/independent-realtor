@@ -34,7 +34,9 @@ namespace IndependentRealtorApp.Controllers
                     UserName = model.UserName,
                     Email = model.Email,
                     FirstName = model.FirstName,
-                    LastName = model.LastName
+                    LastName = model.LastName,
+
+                    // SecurityStamp = Guid.NewGuid().ToString()
                 };
                 var result = await userManager.CreateAsync(user, model.Password);
 
@@ -53,6 +55,37 @@ namespace IndependentRealtorApp.Controllers
             }
             return View(model);
         }
+
+        // TODO: NOT totally Implemented yet, no menu to access this
+        // do we want a user to edit there own profile? Or only the Admin? Or not editability other than a password change?
+        //[HttpPost]
+        //public async Task<IActionResult> EditUser(EditUserViewModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var user = await userManager.FindByIdAsync(model.Id);
+        //        if (user != null)
+        //        {
+        //            // Update The User Properties 
+        //            user.SecurityStamp = Guid.NewGuid().ToString();
+        //            var result = await userManager.UpdateAsync(user);
+        //            if (result.Succeeded)
+        //            {
+        //                await signInManager.SignInAsync(user, isPersistent: false);
+        //                return RedirectToAction("Index", "Home");
+        //            }
+        //            else
+        //            {
+        //                foreach (var error in result.Errors)
+        //                {
+        //                    ModelState.AddModelError("", error.Description);
+        //                }
+        //            }
+        //        }
+        //    }
+        //    // Handle errors...
+        //    return View(model);
+        //}
 
         [HttpPost]
         public async Task<IActionResult> LogOut()
