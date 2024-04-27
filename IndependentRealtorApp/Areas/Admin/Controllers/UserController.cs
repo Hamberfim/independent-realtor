@@ -99,54 +99,53 @@ namespace IndependentRealtorApp.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> Delete(string id)
-        //{
-        //    PublicUser? user = await userManager.FindByIdAsync(id);
-        //    if (user != null)
-        //    {
-        //        IdentityResult result = await userManager.DeleteAsync(user);
-        //        if (!result.Succeeded) // if failed
-        //        {
-        //            string errorMessage = "";
-        //            foreach (IdentityError error in result.Errors)
-        //            {
-        //                errorMessage += error.Description + " | ";
-        //            }
-        //            TempData["message"] = errorMessage;
-        //        }
-        //    }
-        //    return RedirectToAction("Index");
-        //}
+        [HttpGet]
+        public IActionResult Add()
+        {
+            return View();
+        }
 
-        //[HttpGet]
-        //public IActionResult Add()
-        //{
-        //    return View();
-        //}
+        [HttpPost]
+        public async Task<IActionResult> Add(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new PublicUser { UserName = model.UserName };
+                var result = await userManager.CreateAsync(user, model.Password);
 
-        //[HttpPost]
-        //public async Task<IActionResult> Add(RegisterViewModel model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var user = new PublicUser { UserName = model.UserName };
-        //        var result = await userManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+                }
+            }
+            return View(model);
+        }
 
-        //        if (result.Succeeded)
-        //        {
-        //            return RedirectToAction("Index");
-        //        }
-        //        else
-        //        {
-        //            foreach (var error in result.Errors)
-        //            {
-        //                ModelState.AddModelError("", error.Description);
-        //            }
-        //        }
-        //    }
-        //    return View(model);
-        //}
-
+        [HttpPost]
+        public async Task<IActionResult> Delete(string id)
+        {
+            PublicUser? user = await userManager.FindByIdAsync(id);
+            if (user != null)
+            {
+                IdentityResult result = await userManager.DeleteAsync(user);
+                if (!result.Succeeded) // if failed
+                {
+                    string errorMessage = "";
+                    foreach (IdentityError error in result.Errors)
+                    {
+                        errorMessage += error.Description + " | ";
+                    }
+                    TempData["message"] = errorMessage;
+                }
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
