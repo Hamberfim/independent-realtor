@@ -1,6 +1,12 @@
 ﻿﻿@{
     Layout = "_Layout";
 }
+
+<ul class="nav nav-tabs mt-2 less-transparent-table">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="User" asp-action="Index">Manage Users</a>
+    </li>
+</ul>
 <main role="main" class="pb-3">
     @RenderBody()
 </main>

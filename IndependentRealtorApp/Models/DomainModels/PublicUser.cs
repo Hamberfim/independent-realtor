@@ -8,6 +8,10 @@ namespace IndependentRealtorApp.Models.DomainModels
     {
         //public int Id { get; set; }
 
+        // user role names Realtor Admin will need to be duplicated into Users
+        [NotMapped]
+        public IList<string> RoleNames { get; set; } = null!;
+
         [Display(Name = "First Name")]
         [Required(ErrorMessage = "Please enter your first name.")]
         [StringLength(50, ErrorMessage = "First name must be 50 characters or less.")]

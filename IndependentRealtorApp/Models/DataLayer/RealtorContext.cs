@@ -185,7 +185,7 @@ namespace IndependentRealtorApp.Models.DataLayer
             modelBuilder.Entity<Property>().HasMany(p => p.PropertyUsers).WithOne(pu => pu.Property).HasForeignKey(pu => pu.PropertyId).OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<PublicUser>().HasData(
-                new PublicUser { Id = 1, FirstName = "Sam", LastName = "Smith", Email = "ssmith@fakeworld.net", UserName = "Sam", UserPassword = "pass1" },
+                new PublicUser { Id = 1, FirstName = "Timothy", LastName = "Goodsale", Email = "tgoodsale@fakerealty.com", UserName = "Tim", UserPassword = "pass2" },
                 new PublicUser { Id = 2, FirstName = "Linda", LastName = "Beltcher", Email = "lbeltcher@fakeworld.net", UserName = "Linda", UserPassword = "pass1" },
                 new PublicUser { Id = 3, FirstName = "Bob", LastName = "Beltcher", Email = "bbeltcher@fakeworld.net", UserName = "Bob", UserPassword = "pass1" },
                 new PublicUser { Id = 4, FirstName = "Kathy", LastName = "Klien", Email = "kklien@fakeworld.net", UserName = "Kathy", UserPassword = "pass1" },
