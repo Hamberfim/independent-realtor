@@ -48,7 +48,7 @@ namespace IndependentRealtorApp.Models.DomainModels
 
         public string? ImageUrl { get; set; } = "..image to come.";
 
-        public int RealtorId { get; set; }
+        ///public int RealtorId { get; set; }
 
         [ValidateNever]
         public Realtor? Realtor { get; set; }  // navigation property
@@ -56,11 +56,11 @@ namespace IndependentRealtorApp.Models.DomainModels
         public List<PropertyUser>? PropertyUsers { get; set; }
 
         // read only slug property
-        public string Slug
+        public string? Slug
         {
             get
             {
-                return PropertyTitle.ToLower().Replace(" ", "-");
+                return PropertyTitle?.ToLower().Replace(" ", "-");
             }
         }
     }

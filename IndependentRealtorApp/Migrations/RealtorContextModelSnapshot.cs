@@ -100,7 +100,7 @@ namespace IndependentRealtorApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RealtorId")
+                    b.Property<int?>("RealtorId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -121,8 +121,7 @@ namespace IndependentRealtorApp.Migrations
                             PropertyState = "IA",
                             PropertyStatus = "for sale",
                             PropertyTitle = "Cottage Bungalow",
-                            PropertyZip = "50266",
-                            RealtorId = 1
+                            PropertyZip = "50266"
                         },
                         new
                         {
@@ -135,8 +134,7 @@ namespace IndependentRealtorApp.Migrations
                             PropertyState = "IA",
                             PropertyStatus = "for sale",
                             PropertyTitle = "Deco Two Story",
-                            PropertyZip = "50266",
-                            RealtorId = 1
+                            PropertyZip = "50266"
                         },
                         new
                         {
@@ -149,8 +147,7 @@ namespace IndependentRealtorApp.Migrations
                             PropertyState = "IA",
                             PropertyStatus = "pending",
                             PropertyTitle = "Ranch Acreage",
-                            PropertyZip = "50266",
-                            RealtorId = 1
+                            PropertyZip = "50266"
                         },
                         new
                         {
@@ -163,8 +160,7 @@ namespace IndependentRealtorApp.Migrations
                             PropertyState = "NY",
                             PropertyStatus = "for sale",
                             PropertyTitle = "Two bedroom Bungalow",
-                            PropertyZip = "12345",
-                            RealtorId = 1
+                            PropertyZip = "12345"
                         },
                         new
                         {
@@ -177,8 +173,7 @@ namespace IndependentRealtorApp.Migrations
                             PropertyState = "IA",
                             PropertyStatus = "for sale",
                             PropertyTitle = "Stylish Townhome",
-                            PropertyZip = "55555",
-                            RealtorId = 1
+                            PropertyZip = "55555"
                         },
                         new
                         {
@@ -191,8 +186,7 @@ namespace IndependentRealtorApp.Migrations
                             PropertyState = "IA",
                             PropertyStatus = "for sale",
                             PropertyTitle = "17 acres for development",
-                            PropertyZip = "55555",
-                            RealtorId = 1
+                            PropertyZip = "55555"
                         },
                         new
                         {
@@ -205,8 +199,7 @@ namespace IndependentRealtorApp.Migrations
                             PropertyState = "IA",
                             PropertyStatus = "for sale",
                             PropertyTitle = "Charming home close to downtown",
-                            PropertyZip = "55555",
-                            RealtorId = 1
+                            PropertyZip = "55555"
                         });
                 });
 
@@ -456,7 +449,7 @@ namespace IndependentRealtorApp.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4dedda3a-001b-4aeb-a0b7-ceae54c97ee0",
+                            ConcurrencyStamp = "b7b32c1a-5eeb-4b0b-90c8-0c81dcdc2a68",
                             EmailConfirmed = false,
                             FirstName = "Timothy",
                             LastName = "Goodsale",
@@ -576,9 +569,7 @@ namespace IndependentRealtorApp.Migrations
                 {
                     b.HasOne("IndependentRealtorApp.Models.DomainModels.Realtor", "Realtor")
                         .WithMany("Properties")
-                        .HasForeignKey("RealtorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RealtorId");
 
                     b.Navigation("Realtor");
                 });

@@ -1,5 +1,7 @@
 ﻿using IndependentRealtorApp.Models.DataLayer;
 using IndependentRealtorApp.Models.DomainModels;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 
 namespace IndependentRealtorApp.Area.Admin.Models
 {
@@ -36,8 +38,23 @@ namespace IndependentRealtorApp.Area.Admin.Models
 
         public void UpdateProperty(Property property)
         {
-            _context.Update(property);
-            _context.SaveChanges();
+            try
+            {
+                _context.Update(property);
+                _context.SaveChanges();
+            }
+            catch (DbUpdateException ex)
+            {
+                if (ex.InnerException is SqlException sqlEx && sqlEx.Number == 547)
+                {
+                    // Handle foreign key violation exception here
+                    Console.WriteLine("Cannot update property. The RealtorId does not exist.");
+                }
+                else
+                {
+                    throw;
+                }
+            }
         }
 
         public void Delete(Property property)
