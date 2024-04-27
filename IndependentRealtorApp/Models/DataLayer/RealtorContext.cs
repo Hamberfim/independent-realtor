@@ -34,7 +34,8 @@ namespace IndependentRealtorApp.Models.DataLayer
 
             // order may be important - might have to switch these around
             /* PROPERTY CONFIG & SEED DATA */
-            modelBuilder.Entity<Property>().HasOne(p => p.Realtor).WithMany(r => r.Properties).HasForeignKey(p => p.RealtorId);
+            //modelBuilder.Entity<Property>().HasOne(p => p.Realtor).WithMany(r => r.Properties).HasForeignKey(p => p.RealtorId);
+            modelBuilder.Entity<Property>().HasOne(p => p.Realtor).WithMany(r => r.Properties);
             modelBuilder.Entity<Property>().HasMany(p => p.PropertyUsers).WithOne(pu => pu.Property).HasForeignKey(pu => pu.PropertyId).OnDelete(DeleteBehavior.Cascade);
             modelBuilder.Entity<Property>().HasData(
                     new Property
@@ -49,7 +50,7 @@ namespace IndependentRealtorApp.Models.DataLayer
                         PropertyStatus = "for sale",
                         ImageUrl = "images/1234olive.jpg",
                         PropertyPrice = 215000.00,
-                        RealtorId = 1,
+                        //RealtorId = 1,
 
 
                     },
@@ -65,7 +66,7 @@ namespace IndependentRealtorApp.Models.DataLayer
                         PropertyStatus = "for sale",
                         ImageUrl = "images/5561artnuevo.jpg",
                         PropertyPrice = 450000.00,
-                        RealtorId = 1,
+                        //RealtorId = 1,
 
                     },
                     new Property
@@ -80,7 +81,7 @@ namespace IndependentRealtorApp.Models.DataLayer
                         PropertyStatus = "pending",
                         ImageUrl = "images/12gravel.jpg",
                         PropertyPrice = 385000.00,
-                        RealtorId = 1,
+                       // RealtorId = 1,
 
                     },
                     new Property
@@ -95,7 +96,7 @@ namespace IndependentRealtorApp.Models.DataLayer
                         PropertyStatus = "for sale",
                         ImageUrl = "images/321corinda.jpg",
                         PropertyPrice = 205000.00,
-                        RealtorId = 1,
+                        //RealtorId = 1,
 
                     },
                     new Property
@@ -110,7 +111,7 @@ namespace IndependentRealtorApp.Models.DataLayer
                         PropertyStatus = "for sale",
                         ImageUrl = "images/756lincoln.jpg",
                         PropertyPrice = 279900.00,
-                        RealtorId = 1,
+                        //RealtorId = 1,
 
                     },
                     new Property
@@ -125,7 +126,7 @@ namespace IndependentRealtorApp.Models.DataLayer
                         PropertyStatus = "for sale",
                         ImageUrl = "images/5westwoods.jpg",
                         PropertyPrice = 86700.00,
-                        RealtorId = 1,
+                        //RealtorId = 1,
 
                     },
                     new Property
@@ -140,7 +141,7 @@ namespace IndependentRealtorApp.Models.DataLayer
                         PropertyStatus = "for sale",
                         ImageUrl = "images/16east.jpg",
                         PropertyPrice = 199900.00,
-                        RealtorId = 1,
+                        //RealtorId = 1,
 
                     }
                );
@@ -184,15 +185,15 @@ namespace IndependentRealtorApp.Models.DataLayer
 
             modelBuilder.Entity<Property>().HasMany(p => p.PropertyUsers).WithOne(pu => pu.Property).HasForeignKey(pu => pu.PropertyId).OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<PublicUser>().HasData(
-                new PublicUser { Id = 1, FirstName = "Sam", LastName = "Smith", Email = "ssmith@fakeworld.net", UserName = "Sam", UserPassword = "pass1" },
-                new PublicUser { Id = 2, FirstName = "Linda", LastName = "Beltcher", Email = "lbeltcher@fakeworld.net", UserName = "Linda", UserPassword = "pass1" },
-                new PublicUser { Id = 3, FirstName = "Bob", LastName = "Beltcher", Email = "bbeltcher@fakeworld.net", UserName = "Bob", UserPassword = "pass1" },
-                new PublicUser { Id = 4, FirstName = "Kathy", LastName = "Klien", Email = "kklien@fakeworld.net", UserName = "Kathy", UserPassword = "pass1" },
-                new PublicUser { Id = 5, FirstName = "Billy", LastName = "Williams", Email = "bwilliams@fakeworld.net", UserName = "Billy", UserPassword = "pass1" },
-                new PublicUser { Id = 6, FirstName = "Sarah", LastName = "Seashell", Email = "sseashell@fakeworld.net", UserName = "Sarah", UserPassword = "pass1" },
-                new PublicUser { Id = 7, FirstName = "Steven", LastName = "Klien", Email = "sklien@fakeworld.net", UserName = "Steven", UserPassword = "pass1" }
-                );
+            //modelBuilder.Entity<PublicUser>().HasData(
+            //    new PublicUser { Id = 1, FirstName = "Timothy", LastName = "Goodsale", Email = "tgoodsale@fakerealty.com", UserName = "Tim", UserPassword = "pass2" },
+            //    new PublicUser { Id = 2, FirstName = "Linda", LastName = "Beltcher", Email = "lbeltcher@fakeworld.net", UserName = "Linda", UserPassword = "pass1" },
+            //    new PublicUser { Id = 3, FirstName = "Bob", LastName = "Beltcher", Email = "bbeltcher@fakeworld.net", UserName = "Bob", UserPassword = "pass1" },
+            //    new PublicUser { Id = 4, FirstName = "Kathy", LastName = "Klien", Email = "kklien@fakeworld.net", UserName = "Kathy", UserPassword = "pass1" },
+            //    new PublicUser { Id = 5, FirstName = "Billy", LastName = "Williams", Email = "bwilliams@fakeworld.net", UserName = "Billy", UserPassword = "pass1" },
+            //    new PublicUser { Id = 6, FirstName = "Sarah", LastName = "Seashell", Email = "sseashell@fakeworld.net", UserName = "Sarah", UserPassword = "pass1" },
+            //    new PublicUser { Id = 7, FirstName = "Steven", LastName = "Klien", Email = "sklien@fakeworld.net", UserName = "Steven", UserPassword = "pass1" }
+            //    );
 
         }
     }
