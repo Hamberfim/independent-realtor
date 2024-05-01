@@ -26,15 +26,10 @@ namespace IndependentRealtorApp.Area.Admin.Models
 
         public void AddProperty(Property property)
         {
-            if (property.Id == 0)
-            {
-                _context.Add(property);
-            }
-            else
-            {
-                _context.Update(property);
-            }
+            _context.Add(property);
+            _context.SaveChanges();
         }
+
 
         public void UpdateProperty(Property property)
         {
