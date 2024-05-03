@@ -1,29 +1,21 @@
-### Here is the 12 grading criteria with the max pts for each that Prof Hennis is going to use.
-They will be rated as:
-- Exceptional (Full Points)
-- Proficient (?? Points)
-- Competent (?? Points)
-- Novice (No Points)
-
-1.) Routing (10 points)<br /> 
-2.) 3.5 Validation (20 points)<br /> 
-3.) Tag helpers (10 points)<br /> 
-4.) 3.2 Database initialization (20 points)<br /> 
-5.) MVC Services (10 points)<br /> 
-6.) Identity Core (10 points)<br /> 
-7.) 7. Authorization (10 points)<br /> 
-8.) 7. Session State (10 points)<br /> 
-9.) 9. Unit Testing (20 points)<br /> 
-10.) Presentation & Peer Review (100 points)<br /> 
-11.) Azure Deployment (20 points)<br /> 
-12.) Custom Error Handling (10 points)<br /> 
-
-Max of 250 points
-
-## Independent Realtor Web Application
+## Independent Realtor Web Application - Final Grade A, 250 points
 ### CIS174 Final Project for Brody Boell, Cole Cooley, Anthony Hamlin
 
-Project Description: <br />The is an independent realtor web application utilizing C# ASP.NET MVC Core, and provides a way to share to the public information about the realtor and their property listings.  A realtor can have many properties listed and a realtor can have many public users interested in the realtor's property listings. The independent realtors is the admin and the admin can authorize and set access level roles for other agents/employees to use portions of the app. The primary functionality available through the site, but not limited to, will be login authentication, authorization-access restrictions, Session/cookie handing, Admin area and CRUD actions to manage the content and will be deployed to azure.
+Project Description: <br />The is an independent realtor web application utilizing C# ASP.NET MVC Core, and provides a way to share to the public information about a realtor's property listings.  A realtor can have many properties listed and a realtor can have many public users interested in the realtor's property listings. The independent realtors is the admin and the admin can authorize and set access level roles for other users to use the admin portions of the app. The primary functionality available through the site, but not limited to, will be login authentication, authorization-access restrictions, Session/cookie handing, Admin area and CRUD actions to manage the content and will be deployed to azure.
+
+### Final scoring on Features, functionality, user experience, code style, and coding syntax.
+Prof. Evan Hennis' Project Grading for Anthony Hamlin, Brody Boell, Cole Cooley.<br />
+**Each criteria rated as either:** 
+* Exceptional (Full Points),
+* Proficient (Partial Points),
+* Competent (Partial Points),
+* Novice (No Points) <br />
+
+![alt text](https://github.com/Hamberfim/independent-realtor/blob/main/01_LandingPage.png)
+![alt text](https://github.com/Hamberfim/independent-realtor/blob/main/02_Registration.png)
+![alt text](https://github.com/Hamberfim/independent-realtor/blob/main/03_Login.png)
+![alt text](https://github.com/Hamberfim/independent-realtor/blob/main/04_AdminLanding.png)
+![alt text](https://github.com/Hamberfim/independent-realtor/blob/main/05_UserAdmin.png)
 
 ## Final Project Requirements as of April 5, 2024 Provided by Instructor
 ### Due May 1, 2024 11:59PM
